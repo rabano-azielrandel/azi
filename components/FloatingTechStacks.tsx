@@ -54,8 +54,8 @@ const FloatingTechStacks = () => {
           alt={tech.name}
           className="absolute w-20 h-20 lg:w-24 lg:h-24 transition-transform duration-150 ease-out drop-shadow-[0_0_10px_rgba(0,0,0,.3)] hover:scale-125"
           style={{
-            top: `${[10, 25, 35, 5, 55, 35, 70, 80][index]}%`,
-            left: `${[20, 40, 10, 60, 45, 70, 25, 60][index]}%`,
+            top: `${[10, 25, 35, 5, 50, 40, 75, 80,60][index]}%`,
+            left: `${[20, 40, 5, 60, 50, 70, 35, 60, 15][index]}%`,
           }}
         />
       ))}
@@ -93,6 +93,10 @@ const techStacks = [
   {
     name: "MongoDB",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+  },
+  {
+    name: "WordPress",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
   },
   {
     name: "WordPress",
