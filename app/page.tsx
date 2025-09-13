@@ -8,20 +8,28 @@ export default function Home() {
       {/* hero section */}
       <section
         id="me"
-        className="w-full h-screen overflow-hidden px-40 snap-start"
+        className="relative w-full h-screen overflow-hidden px-40 snap-start  shadow-[0_4px_44.7px_22px_rgba(0,0,0,.5)_inset]"
       >
+        <Image
+          src={"/images/dots1.png"}
+          alt={"asdf"}
+          width={500}
+          height={500}
+          className="object-contain w-[1100px] h-auto absolute -bottom-0 left-[0%] opacity-[3%] contrast-0"
+        />
+
         <div className="relative flex justify-start items-center w-full h-full">
           <div className="justify-center items-center w-[50%]">
             <FloatingTechStacks />
           </div>
 
-          <Image
-            src={"/images/cat2.png"}
+          {/* <Image
+            src={"/images/cat3.png"}
             alt={"asdf"}
             width={500}
             height={500}
-            className="object-contain w-[600px] h-auto absolute -bottom-34 left-[5%] brightness-60 sepia contrast-125"
-          />
+            className="object-contain w-[700px] h-auto absolute -bottom-0 left-[0%]"
+          /> */}
 
           <div className="ml-auto relative">
             <Image
@@ -29,13 +37,22 @@ export default function Home() {
               alt={"asdf"}
               width={500}
               height={500}
-              className="object-contain w-[500px] h-auto"
+              className="z-10 object-contain w-[500px] h-auto"
             />
 
             <div className="absolute -top-0 -left-50 flex flex-col">
               <span className="text-[100px] font-sans font-extrabold leading-[60%] tracking-[0px] text-[#3de9c4]">
                 Aziel <br /> Randel
               </span>
+
+              <Image
+                src={"/images/dots2.png"}
+                alt={"asdf"}
+                width={500}
+                height={500}
+                className="object-contain w-[500px] h-auto absolute  top-[70%] -left-[20%] opacity-20 contrast-0"
+              />
+
               <span className="text-[16px] font-thin mt-10 tracking-[8px] pr-100 max-w-fit">
                 an aspiring web developer based in the philippines
               </span>

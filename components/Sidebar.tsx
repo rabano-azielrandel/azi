@@ -52,7 +52,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="fixed left-0 top-0 w-[125px] h-full flex flex-col justify-center items-center">
+    <div className="z-50 fixed left-0 top-0 w-[125px] h-full flex flex-col justify-center items-center">
       <nav className="w-fit h-fit p-2 rounded-full bg-[#201f22] flex flex-col justify-between gap-0 border border-[#cbd5e1]/10">
         {navLinks.map((item) => {
           const isActive = activeHash === item.href;
