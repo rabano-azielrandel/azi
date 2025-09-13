@@ -15,7 +15,7 @@ export default function Home() {
           alt={"asdf"}
           width={500}
           height={500}
-          className="object-contain w-[1100px] h-auto absolute -bottom-0 left-[0%] opacity-[3%] contrast-0"
+          className="object-contain w-[1100px] h-auto absolute -bottom-0 left-[0%] opacity-[20%] contrast-0"
         />
 
         <div className="relative flex justify-start items-center w-full h-full">
