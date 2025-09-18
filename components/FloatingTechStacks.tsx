@@ -42,20 +42,20 @@ const FloatingTechStacks = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[600px] rounded-2xl overflow-hidden flex items-center justify-center"
+      className="relative w-full h-full rounded-2xl overflow-hidden flex items-center justify-center"
     >
       {techStacks.map((tech, index) => (
         <img
           key={tech.name}
           ref={(el) => {
-            itemsRef.current[index] = el; // ✅ Corrected ref callback
+            itemsRef.current[index] = el;
           }}
           src={tech.src}
           alt={tech.name}
-          className="absolute w-20 h-20 lg:w-24 lg:h-24 transition-transform duration-150 ease-out drop-shadow-[0_0_10px_rgba(0,0,0,.3)] hover:scale-125"
+          className="absolute bg-white/10 rounded-xl p-4 w-20 h-20 lg:w-18 lg:h-18 transition-transform duration-150 ease-out drop-shadow-[0_0_10px_rgba(0,0,0,1)] hover:scale-125"
           style={{
-            top: `${[10, 30, 35, 5, 50, 40, 75, 80,60][index]}%`,
-            left: `${[20, 35, 5, 60, 50, 70, 35, 60, 15][index]}%`,
+            top: `${[15, 40, 65, 35, 15, 40, 65, 35, 30][index]}%`,
+            left: `${[18, 28, 13, 5, 77, 67, 82, 90, 95][index]}%`,
           }}
         />
       ))}
@@ -98,8 +98,8 @@ const techStacks = [
     name: "WordPress",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
   },
-  {
-    name: "WordPress",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
-  },
+  // {
+  //   name: "WordPress",
+  //   src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+  // },
 ];
