@@ -1,64 +1,64 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-const FloatingTechStacks = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const itemsRef = useRef<(HTMLImageElement | null)[]>([]);
+type FloatingTechStacksProps = {
+  position: "left" | "right";
+};
+
+const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
+  position,
+}) => {
+  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
+    const interval = setInterval(() => {
+      setRotation((prev) => prev + 360 / techStacks.length);
+    }, 2000);
 
-      // Get container center
-      const { left, top, width, height } =
-        containerRef.current.getBoundingClientRect();
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
-
-      // Mouse position relative to center (-1 to 1)
-      const x = (e.clientX - centerX) / width;
-      const y = (e.clientY - centerY) / height;
-
-      // Move each icon based on its depth factor
-      itemsRef.current.forEach((el, index) => {
-        if (!el) return;
-
-        const depth = 15 + index * 5; // adjust movement intensity
-        const moveX = x * depth;
-        const moveY = y * depth;
-
-        el.style.transform = `translate(${moveX}px, ${moveY}px) scale(1)`;
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div
-      ref={containerRef}
-      className="relative w-full h-full rounded-2xl overflow-hidden flex items-center justify-center"
+      className={`${
+        position === "left" ? "-left-60" : "-right-60"
+      } absolute w-full max-w-[400px] h-[50%] my-a flex items-center justify-center`}
     >
-      {techStacks.map((tech, index) => (
-        <img
-          key={tech.name}
-          ref={(el) => {
-            itemsRef.current[index] = el;
-          }}
-          src={tech.src}
-          alt={tech.name}
-          className="absolute bg-white/10 rounded-xl p-4 w-20 h-20 lg:w-18 lg:h-18 transition-transform duration-150 ease-out drop-shadow-[0_0_10px_rgba(0,0,0,1)] hover:scale-125"
-          style={{
-            top: `${[15, 40, 65, 35, 15, 40, 65, 35, 30][index]}%`,
-            left: `${[18, 28, 13, 5, 77, 67, 82, 90, 95][index]}%`,
-          }}
-        />
-      ))}
+           {" "}
+      <div
+        className="absolute w-full h-full transition-transform duration-700 ease-in-out"
+        style={{ transform: `rotate(${rotation}deg)` }}
+      >
+               {" "}
+        {techStacks.map((tech, index) => (
+          <div
+            key={tech.name + index}
+            className="absolute inset-0 flex justify-center"
+            style={{
+              transform: `rotate(${
+                (360 / techStacks.length) * index
+              }deg) translateY(-120px)`, // change the traslate Y to compress items
+            }}
+          >
+                       {" "}
+            <img
+              src={tech.src}
+              alt={tech.name}
+              className="w-22 h-22 rounded-xl p-4 bg-[#352222] drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
+               hover:scale-125 transition-transform duration-200 border border-white/20"
+              style={{
+                transform: `rotate(-${
+                  (360 / techStacks.length) * index + rotation
+                }deg)`,
+              }}
+            />
+                     {" "}
+          </div>
+        ))}
+             {" "}
+      </div>
+         {" "}
     </div>
   );
 };
@@ -92,14 +92,22 @@ const techStacks = [
   },
   {
     name: "MongoDB",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   },
   {
-    name: "WordPress",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+    name: "MongoDB",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   },
-  // {
-  //   name: "WordPress",
-  //   src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
-  // },
+  {
+    name: "MongoDB",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "MongoDB",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "MongoDB",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
 ];

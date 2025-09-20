@@ -43,7 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${oswald.variable} ${caveat.variable} ${condiment.variable}`}
     >
-      <body className="antialiased font-[var(--font-inter)]">
+      <body className="antialiased font-[var(--font-inter)] overflow-x-hidden">
         <Header />
         {children}
       </body>
