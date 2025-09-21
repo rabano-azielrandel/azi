@@ -22,7 +22,7 @@ export default function Hero() {
               duration-500 [transform-style:preserve-3d] [transform:perspective(1000px)] [transition-timing-function:cubic-bezier(.03,.98,.52,.99)]"
                 data-tilt
                 data-tilt-glare
-                data-tilt-max-glare="0"
+                data-tilt-max-glare="0.1"
                 data-tilt-reverse="true"
                 data-tilt-transition="true"
                 data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
