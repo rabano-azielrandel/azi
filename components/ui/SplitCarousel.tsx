@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const colors = ["bg-red-400", "bg-blue-400", "bg-yellow-400"];
+const colors = ["bg-red-400/10", "bg-blue-400/10", "bg-yellow-400/10"];
 
 export default function SplitCarousel() {
   const [index, setIndex] = useState(0);

@@ -46,7 +46,7 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
               src={tech.src}
               alt={tech.name}
               className="w-22 h-22 rounded-xl p-4 bg-[#352222] drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
-               hover:scale-125 transition-transform duration-200 border border-white/20"
+               hover:scale-125 transition-transform duration-200 border border-white/20 grayscale-[50%]"
               style={{
                 transform: `rotate(-${
                   (360 / techStacks.length) * index + rotation
