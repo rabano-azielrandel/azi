@@ -11,7 +11,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-theme1-base: #1a1a1a;
+  --color-theme1-base: #131212;
   --color-theme1-secondary: #e8d8c9;
   --color-theme1-accent: #c94f4f;
 
@@ -33,7 +33,7 @@
 
 /* Global body styles */
 body {
-  background: #121212;
+  background: var(--color-theme1-base);
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif; /* Use Inter globally */
   scroll-behavior: smooth;
@@ -49,6 +49,20 @@ html {
     writing-mode: vertical-rl; /* Vertical text */
     transform: rotate(180deg); /* Reverse top-to-bottom to bottom-to-top */
     white-space: nowrap; /* Prevent line breaks */
+  }
+
+  @keyframes fadePulse {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-pulse {
+    animation: fadePulse 1.2s ease-in-out infinite;
   }
 }
 
@@ -338,12 +352,21 @@ html {
 }
 
 @keyframes slide {
-  0%   { transform: translateX(0%); }
-  33%  { transform: translateX(-33.333%); }
-  66%  { transform: translateX(-66.666%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(0%);
+  }
+  33% {
+    transform: translateX(-33.333%);
+  }
+  66% {
+    transform: translateX(-66.666%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .animate-slide {
   animation: slide 6s infinite;
 }
+

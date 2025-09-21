@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,6 +47,14 @@ export default function RootLayout({
       <body className="antialiased font-[var(--font-inter)] overflow-x-hidden">
         <Header />
         {children}
+
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+          strategy="afterInteractive"
+          integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </body>
     </html>
   );

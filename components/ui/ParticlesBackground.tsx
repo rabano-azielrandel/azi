@@ -19,6 +19,7 @@ const ParticlesBackground: React.FC = () => {
       setInit(true);
     });
   }, []);
+  
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -40,7 +41,7 @@ const ParticlesBackground: React.FC = () => {
           },
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: "attract",
           },
         },
         modes: {
@@ -48,6 +49,10 @@ const ParticlesBackground: React.FC = () => {
             quantity: 4,
           },
           repulse: {
+            distance: 200,
+            duration: 0.4,
+          },
+          attract: {
             distance: 200,
             duration: 0.4,
           },
@@ -61,39 +66,39 @@ const ParticlesBackground: React.FC = () => {
           color: "#decece",
           distance: 150,
           enable: true,
-          opacity: .3,
+          opacity: 0.08,
           width: 1,
         },
         move: {
-          direction: MoveDirection.none,
+          direction: MoveDirection.inside,
           enable: true,
           outModes: {
             default: OutMode.out,
           },
           random: false,
           speed: 2,
-          straight: false,
+          straight: true,
         },
         number: {
           density: {
-            enable: true,
+            enable: false,
             area: 800,
           },
-          value: 80,
+          value: 110,
         },
         opacity: {
           value: 0.5,
         },
         shape: {
-          type: "circle",
+          type: ["square", "circle"],
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 2, max: 5 },
         },
       },
       detectRetina: true,
     }),
-    [],
+    []
   );
 
   if (init) {
