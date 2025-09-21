@@ -336,3 +336,14 @@ html {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+@keyframes slide {
+  0%   { transform: translateX(0%); }
+  33%  { transform: translateX(-33.333%); }
+  66%  { transform: translateX(-66.666%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-slide {
+  animation: slide 6s infinite;
+}
