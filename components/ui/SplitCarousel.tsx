@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const colors = ["bg-red-400/10", "bg-blue-400/10", "bg-yellow-400/10"];
@@ -21,22 +22,33 @@ export default function SplitCarousel() {
       <div className="w-full h-4/5 flex items-center justify-center relative overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
+          style={{ transform: `translateX(calc(-${index * 80}% + 4%))` }}
         >
           {colors.map((c, i) => (
             <div
               key={i}
-              className={`w-full flex-shrink-0 h-56 flex items-center justify-center ${c} rounded-lg mx-2`}
+              className={`w-[80%] h-56 flex-shrink-0 flex items-center justify-center ${c} rounded-lg mx-2`}
             >
-              <p className="text-white text-xl font-bold">Box {i + 1}</p>
+              <Image
+                src={`/images/project-thesis-${i + 1}.png`}
+                alt={`Image ${i + 1}`}
+                width={200}
+                height={200}
+                className="object-contain rounded-lg"
+              />
             </div>
           ))}
         </div>
       </div>
 
       {/* Text description (20%) */}
-      <div className="w-full h-1/5 flex items-center justify-center p-4">
-        <p className="text-center font-semibold">Showing box {index + 1}</p>
+      <div className="w-full h-1/5 flex flex-col items-start justify-center py-4 ">
+        <h1 className="text-lg font-bold text-white leading-tight">
+          Filenggwahe
+        </h1>
+        <p className="text-sm text-gray-200 leading-snug">
+          A cursive writing assistant using ANN & NLP.
+        </p>
       </div>
     </div>
   );
