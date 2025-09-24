@@ -1,5 +1,6 @@
 import React from "react";
 import SplitCarousel from "./ui/SplitCarousel";
+import Bot from "./ui/Bot";
 
 const Projects = () => {
   return (
@@ -36,8 +37,20 @@ const Projects = () => {
           </div>
         </div>
         <div className="w-full h-full flex gap-4">
-          <div className="w-[67%] rounded-xl p-4 bg-white/3">bot left</div>
-          <div className="w-[33%] rounded-xl p-4 bg-white/3">bot right</div>
+          <div className="w-[67%] rounded-xl p-4 bg-white/3">
+            <Bot />
+          </div>
+          <div className="w-[33%] rounded-xl p-4 bg-white/3">
+            <div className="w-full h-4/5"> a </div>
+            <div className="w-full h-1/5">
+              <h1 className="text-lg font-bold text-white leading-tight">
+                Digital Payslip
+              </h1>
+              <p className="text-sm text-gray-200 leading-snug">
+                Digitalization of payslip.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
