@@ -8,8 +8,8 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 export default function Bot() {
   return (
-    <main className="w-full h-[500px]">
-      <Spline scene="/splines/project-bot.spline" className="w-full h-auto" />
+    <main className="w-full h-[380px]">
+      <Spline scene="/splines/light-bot.spline" className="w-full h-auto" />
     </main>
   );
 }
