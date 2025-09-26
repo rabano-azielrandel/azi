@@ -17,6 +17,7 @@ const Projects = () => {
               image="project-resort-management.jpg"
               title="Resort Management"
               desc="Streamline reservations, billing, and staff managemnt."
+              effect="ripple"
             />
           </div>
 
@@ -24,7 +25,8 @@ const Projects = () => {
             <RegCard
               image="project-truck-scale.jpg"
               title="Truck Scale"
-              desc="Truck scale operations, data logging, and receipt management."
+              desc="Data logging and receipt management."
+              effect="blur"
             />
           </div>
         </div>
