@@ -1,5 +1,8 @@
 import React from "react";
 import SplitCarousel from "./ui/SplitCarousel";
+import RippleCard from "./ui/RippleCard";
+import FanCard from "./ui/FanCard";
+import DiceCard from "./DiceCard";
 import RegCard from "./ui/RegCard";
 import Bot from "./ui/Bot";
 
@@ -13,20 +16,17 @@ const Projects = () => {
           </div>
 
           <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-theme1-secondary">
-            <RegCard
+            <RippleCard
               image="project-resort-management.jpg"
               title="Resort Management"
               desc="Streamline reservations, billing, and staff managemnt."
-              effect="ripple"
             />
           </div>
 
           <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-theme1-secondary">
-            <RegCard
-              image="project-truck-scale.jpg"
+            <FanCard
               title="Truck Scale"
               desc="Data logging and receipt management."
-              effect="blur"
             />
           </div>
         </div>
@@ -37,8 +37,12 @@ const Projects = () => {
           </div>
 
           <div className="w-[33%] h-auto  rounded-xl p-4 bg-white/3 border-1 border-theme1-secondary">
-            <RegCard
-              image="project-digital-payslip.jpg"
+            {/* <RegCard
+              image="project-digital-payslip.png"
+              title="Digital Payslip" 
+              desc="Digitalize traditional payslip."
+            /> */}
+            <DiceCard
               title="Digital Payslip"
               desc="Digitalize traditional payslip."
             />
