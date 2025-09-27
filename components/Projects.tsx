@@ -1,5 +1,5 @@
 import React from "react";
-import SplitCarousel from "./ui/SplitCarousel";
+import SplitCard from "./ui/SplitCard";
 import RippleCard from "./ui/RippleCard";
 import FanCard from "./ui/FanCard";
 import DiceCard from "./DiceCard";
@@ -12,7 +12,7 @@ const Projects = () => {
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-2 flex flex-col justify-center items-center">
         <div className="w-full h-full flex gap-4">
           <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-theme1-secondary">
-            <SplitCarousel />
+            <SplitCard />
           </div>
 
           <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-theme1-secondary">

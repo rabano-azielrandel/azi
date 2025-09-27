@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const colors = ["bg-red-400/10", "bg-blue-400/10", "bg-yellow-400/10"];
 
-export default function SplitCarousel() {
+export default function SplitCard() {
   const [index, setIndex] = useState(0);
 
   // Auto-loop every 2s
