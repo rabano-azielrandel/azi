@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Ripple } from "./shadcn-io/ripple";
 
 type RegCardProps = {
   image: string;
@@ -18,7 +19,7 @@ export default function RegCard({
   const effectClasses = {
     expand: "transition-transform duration-300 hover:scale-105",
     blur: "transition duration-300 hover:blur-sm",
-    ripple: "ripple-effect", // handled via CSS
+    ripple: "", // handled via CSS
   };
 
   return (
@@ -26,7 +27,8 @@ export default function RegCard({
       {/* Image wrapper */}
       <div className="w-full h-4/5 flex justify-center items-center">
         <div
-          className={`w-[80%] h-56 flex-shrink-0 flex items-center justify-center rounded-lg overflow-hidden relative ${effectClasses[effect]}`}
+          className={`w-[80%] h-56 flex-shrink-0 flex items-center justify-center rounded-lg overflow-hidden relative 
+            ${effectClasses[effect]} ${effect === "ripple" && "bg-[#F6F6F6] "}`}
         >
           <Image
             src={`/images/${image}`}
@@ -35,6 +37,15 @@ export default function RegCard({
             height={200}
             className="object-contain rounded-lg"
           />
+
+          {/* Only render ripple when chosen */}
+          {effect === "ripple" && (
+            <Ripple
+              mainCircleSize={200}
+              mainCircleOpacity={0.2}
+              numCircles={6}
+            />
+          )}
         </div>
       </div>
 
