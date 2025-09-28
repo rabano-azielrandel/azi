@@ -10,6 +10,7 @@ const images = [
   "/images/test4.jpg",
   "/images/test5.jpg",
 ];
+
 export default function SlideTrackingCard() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -21,19 +22,22 @@ export default function SlideTrackingCard() {
   const prevPercentageRef = useRef<number>(0);
   const percentageRef = useRef<number>(0);
 
-  const handleOnDown = (e: MouseEvent) => {
-    mouseDownAtRef.current = e.clientX;
+  /** Handle drag start */
+  const handleOnDown = (clientX: number) => {
+    mouseDownAtRef.current = clientX;
   };
 
+  /** Handle drag end */
   const handleOnUp = () => {
     mouseDownAtRef.current = 0;
     prevPercentageRef.current = percentageRef.current;
   };
 
-  const handleOnMove = (e: MouseEvent) => {
+  /** Handle drag move */
+  const handleOnMove = (clientX: number) => {
     if (!trackRef.current || mouseDownAtRef.current === 0) return;
 
-    const mouseDelta = mouseDownAtRef.current - e.clientX;
+    const mouseDelta = mouseDownAtRef.current - clientX;
     const maxDelta = window.innerWidth / 2;
 
     const percentage = (mouseDelta / maxDelta) * -100;
@@ -44,47 +48,55 @@ export default function SlideTrackingCard() {
     );
     percentageRef.current = nextPercentage;
 
+    // smooth slide
+    trackRef.current.style.transition = "transform 0.3s ease-out";
     trackRef.current.style.transform = `translateX(${nextPercentage}%)`;
 
-    // Instead of mutating <img>, update state → passed to Image as style
     setObjectPosition(`${100 + nextPercentage}% center`);
   };
 
   useEffect(() => {
-    window.addEventListener("mousedown", handleOnDown);
-    window.addEventListener("mousemove", handleOnMove);
-    window.addEventListener("mouseup", handleOnUp);
+    // Mouse
+    const mouseDown = (e: MouseEvent) => handleOnDown(e.clientX);
+    const mouseMove = (e: MouseEvent) => handleOnMove(e.clientX);
+    const mouseUp = () => handleOnUp();
 
-    const handleTouchStart = (e: TouchEvent) =>
-      handleOnDown(e.touches[0] as unknown as MouseEvent);
-    const handleTouchMove = (e: TouchEvent) =>
-      handleOnMove(e.touches[0] as unknown as MouseEvent);
+    // Touch
+    const touchStart = (e: TouchEvent) => handleOnDown(e.touches[0].clientX);
+    const touchMove = (e: TouchEvent) => handleOnMove(e.touches[0].clientX);
+    const touchEnd = () => handleOnUp();
 
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove);
-    window.addEventListener("touchend", handleOnUp);
+    window.addEventListener("mousedown", mouseDown);
+    window.addEventListener("mousemove", mouseMove);
+    window.addEventListener("mouseup", mouseUp);
+
+    window.addEventListener("touchstart", touchStart);
+    window.addEventListener("touchmove", touchMove);
+    window.addEventListener("touchend", touchEnd);
 
     return () => {
-      window.removeEventListener("mousedown", handleOnDown);
-      window.removeEventListener("mousemove", handleOnMove);
-      window.removeEventListener("mouseup", handleOnUp);
+      window.removeEventListener("mousedown", mouseDown);
+      window.removeEventListener("mousemove", mouseMove);
+      window.removeEventListener("mouseup", mouseUp);
 
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleOnUp);
+      window.removeEventListener("touchstart", touchStart);
+      window.removeEventListener("touchmove", touchMove);
+      window.removeEventListener("touchend", touchEnd);
     };
   }, []);
 
+  /** Image click = set active */
   const handleImageClick = (
     e: React.MouseEvent<HTMLDivElement>,
     src: string
   ) => {
     e.stopPropagation();
-    setActiveImage(src === activeImage ? null : src); // toggle
+    setActiveImage(src === activeImage ? null : src);
   };
 
+  /** Background click = reset */
   const handleBackgroundClick = () => {
-    setActiveImage(null); // reset all
+    setActiveImage(null);
   };
 
   return (
@@ -100,16 +112,11 @@ export default function SlideTrackingCard() {
       {/* Image Track */}
       <div
         ref={trackRef}
-        className={`absolute flex gap-[2vmin] w-max select-none 
-            ${
-              activeImage
-                ? "bottom-4 left-1/2 -translate-x-1/2 -translate-y-0 transition-all duration-500"
-                : "top-1/2 left-1/2 -translate-y-1/2 transition-all duration-500"
-            }`}
-        style={{
-          transform: `translateX(${percentageRef.current}%)`, // drag transform applied instantly
-          transition: mouseDownAtRef.current !== 0 ? "none" : undefined, // disable smoothness while dragging
-        }}
+        className={`absolute flex gap-[2vmin] w-max select-none transition-all duration-500 ${
+          activeImage
+            ? "bottom-4 left-1/2 -translate-x-1/2 -translate-y-0"
+            : "top-1/2 left-1/2 -translate-y-1/2"
+        }`}
       >
         {images.map((src, index) => (
           <div
@@ -119,9 +126,7 @@ export default function SlideTrackingCard() {
             }}
             onClick={(e) => handleImageClick(e, src)}
             className={`relative cursor-pointer transition-all duration-500 overflow-hidden ${
-              activeImage
-                ? "w-[10vmin] h-[14vmin]" // shrink cards
-                : "w-[40vmin] h-[56vmin]" // normal size
+              activeImage ? "w-[10vmin] h-[14vmin]" : "w-[40vmin] h-[56vmin]"
             } ${activeImage === src ? "scale-105 shadow-lg" : ""}`}
           >
             <Image
