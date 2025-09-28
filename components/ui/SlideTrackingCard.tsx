@@ -1,25 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef, useEffect, useState } from "react";
 
 const images = [
-  "https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
-  "https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
-  "https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
+  "/images/test1.jpg",
+  "/images/test2.jpg",
+  "/images/test3.jpg",
+  "/images/test4.jpg",
+  "/images/test5.jpg",
 ];
-
 export default function SlideTrackingCard() {
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [objectPosition, setObjectPosition] = useState("100% center");
 
   const mouseDownAtRef = useRef<number>(0);
   const prevPercentageRef = useRef<number>(0);
@@ -50,9 +46,8 @@ export default function SlideTrackingCard() {
 
     trackRef.current.style.transform = `translateX(${nextPercentage}%)`;
 
-    imageRefs.current.forEach((img) => {
-      if (img) img.style.objectPosition = `${100 + nextPercentage}% center`;
-    });
+    // Instead of mutating <img>, update state → passed to Image as style
+    setObjectPosition(`${100 + nextPercentage}% center`);
   };
 
   useEffect(() => {
@@ -81,7 +76,7 @@ export default function SlideTrackingCard() {
   }, []);
 
   const handleImageClick = (
-    e: React.MouseEvent<HTMLImageElement>,
+    e: React.MouseEvent<HTMLDivElement>,
     src: string
   ) => {
     e.stopPropagation();
@@ -105,28 +100,38 @@ export default function SlideTrackingCard() {
       {/* Image Track */}
       <div
         ref={trackRef}
-        className={`absolute flex gap-[2vmin] w-max select-none transition-all duration-500 ${
-          activeImage
-            ? "bottom-4 left-1/2 -translate-x-1/2 -translate-y-0" // move to bottom
-            : "top-1/2 left-1/2 -translate-y-1/2" // center
-        }`}
+        className={`absolute flex gap-[2vmin] w-max select-none 
+            ${
+              activeImage
+                ? "bottom-4 left-1/2 -translate-x-1/2 -translate-y-0 transition-all duration-500"
+                : "top-1/2 left-1/2 -translate-y-1/2 transition-all duration-500"
+            }`}
+        style={{
+          transform: `translateX(${percentageRef.current}%)`, // drag transform applied instantly
+          transition: mouseDownAtRef.current !== 0 ? "none" : undefined, // disable smoothness while dragging
+        }}
       >
         {images.map((src, index) => (
-          <img
+          <div
             key={index}
-            ref={(el: HTMLImageElement | null): void => {
+            ref={(el) => {
               imageRefs.current[index] = el;
             }}
-            src={src}
-            alt={`Image ${index + 1}`}
-            draggable={false}
             onClick={(e) => handleImageClick(e, src)}
-            className={`object-cover cursor-pointer transition-all duration-500 ${
+            className={`relative cursor-pointer transition-all duration-500 overflow-hidden ${
               activeImage
                 ? "w-[10vmin] h-[14vmin]" // shrink cards
                 : "w-[40vmin] h-[56vmin]" // normal size
             } ${activeImage === src ? "scale-105 shadow-lg" : ""}`}
-          />
+          >
+            <Image
+              src={src}
+              alt={`Image ${index + 1}`}
+              fill
+              draggable={false}
+              style={{ objectFit: "cover", objectPosition }}
+            />
+          </div>
         ))}
       </div>
     </div>
