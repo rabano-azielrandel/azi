@@ -87,6 +87,21 @@
   --radius-lg: var(--radius);
 
   --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-meteor-effect: meteor 5s linear infinite;
+  @keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+    }
+  70% {
+    opacity: 1;
+    }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+    }
+  }
 }
 
 /* Dark mode */
@@ -521,3 +536,23 @@ html {
   }
 }
 
+@layer utilities {
+  @keyframes meteor-diag {
+    from {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    to {
+      transform: translate(var(--dx, -800px), var(--dy, 800px));
+      opacity: 0;
+    }
+  }
+
+  .animate-meteor {
+    animation-name: meteor-diag;
+    animation-duration: var(--duration, 4s);
+    animation-delay: var(--delay, 0s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
