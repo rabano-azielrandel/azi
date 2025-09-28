@@ -11,6 +11,15 @@ interface MeteorsProps {
   className?: string;
 }
 
+// Extend CSSProperties to include custom CSS variables
+type MeteorStyle = React.CSSProperties & {
+  "--dx"?: string;
+  "--dy"?: string;
+  "--duration"?: string;
+  "--delay"?: string;
+  "--angle"?: string;
+};
+
 export const Meteors = ({
   number = 20,
   minDelay = 0.2,
@@ -19,13 +28,10 @@ export const Meteors = ({
   maxDuration = 6,
   className,
 }: MeteorsProps) => {
-  const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
-    []
-  );
+  const [meteorStyles, setMeteorStyles] = useState<MeteorStyle[]>([]);
 
   useEffect(() => {
-    const styles = Array.from({ length: number }).map(() => {
-      // --- 1. SPENDING LOGIC (UNCHANGED) ---
+    const styles: MeteorStyle[] = Array.from({ length: number }).map(() => {
       const edgeSelector = Math.random();
 
       let topPx: number;
@@ -43,23 +49,17 @@ export const Meteors = ({
         leftPx = Math.floor(
           window.innerWidth - Math.random() * (window.innerWidth * 0.05)
         );
-      } // --- 2. PARALLEL MOVEMENT LOGIC (REVISED) ---
-      // Define a fixed diagonal angle (e.g., 135 degrees) in radians.
-      // This is the desired angle for top-right to bottom-left travel.
-      // 135 deg = 3 * PI / 4 rad
+      }
+
+      // Fixed diagonal angle (135° = 3π/4 rad)
       const angleRad = (3 * Math.PI) / 4;
 
-      // Calculate a random travel distance (magnitude) for the meteor
-      // This ensures meteors travel different lengths before exiting, adding variation.
-      const minTravel = window.innerWidth * 0.8; // Minimum travel distance
-      const maxTravel = window.innerWidth * 1.5; // Maximum travel distance
+      const minTravel = window.innerWidth * 0.8;
+      const maxTravel = window.innerWidth * 1.5;
       const distance = Math.random() * (maxTravel - minTravel) + minTravel;
 
-      // Calculate the X and Y components of the translation based on the fixed angle and random distance
-      // dxNum will be negative (leftward)
-      // dyNum will be positive (downward)
       const dxNum = distance * Math.cos(angleRad);
-      const dyNum = distance * Math.sin(angleRad); // Compute angle (degrees) for rotation (should be 135 for all)
+      const dyNum = distance * Math.sin(angleRad);
 
       const angleDeg = (angleRad * 180) / Math.PI;
 
@@ -71,13 +71,13 @@ export const Meteors = ({
 
       return {
         top: `${topPx}px`,
-        left: `${leftPx}px`, // css variables for animation
-        ["--dx" as any]: `${dxNum}px`,
-        ["--dy" as any]: `${dyNum}px`,
-        ["--duration" as any]: duration,
-        ["--delay" as any]: delay,
-        ["--angle" as any]: `${angleDeg}deg`, // Should consistently be ~135deg
-      } as React.CSSProperties;
+        left: `${leftPx}px`,
+        "--dx": `${dxNum}px`,
+        "--dy": `${dyNum}px`,
+        "--duration": duration,
+        "--delay": delay,
+        "--angle": `${angleDeg}deg`,
+      };
     });
 
     setMeteorStyles(styles);
@@ -86,12 +86,11 @@ export const Meteors = ({
   return (
     <>
       {meteorStyles.map((styleObj, idx) => {
-        const angle = (styleObj as any)["--angle"] as string;
-        const angleNum = parseFloat(angle); // e.g. "135deg" -> 135
-        const tailAngle = `${angleNum + 180}deg`; // tail trails behind the head
+        const angle = styleObj["--angle"] ?? "135deg";
+        const angleNum = parseFloat(angle);
+        const tailAngle = `${angleNum + 180}deg`;
 
         return (
-          /* container: positioned and translated by animation */
           <span
             key={idx}
             style={styleObj}
@@ -100,7 +99,7 @@ export const Meteors = ({
               className
             )}
           >
-            {/* meteor head (rotated to align with movement) */}
+            {/* Meteor head */}
             <span
               aria-hidden
               style={{
@@ -114,7 +113,7 @@ export const Meteors = ({
               className="bg-theme1-secondary block shadow-[0_0_4px_2px_#ffffff] -z-10"
             />
 
-            {/* tail: positioned so it trails behind the head, rotated opposite direction */}
+            {/* Meteor tail */}
             <div
               aria-hidden
               style={{
