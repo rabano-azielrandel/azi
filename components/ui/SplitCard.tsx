@@ -42,11 +42,11 @@ export default function SplitCard() {
       </div>
 
       {/* Text description (20%) */}
-      <div className="w-full h-1/5 flex flex-col items-start justify-center py-4 ">
-        <h1 className="text-lg font-bold text-white leading-tight">
+      <div className="w-full h-1/5 flex flex-col items-start justify-center py-4 gap-1">
+        <h1 className="text-lg font-bold text-theme-accent1 leading-tight tracking-wider">
           Filenggwahe
         </h1>
-        <p className="text-sm text-gray-200 leading-snug">
+        <p className="text-sm text-white leading-snug font-thin tracking-tight">
           A cursive writing assistant using ANN & NLP.
         </p>
       </div>
