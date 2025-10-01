@@ -9,7 +9,7 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 export default function Bot() {
   return (
     <main className="w-full h-[400px]">
-      <Spline scene="/splines/light-bot.spline" className="w-full h-auto" />
+      <Spline scene="/splines/yellow-bot.spline" className="w-full h-auto" />
     </main>
   );
 }
