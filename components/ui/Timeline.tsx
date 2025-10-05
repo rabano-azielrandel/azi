@@ -16,31 +16,42 @@ export default function Timeline() {
     {
       year: "2022",
       text: "Lending System",
+      exp: "Baby Thesis",
       icon: Feather,
       squad: "RALPH MATTHEW, ANGELIQUE JOYCE, AZI",
     },
     {
       year: "2023",
       text: "Filenggwahe Thesis",
+      exp: "Thesis",
       icon: GraduationCap,
       squad: "AZI, ANGELIQUE JOYCE, JESS LEE",
     },
     {
       year: "2023",
       text: "Resort Management System",
+      exp: "Freelance",
       icon: PencilLine,
       squad: "AZI, ANGELIQUE JOYCE, JESS LEE",
     },
-    { year: "2024", text: "Truck Scale System", icon: Rocket, squad: "AZI" },
+    {
+      year: "2024",
+      text: "Truck Scale System",
+      exp: "Freelance",
+      icon: Rocket,
+      squad: "AZI",
+    },
     {
       year: "2024",
       text: "Digital Payslip System",
+      exp: "MinebeaMitsumi",
       icon: Trophy,
       squad: "AZI, DHAIENSCZEIL",
     },
     {
       year: "2025",
       text: "Manpower Control System",
+      exp: "MinebeaMitsumi",
       icon: BriefcaseBusiness,
       squad: "MARK, DHAIENSCZEIL, AZI",
     },
@@ -78,11 +89,14 @@ export default function Timeline() {
                       style={{ backfaceVisibility: "hidden" }}
                     >
                       <div className="p-4 bg-white/10 border border-gray-500 rounded-lg w-full h-full flex relative">
-                        <div className="w-[80%] h-auto flex flex-col gap-2 justify-start">
-                          <h3 className="text-lg font-bold text-theme1-accent">
+                        <div className="w-[80%] h-auto flex flex-col gap-[0.35rem] justify-center">
+                          <h3 className="text-lg font-bold text-theme1-accent leading-none">
                             {event.year}
                           </h3>
-                          <p className="text-theme1-secondary text-xs font-light ">
+                          <p className="text-theme-accent1 text-sm font-light leading-none">
+                            {event.exp}
+                          </p>
+                          <p className="text-theme1-secondary text-xs font-light leading-none">
                             {event.text}
                           </p>
                         </div>

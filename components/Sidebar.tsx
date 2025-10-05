@@ -8,7 +8,6 @@ const navLinks = [
   { text: "Projects", href: "#projects" },
   { text: "Experience", href: "#experience" },
   { text: "Hobbies", href: "#hobbies" },
-  { text: "Socials", href: "#socials" },
   { text: "Contacts", href: "#contacts" },
 ];
 
@@ -16,9 +15,7 @@ export default function Sidebar() {
   const [activeHash, setActiveHash] = useState<string>("#me");
 
   useEffect(() => {
-    const sections = navLinks.map((link) =>
-      document.querySelector(link.href)
-    );
+    const sections = navLinks.map((link) => document.querySelector(link.href));
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -42,7 +39,10 @@ export default function Sidebar() {
     return () => observer.disconnect();
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {

@@ -2,8 +2,7 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Hobbies from "@/components/Hobbies";
-import Image from "next/image";
-import Link from "next/link";
+import Contacts from "@/components/Contacts";
 
 export default function Home() {
   return (
@@ -12,6 +11,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <Hobbies />
+      <Contacts />
     </main>
   );
 }

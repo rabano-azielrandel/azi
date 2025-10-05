@@ -10,7 +10,6 @@ const navLinks = [
   { text: "Projects", href: "#projects" },
   { text: "Experience", href: "#experience" },
   { text: "Hobbies", href: "#hobbies" },
-  { text: "Socials", href: "#socials" },
   { text: "Contacts", href: "#contacts" },
 ];
 
@@ -38,7 +37,11 @@ export default function Header() {
     rounded-2xl mx-auto flex items-center justify-center gap-10 border
     shadow-[rgba(0,0,0,0.19)_0px_10px_20px,rgba(0,0,0,0.23)_0px_6px_6px] p-4
     transition-all duration-300 ease-in-out
-    ${isScrolled ? "bg-theme1-base border-white/10" : "bg-transparent border-transparent"}
+    ${
+      isScrolled
+        ? "bg-theme1-base border-white/10"
+        : "bg-transparent border-transparent"
+    }
   `;
 
   return (
