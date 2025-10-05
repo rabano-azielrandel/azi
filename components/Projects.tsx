@@ -16,11 +16,6 @@ const Projects = () => {
           </div>
 
           <div className="w-[33%] h-auto  rounded-xl p-4 bg-white/3 border-1 border-white/30">
-            {/* <RegCard
-              image="project-digital-payslip.png"
-              title="Digital Payslip" 
-              desc="Digitalize traditional payslip."
-            /> */}
             <DiceCard
               title="Digital Payslip"
               desc="Digitalize traditional payslip."

@@ -73,8 +73,12 @@ export default function RippleCard({ image, title, desc }: RippleCardProps) {
 
       {/* Text section */}
       <div className="w-full h-1/5 flex flex-col items-start justify-center py-4">
-        <h1 className="text-lg font-bold text-white leading-tight">{title}</h1>
-        <p className="text-sm text-gray-200 leading-snug">{desc}</p>
+        <h1 className="text-lg font-bold text-theme-accent1 leading-tight tracking-wider">
+          {title}
+        </h1>
+        <p className="text-sm text-white leading-snug font-thin tracking-tight">
+          {desc}
+        </p>
       </div>
     </main>
   );
