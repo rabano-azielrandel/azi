@@ -8,7 +8,10 @@ import Bot from "./ui/Bot";
 
 const Projects = () => {
   return (
-    <main id="projects" className="relative mt-20 w-full px-4">
+    <main
+      id="projects"
+      className="relative mt-20 w-full px-4 bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
+    >
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-x-2 gap-y-4 flex flex-col justify-center items-center">
         <div className="w-full h-full flex gap-4">
           <div className="w-[67%] h-auto rounded-xl bg-white/3 border-1 border-white/30 overflow-hidden">
