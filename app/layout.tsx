@@ -3,6 +3,7 @@ import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
 import Script from "next/script";
+import { Particles } from "@/components/ui/shadcn-io/particles";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,6 +47,16 @@ export default function RootLayout({
     >
       <body className="antialiased font-[var(--font-inter)] overflow-x-hidden">
         <Header />
+
+        <Particles
+          className="fixed top-0 left-0 inset-0 w-full h-full"
+          quantity={100}
+          ease={80}
+          staticity={50}
+          color="#ffffff"
+          size={0.8}
+        />
+
         {children}
 
         <Script

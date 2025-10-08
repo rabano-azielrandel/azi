@@ -5,14 +5,27 @@ import FanCard from "./ui/FanCard";
 import DiceCard from "./ui/DiceCard";
 import RegCard from "./ui/RegCard";
 import Bot from "./ui/Bot";
+import Image from "next/image";
 
 const Projects = () => {
   return (
-    <main
-      id="projects"
-      className="relative mt-20 w-full px-4 bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
-    >
-      <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-x-2 gap-y-4 flex flex-col justify-center items-center">
+    <main id="projects" className="relative mt-60 w-full pt-0 bg-[#1e1c24]">
+      {/* <div className="absolute w-full h-full">
+       
+      </div> */}
+
+      <Image
+        src={"/images/wave.svg"}
+        alt="wave"
+        width={1920}
+        height={500}
+        className="absolute -top-[367px] left-0 object-contain w-fit h-auto"
+      />
+
+      <div
+        className="relative w-full max-w-[1360px] pt-20 pb-40 mx-auto gap-x-2 gap-y-4
+      flex flex-col justify-center items-center"
+      >
         <div className="w-full h-full flex gap-4">
           <div className="w-[67%] h-auto rounded-xl bg-white/3 border-1 border-white/30 overflow-hidden">
             <Bot />
@@ -46,9 +59,12 @@ const Projects = () => {
             />
           </div>
         </div>
+
       </div>
     </main>
   );
 };
 
 export default Projects;
+
+// bg-gradient-to-b from-white/4 via-[#11020f]  to-theme1-base #4d2926
