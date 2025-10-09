@@ -5,7 +5,7 @@ import ParticlesBackground from "./ui/ParticlesBackground";
 
 export default function Hero() {
   return (
-    <main className="relative w-full pt-20  px-4 h-[800px]  overflow-hidden bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base">
+    <section className="relative w-full pt-20  px-4 h-[800px]  overflow-hidden bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base">
       <ParticlesBackground />
 
       <div className="relative z-10 w-full h-full mx-auto flex justify-center items-center">
@@ -77,6 +77,6 @@ export default function Hero() {
 
         <FloatingTechStacks position="right" />
       </div>
-    </main>
+    </section>
   );
 }

@@ -9,11 +9,10 @@ import Image from "next/image";
 
 const Projects = () => {
   return (
-    <main id="projects" className="relative mt-60 w-full pt-0 bg-[#1e1c24]">
-      {/* <div className="absolute w-full h-full">
-       
-      </div> */}
-
+    <section
+      id="projects"
+      className="relative mt-60 w-full pt-0 bg-gradient-to-b from-theme-accent2"
+    >
       <Image
         src={"/images/wave.svg"}
         alt="wave"
@@ -31,37 +30,36 @@ const Projects = () => {
             <Bot />
           </div>
 
-          <div className="w-[33%] h-auto  rounded-xl p-4 bg-white/3 border-1 border-white/30">
+          <div className="w-[33%] h-auto  rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
             <DiceCard
-              title="Digital Payslip"
+              title="DIGITAL PAYSLIP"
               desc="Digitalize traditional payslip."
             />
           </div>
         </div>
 
         <div className="w-full h-full flex gap-4">
-          <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-white/30">
+          <div className="w-full rounded-xl p-4 bg-[#18161B]  border-1 border-white/30">
             <SplitCard />
           </div>
 
-          <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-white/30">
+          <div className="w-full rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
             <RippleCard
               image="project-resort-management.jpg"
-              title="Resort Management"
+              title="RESORT MANAGEMENT"
               desc="Streamline reservations, billing, and staff managemnt."
             />
           </div>
 
-          <div className="w-full rounded-xl p-4 bg-white/3 border-1 border-white/30">
+          <div className="w-full rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
             <FanCard
-              title="Truck Scale"
+              title="TRUCK SCALE"
               desc="Data logging and receipt management."
             />
           </div>
         </div>
-
       </div>
-    </main>
+    </section>
   );
 };
 

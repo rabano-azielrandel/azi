@@ -9,7 +9,6 @@ export default function Home() {
     <main className="w-full h-full max-w-full overflow-hidden">
       <Hero />
       <Projects />
-      <Experience />
       <Hobbies />
       <Contacts />
     </main>

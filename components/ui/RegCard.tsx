@@ -21,7 +21,17 @@ export default function RegCard({
   };
 
   return (
-    <main className="w-full h-full rounded-xl p-4 flex flex-col">
+    <div className="w-full h-full rounded-xl flex flex-col p-2 gap-4">
+      {/* Text section */}
+      <div className="w-full h-1/5 flex flex-col items-start justify-center">
+        <h2 className="text-lg font-extrabold text-theme-accent3 leading-tight tracking-wider">
+          {title}
+        </h2>
+        <p className="text-xs text-theme-accent4 leading-snug font-normal tracking-normal">
+          {desc}
+        </p>
+      </div>
+
       {/* Image wrapper */}
       <div className="w-full h-4/5 flex justify-center items-center">
         <div
@@ -38,11 +48,21 @@ export default function RegCard({
         </div>
       </div>
 
-      {/* Text section */}
-      <div className="w-full h-1/5 flex flex-col items-start justify-center py-4">
-        <h1 className="text-lg font-bold text-white leading-tight">{title}</h1>
-        <p className="text-sm text-gray-200 leading-snug">{desc}</p>
+      {/* Stacks */}
+      <div className="w-full flex gap-4 text-xs font-bold">
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          C#
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          JS
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          SQL
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          .NET
+        </span>
       </div>
-    </main>
+    </div>
   );
 }

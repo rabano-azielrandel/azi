@@ -2,9 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Cloud, Bell, Container, Weight } from "lucide-react";
-import { IoLogoJavascript } from "react-icons/io";
-import { TbBrandCSharp, TbSql } from "react-icons/tb";
-import { SiDotnet } from "react-icons/si";
 import Image from "next/image";
 
 type RegCardProps = {
@@ -14,18 +11,18 @@ type RegCardProps = {
 
 export default function FanCards({ title, desc }: RegCardProps) {
   return (
-    <main className="w-full h-full rounded-xl p-4 flex flex-col">
+    <div className="w-full h-full flex flex-col rounded-xl p-2 gap-4">
       {/* Text section */}
-      <div className="w-full flex flex-col items-start justify-center py-4">
-        <h1 className="text-lg font-bold text-theme-accent1 leading-tight tracking-wider">
+      <div className="w-full h-1/5  flex flex-col items-start justify-center">
+        <h2 className="text-lg font-extrabold text-theme-accent3 leading-tight tracking-wider">
           {title}
-        </h1>
-        <p className="text-sm text-white leading-snug font-thin tracking-tight">
+        </h2>
+        <p className="text-xs text-theme-accent4 leading-snug font-normal tracking-normal">
           {desc}
         </p>
       </div>
 
-      <div className="w-full flex justify-center items-center relative overflow-hidden">
+      <div className="w-full h-4/5 flex justify-center items-center relative overflow-hidden">
         {/* Subject wrapper */}
         <div className="w-full flex justify-center items-center">
           <div
@@ -83,12 +80,20 @@ export default function FanCards({ title, desc }: RegCardProps) {
       </div>
 
       {/* Stacks */}
-      <div className="w-full flex gap-4">
-        <TbBrandCSharp className="text-theme1-accent" />
-        <IoLogoJavascript className="text-theme1-accent" />
-        <TbSql className="text-theme1-accent" />
-        <SiDotnet className="text-theme1-accent" />
+      <div className="w-full flex gap-4 text-xs font-bold">
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          C#
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          JS
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          SQL
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          .NET
+        </span>
       </div>
-    </main>
+    </div>
   );
 }

@@ -17,8 +17,18 @@ export default function SplitCard() {
   }, []);
 
   return (
-    <div className="w-full h-full rounded-xl p-4 flex flex-col">
-      {/* Carousel (80%) */}
+    <div className="w-full h-full flex flex-col rounded-xl p-2 gap-4">
+      {/* Text description */}
+      <div className="w-full h-1/5 flex flex-col items-start justify-center py-4 gap-1">
+        <h2 className="text-lg font-extrabold text-theme-accent3 leading-tight tracking-wider">
+          FILENGGWAHE
+        </h2>
+        <p className="text-xs text-theme-accent4 leading-snug font-normal tracking-normal">
+          A cursive writing assistant using ANN & NLP.
+        </p>
+      </div>
+
+      {/* Carousel*/}
       <div className="w-full h-4/5 flex items-center justify-center relative overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
@@ -41,14 +51,20 @@ export default function SplitCard() {
         </div>
       </div>
 
-      {/* Text description (20%) */}
-      <div className="w-full h-1/5 flex flex-col items-start justify-center py-4 gap-1">
-        <h1 className="text-lg font-bold text-theme-accent1 leading-tight tracking-wider">
-          Filenggwahe
-        </h1>
-        <p className="text-sm text-white leading-snug font-thin tracking-tight">
-          A cursive writing assistant using ANN & NLP.
-        </p>
+      {/* Stacks */}
+      <div className="w-full flex gap-4 text-xs font-bold">
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          C#
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          JS
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          SQL
+        </span>
+        <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
+          .NET
+        </span>
       </div>
     </div>
   );
