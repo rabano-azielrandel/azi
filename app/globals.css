@@ -608,5 +608,12 @@ html {
 }
 
 .animate-slide-in {
-  animation: slide-in 1s ease-in-out forwards;
+  animation: slide-in 1s ease-in forwards;
+}
+
+/* 🎯 This OVERRIDES the animation for the FIRST item only */
+.animate-slide-in:first-child {
+  animation-duration: 2s;
+  /* A custom cubic-bezier for a very slow start and a fast finish */
+  animation-timing-function: cubic-bezier(2, 1, .3, .1);
 }

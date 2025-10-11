@@ -4,6 +4,7 @@
 
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import CarouselHobbies from "./CarouselHobbies";
 
 // Your other imports
 // import { Meteors } from "./ui/shadcn-io/meteors";
@@ -22,13 +23,10 @@ const Hobbies = () => {
   const { ref, inView } = useInView({
     // Options
     triggerOnce: true, // The animation will only play once
-    threshold: .4,    // Trigger when 10% of the component is visible
+    threshold: 0.4, // Trigger when 10% of the component is visible
   });
-  
 
-  const calculateDelay = (index:number) => {
-
-  }
+  const calculateDelay = (index: number) => {};
 
   return (
     // 2. Attach the `ref` to the section you want to watch
@@ -45,12 +43,18 @@ const Hobbies = () => {
             className={`
               w-full rounded-lg bg-white p-6 text-center shadow-md
               transition-all duration-500
-              ${inView ? "animate-slide-in opacity-100" : "translate-y-10 opacity-0"}
+              ${
+                inView
+                  ? "animate-slide-in opacity-100"
+                  : "translate-y-10 opacity-0"
+              }
             `}
             style={{
               // The delay is applied, but the animation won't start until the class is added
-              transitionDelay: `${index * 200}ms`,
-              animationDelay: `${index * 200}ms`,
+              transitionDelay:
+                index === 0 ? "0ms" : `${1000 + (index - 1) * 200}ms`,
+              animationDelay:
+                index === 0 ? "0ms" : `${1000 + (index - 1) * 200}ms`,
             }}
           >
             <p className="text-lg font-semibold text-slate-800">{item.text}</p>
