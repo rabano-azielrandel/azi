@@ -1,22 +1,24 @@
-import React from "react";
-import Timeline from "./ui/Timeline";
-import { Meteors } from "./ui/shadcn-io/meteors";
+"use client";
 
-const Experience = () => {
+import { motion, Variants } from "framer-motion";
+
+const hobbie = [
+  { id: 1, text: "Card 1" },
+  { id: 2, text: "Card 2" },
+  { id: 3, text: "Card 3" },
+  { id: 4, text: "Card 4" },
+];
+
+export default function Experience() {
   return (
-    <main
-      id="experience"
-      className="relative mt-14 w-full px-4 h-[1000px] overflow-hidden"
+    <motion.div
+      initial={{ opacity: 1, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.7, ease: "easeInOut" }}
+      className="p-8 bg-blue-500 text-white text-center rounded-lg"
     >
-      <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-12 flex flex-col justify-center items-center">
-        {/* <Meteors number={30} /> */}
-        <p className="font-oswald text-5xl text-theme1-secondary ">
-          EXPERIENCE
-        </p>
-        <Timeline />
-      </div>
-    </main>
+      Revealed on scroll 🚀
+    </motion.div>
   );
-};
-
-export default Experience;
+}
