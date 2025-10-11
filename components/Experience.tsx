@@ -11,14 +11,15 @@ const hobbie = [
 
 export default function Experience() {
   return (
-    <motion.div
-      initial={{ opacity: 1, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="p-8 bg-blue-500 text-white text-center rounded-lg"
-    >
-      Revealed on scroll 🚀
-    </motion.div>
+    // <motion.div
+    //   initial={{ opacity: 1, y: 100 }}
+    //   whileInView={{ opacity: 1, y: 0 }}
+    //   viewport={{ once: true, amount: 0.3 }}
+    //   transition={{ duration: 0.7, ease: "easeInOut" }}
+    //   className="p-8 bg-blue-500 text-white text-center rounded-lg"
+    // >
+    //   Revealed on scroll 🚀
+    // </motion.div>
+    <div></div>
   );
 }
