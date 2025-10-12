@@ -26,7 +26,7 @@ export default function RippleCard({ image, title, desc }: RippleCardProps) {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col rounded-xl p-2 gap-4 ">
+    <div className="w-full h-full flex flex-col rounded-xl p-2 gap-4 cursor-pointer hover:bg-theme1-secondary/10 transition-colors">
       {/* Text section */}
       <div className="w-full h-1/5 flex flex-col items-start justify-center">
         <h2 className="text-lg font-extrabold text-theme-accent3 leading-tight tracking-wider">
@@ -82,7 +82,7 @@ export default function RippleCard({ image, title, desc }: RippleCardProps) {
       </div>
 
       {/* Stacks */}
-      <div className="w-full flex gap-4 text-xs font-bold">
+      <div className="w-full flex gap-2 text-xs font-bold">
         <span className="w-[50px] text-theme1-secondary/80 py-[2px] bg-white/5 rounded-full text-center">
           C#
         </span>

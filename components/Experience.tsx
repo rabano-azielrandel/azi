@@ -1,25 +1,49 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import ColumnCarousel from "./ui/ColumnCarousel";
 
-const hobbie = [
-  { id: 1, text: "Card 1" },
-  { id: 2, text: "Card 2" },
-  { id: 3, text: "Card 3" },
-  { id: 4, text: "Card 4" },
+const hobbies = [
+  [
+    "/images/col1-a.jpg",
+    "/images/col1-b.jpg",
+    "/images/col1-c.jpg",
+    "/images/col1-d.jpg",
+  ],
+  [
+    "/images/col2-a.jpg",
+    "/images/col2-b.jpg",
+    "/images/col2-c.jpg",
+    "/images/col2-d.jpg",
+  ],
+  [
+    "/images/col3-a.jpg",
+    "/images/col3-b.jpg",
+    "/images/col3-c.jpg",
+    "/images/col3-d.jpg",
+  ],
+  [
+    "/images/col4-a.jpg",
+    "/images/col4-b.jpg",
+    "/images/col4-c.jpg",
+    "/images/col4-d.jpg",
+  ],
+  [
+    "/images/col5-a.jpg",
+    "/images/col5-b.jpg",
+    "/images/col5-c.jpg",
+    "/images/col5-d.jpg",
+  ],
 ];
 
 export default function Experience() {
   return (
-    // <motion.div
-    //   initial={{ opacity: 1, y: 100 }}
-    //   whileInView={{ opacity: 1, y: 0 }}
-    //   viewport={{ once: true, amount: 0.3 }}
-    //   transition={{ duration: 0.7, ease: "easeInOut" }}
-    //   className="p-8 bg-blue-500 text-white text-center rounded-lg"
-    // >
-    //   Revealed on scroll 🚀
-    // </motion.div>
-    <div></div>
+    <div className="w-full h-full flex gap-2 p-2 bg-red-300">
+      <ColumnCarousel images={hobbies[0]} direction="down" />
+      <ColumnCarousel images={hobbies[1]} direction="down" />
+      <ColumnCarousel images={hobbies[2]} direction="down" />
+      <ColumnCarousel images={hobbies[3]} direction="down" />
+      <ColumnCarousel images={hobbies[4]} direction="down" />
+    </div>
   );
 }
