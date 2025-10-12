@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import ColumnCarousel from "./ui/ColumnCarousel";
+import { useInView } from "react-intersection-observer";
 
 const hobbies = [
   [
@@ -37,13 +38,18 @@ const hobbies = [
 ];
 
 export default function Experience() {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
   return (
-    <div className="w-full h-full flex gap-2 p-2 bg-red-300">
-      <ColumnCarousel images={hobbies[0]} direction="down" />
-      <ColumnCarousel images={hobbies[1]} direction="down" />
-      <ColumnCarousel images={hobbies[2]} direction="down" />
-      <ColumnCarousel images={hobbies[3]} direction="down" />
-      <ColumnCarousel images={hobbies[4]} direction="down" />
+    <div ref={ref} className="w-full h-full flex gap-2 p-2 bg-red-300">
+      <ColumnCarousel images={hobbies[0]} direction="down" inView={inView} />
+      <ColumnCarousel images={hobbies[1]} direction="up" inView={inView} />
+      <ColumnCarousel images={hobbies[2]} direction="down" inView={inView} />
+      <ColumnCarousel images={hobbies[3]} direction="up" inView={inView} />
+      <ColumnCarousel images={hobbies[4]} direction="down" inView={inView} />
     </div>
   );
 }
