@@ -32,7 +32,9 @@ export default function ColumnCarousel({
             className={`relative w-full h-[200px] overflow-hidden ${
               inView && direction === "up"
                 ? "animate-slide-in opacity-100"
-                : "animate-slide-out opacity-100"
+                : inView && direction === "down"
+                ? "animate-slide-out opacity-100"
+                : ""
             }`}
             style={{
               transitionDelay: "0ms",
