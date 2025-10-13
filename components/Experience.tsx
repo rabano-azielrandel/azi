@@ -44,12 +44,8 @@ export default function Experience() {
   });
 
   return (
-    <div ref={ref} className="w-full h-full flex gap-2 p-2 bg-red-300">
-      <ColumnCarousel images={hobbies[0]} direction="down" inView={inView} />
-      <ColumnCarousel images={hobbies[1]} direction="up" inView={inView} />
-      <ColumnCarousel images={hobbies[2]} direction="down" inView={inView} />
-      <ColumnCarousel images={hobbies[3]} direction="up" inView={inView} />
-      <ColumnCarousel images={hobbies[4]} direction="down" inView={inView} />
+    <div ref={ref} className="w-full h-full flex gap-2 p-2">
+      <p>hello</p>
     </div>
   );
 }

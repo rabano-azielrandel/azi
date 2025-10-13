@@ -13,7 +13,7 @@ export default function ColumnCarousel({
   inView,
 }: ColumnCarouselProps) {
   return (
-    <div className="w-full h-full flex flex-col gap-2 overflow-hidden bg-red-300">
+    <div className="w-full h-full flex flex-col gap-2 overflow-hidden">
       {images.map((img, idx) => {
         // compute delays for both directions
 
@@ -29,7 +29,7 @@ export default function ColumnCarousel({
         return (
           <div
             key={idx}
-            className={`relative w-full h-[200px] overflow-hidden ${
+            className={`relative w-full h-[200px] overflow-hidden rounded-lg group ${
               inView && direction === "up"
                 ? "animate-slide-in opacity-100"
                 : inView && direction === "down"
@@ -41,6 +41,14 @@ export default function ColumnCarousel({
               animationDelay,
             }}
           >
+            <div
+              aria-hidden
+              className="absolute inset-0 transition-opacity duration-300 ease-in-out opacity-100 group-hover:opacity-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(260deg, rgba(85,55,105,0.4), rgba(254,194,181,0.25));",
+              }}
+            />
             <Image
               alt="img"
               src={img}
