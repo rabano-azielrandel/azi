@@ -8,19 +8,13 @@ import ColumnCarousel from "./ui/ColumnCarousel";
 
 const hobbies = [
   [
-    "/images/col1-a.jpg",
-    "/images/col1-b.jpg",
-    "/images/col1-c.jpg",
-    "/images/col1-d.jpg",
-  ],
-  [
     "/images/col2-a.jpg",
     "/images/col2-b.jpg",
     "/images/col2-c.jpg",
     "/images/col2-d.jpg",
   ],
   [
-    "/images/col3-a.jpg",
+    "/images/col1-b.jpg",
     "/images/col3-b.jpg",
     "/images/col3-c.jpg",
     "/images/col3-d.jpg",
@@ -29,7 +23,7 @@ const hobbies = [
     "/images/col4-a.jpg",
     "/images/col4-b.jpg",
     "/images/col4-c.jpg",
-    "/images/col4-d.jpg",
+    "/images/col1-c.jpg",
   ],
   [
     "/images/col5-a.jpg",

@@ -1,51 +1,49 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-import ColumnCarousel from "./ui/ColumnCarousel";
-import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+import Image from "next/image";
 
-const hobbies = [
-  [
-    "/images/col1-a.jpg",
-    "/images/col1-b.jpg",
-    "/images/col1-c.jpg",
-    "/images/col1-d.jpg",
-  ],
-  [
-    "/images/col2-a.jpg",
-    "/images/col2-b.jpg",
-    "/images/col2-c.jpg",
-    "/images/col2-d.jpg",
-  ],
-  [
-    "/images/col3-a.jpg",
-    "/images/col3-b.jpg",
-    "/images/col3-c.jpg",
-    "/images/col3-d.jpg",
-  ],
-  [
-    "/images/col4-a.jpg",
-    "/images/col4-b.jpg",
-    "/images/col4-c.jpg",
-    "/images/col4-d.jpg",
-  ],
-  [
-    "/images/col5-a.jpg",
-    "/images/col5-b.jpg",
-    "/images/col5-c.jpg",
-    "/images/col5-d.jpg",
-  ],
+const exp = [
+  { img: "/images/INTERN.jpg", title: "INTERN", desc: "test" },
+  { img: "/images/FREELANCE.jpg", title: "FREELANCE", desc: "test" },
+  { img: "/images/CORPORATE.jpg", title: "CORPORATE", desc: "test" },
 ];
 
 export default function Experience() {
-  const { ref, inView } = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   return (
-    <div ref={ref} className="w-full h-full flex gap-2 p-2">
-      <p>hello</p>
-    </div>
+    <section
+      id="hobbies"
+      className="relative mt-8 flex h-screen w-full items-center justify-center overflow-hidden"
+    >
+      <div
+        className="relative w-full max-w-[1360px] h-full pt-20 pb-40 mx-auto gap-x-2 gap-y-4
+      flex justify-center items-center overflow-hidden"
+      >
+        <div className="w-full h-full flex justify-center items-center gap-2 bg-orange-400">
+          {exp.map((src, idx) => (
+            <div
+              key={idx}
+              className={`w-full h-full overflow-hidden transition-all duration-500 ease-in-out ${
+                activeIndex === idx ? "flex-[3]" : "flex-1"
+              }`}
+              onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
+            >
+              <Image
+                alt="img"
+                src={src.img}
+                width={900}
+                height={900}
+                className={`h-full object-cover transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+                  activeIndex === idx
+                    ? "scale-105 brightness-100"
+                    : "scale-100 brightness-75 blur-[2px]"
+                }`}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

@@ -46,7 +46,7 @@ export default function ColumnCarousel({
               className="absolute inset-0 transition-opacity duration-300 ease-in-out opacity-100 group-hover:opacity-0 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(260deg, rgba(85,55,105,0.4), rgba(254,194,181,0.25));",
+                  "linear-gradient(260deg, rgba(85,55,105,0.4), rgba(254,194,181,0.25))",
               }}
             />
             <Image
