@@ -68,7 +68,7 @@ const Hobbies = () => {
         {/* Labels */}
         <div className="w-full flex items-center justify-between px-10 transition-opacity duration-500">
           {/* Category Text (Left Side) */}
-          <div className="text-theme1-secondary text-xl font-semibold">
+          <h2 className="text-theme1-secondary text-xl font-semibold">
             {category === "anime"
               ? "Stories That Echo"
               : category === "music"
@@ -76,7 +76,7 @@ const Hobbies = () => {
               : category === "programming"
               ? "Lines That Build"
               : "Realms I Wander"}
-          </div>
+          </h2>
 
           {/* Category Icons (Right Side) */}
           <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ const Hobbies = () => {
                 hover:scale-110 
                 ${
                   i === index
-                    ? "invert brightness-200 scale-110 border-white"
+                    ? "scale-110 border-white filter invert-[93%] sepia-[11%] saturate-[234%] hue-rotate-[323deg] brightness-[100%] contrast-[90%]"
                     : "opacity-60 hover:opacity-100"
                 }`}
               />
@@ -106,14 +106,21 @@ const Hobbies = () => {
           <button onClick={handlePrev} className="w-fit">
             <ChevronLeft className="w-8 h-8 text-white" />
           </button>
-          <div className="relative w-full flex p-2 gap-1 bg-white/3 border-1 border-white/30 rounded-2xl">
+          <div className="relative w-full flex items-center p-2 gap-1 bg-white/3 border-1 border-white/30 rounded-2xl">
             {hobbySets[category].map((img, idx) => (
-              <ColumnCarousel
-                key={idx}
-                image={img}
-                direction={idx % 2 === 0 ? "down" : "up"}
-                inView={inView}
-              />
+              <React.Fragment key={`${category}-${idx}`}>
+                <ColumnCarousel
+                  image={img}
+                  direction={idx % 2 === 0 ? "down" : "up"}
+                  inView={inView}
+                  active
+                />
+
+                {/* Divider */}
+                {idx < hobbySets[category].length - 1 && (
+                  <div className="w-[8px] h-[500px] bg-theme1-secondary/50 mx-2 rounded-full" />
+                )}
+              </React.Fragment>
             ))}
           </div>
           <button onClick={handleNext} className="w-fit">

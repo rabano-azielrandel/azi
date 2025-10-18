@@ -6,18 +6,20 @@ type ColumnCarouselProps = {
   image: string;
   direction: "up" | "down";
   inView: boolean;
+  active: boolean;
 };
 
 export default function ColumnCarousel({
   image,
   direction,
   inView,
+  active,
 }: ColumnCarouselProps) {
   return (
     <div className="w-full h-full flex flex-col gap-2 overflow-hidden group">
       <div
         className={`relative w-full h-[600px] overflow-hidden rounded-lg ${
-          inView
+          inView || active
             ? direction === "up"
               ? "animate-slide-up"
               : "animate-slide-down"
