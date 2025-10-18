@@ -4,9 +4,21 @@ import { useState } from "react";
 import Image from "next/image";
 
 const exp = [
-  { img: "/images/INTERN.jpg", title: "INTERN", desc: "test" },
-  { img: "/images/FREELANCE.jpg", title: "FREELANCE", desc: "test" },
-  { img: "/images/CORPORATE.jpg", title: "CORPORATE", desc: "test" },
+  {
+    img: "/images/INTERN.jpg",
+    title: "INTERN",
+    desc: "I am currently working as an intern at Toyota Bataan Inc., where my main responsibilities include design related tasks and computer servicing.",
+  },
+  {
+    img: "/images/FREELANCE.jpg",
+    title: "FREELANCE",
+    desc: "I’ve worked on two freelance projects: a Resort Management system where I focused on backend development, and a Truck Scale system where I handled both frontend and backend roles.",
+  },
+  {
+    img: "/images/CORPORATE.jpg",
+    title: "CORPORATE",
+    desc: "In my latest corporate role as a Full Stack .NET Programmer, I contributed to the development and maintenance of core internal systems, including Payroll, HRIS, and Manpower Control. I also led the end-to-end creation of a Digital Payslip Automation System, which streamlines payroll distribution by automatically emailing payslips to all employees.",
+  },
 ];
 
 export default function Experience() {
@@ -49,10 +61,14 @@ export default function Experience() {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <h2 className="text-4xl font-bold drop-shadow-lg">
-                  {src.title}
-                </h2>
-                <p className="mt-2 text-lg font-medium max-w-md">{src.desc}</p>
+                <div className="flex flex-col text-center justify-center backdrop-blur-sm bg-black/30 rounded-2xl px-6 py-4 ">
+                  <h2 className="text-4xl font-bold text-theme1-secondary">
+                    {src.title}
+                  </h2>
+                  <p className="mt-2 text-lg font-medium text-theme1-secondary">
+                    {src.desc}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
