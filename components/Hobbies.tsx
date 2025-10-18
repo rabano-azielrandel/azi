@@ -102,8 +102,11 @@ const Hobbies = () => {
         </div>
 
         {/* Images */}
-        <div className="w-full flex justify-center items-center">
-          <button onClick={handlePrev} className="w-fit">
+        <div className="w-full flex justify-center items-center gap-2">
+          <button
+            onClick={handlePrev}
+            className="w-fit hover:scale-185 cursor-pointer"
+          >
             <ChevronLeft className="w-8 h-8 text-white" />
           </button>
           <div className="relative w-full flex items-center p-2 gap-1 bg-white/3 border-1 border-white/30 rounded-2xl">
@@ -123,7 +126,10 @@ const Hobbies = () => {
               </React.Fragment>
             ))}
           </div>
-          <button onClick={handleNext} className="w-fit">
+          <button
+            onClick={handleNext}
+            className="w-fit hover:scale-185 cursor-pointer"
+          >
             <ChevronRight className="w-8 h-8 text-white" />
           </button>
         </div>
