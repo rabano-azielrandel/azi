@@ -27,18 +27,24 @@ export default function Hero() {
                 data-tilt-transition="true"
                 data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
               >
-                <img
+                <Image
                   src="/images/grad-bg.png"
+                  alt="Graduation background"
+                  width={1200}
+                  height={800}
                   className="w-full h-auto rounded-[5%] transition-all duration-400 ease-in-out 
-                shadow-[rgba(0,0,0,0.4)_0px_2px_4px,rgba(0,0,0,0.3)_0px_7px_13px_-3px,rgba(0,0,0,0.2)_0px_-3px_0px_inset] hover:shadow-none"
+  shadow-[rgba(0,0,0,0.4)_0px_2px_4px,rgba(0,0,0,0.3)_0px_7px_13px_-3px,rgba(0,0,0,0.2)_0px_-3px_0px_inset] hover:shadow-none"
                 />
 
                 <div
                   className="absolute z-[1] flex w-full h-auto scale-[0.94] flex-col items-center justify-center 
               rounded-[5%] bg-[rgba(37,35,35,0.5)] transition-all duration-500 ease-in-out [transform:translateZ(60px)] hover:bg-transparent"
                 >
-                  <img
+                  <Image
                     src="/images/grad-me.png"
+                    alt="Graduation portrait"
+                    width={500}
+                    height={600}
                     className="w-[500px] h-auto rounded-[5%] scale-110 group-hover:scale-100 transition-all"
                     style={{
                       filter: "drop-shadow(12px 10px 6px rgba(0,0,0,0.4))",
