@@ -65,11 +65,9 @@ const Hobbies = () => {
         className="relative w-full max-w-[1360px] p-2 gap-4
       flex flex-col justify-center items-center overflow-hidden"
       >
-        <div className="bg-white/10 border border-white/30 px-6 py-3 mt-6 mb-2 rounded-xl">
-          <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center">
-            Between Logic and Art
-          </h2>
-        </div>
+        <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center">
+          Between Logic and Art
+        </h2>
         {/* Labels */}
         <div className="w-full flex items-center justify-between px-10 transition-opacity duration-500">
           {/* Category Text (Left Side) */}

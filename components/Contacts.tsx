@@ -39,6 +39,7 @@ const Contacts = () => {
             Get in touch
           </p>
           <div className="w-full h-full flex ">
+            {/* ICONS AND OTHER INFO */}
             <div className="w-full h-full flex flex-col gap-12">
               <div className="w-full h-fit flex flex-col gap-12 p-2">
                 {contact.map((src, idx) => (
