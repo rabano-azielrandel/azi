@@ -7,17 +7,17 @@ const exp = [
   {
     img: "/images/INTERN.jpg",
     title: "INTERN",
-    desc: "I am currently working as an intern at Toyota Bataan Inc., where my main responsibilities include design related tasks and computer servicing.",
+    desc: "I've worked as an intern at Toyota Bataan Inc., where my main responsibilities include design related tasks and computer servicing.",
   },
   {
     img: "/images/FREELANCE.jpg",
     title: "FREELANCE",
-    desc: "I’ve worked on two freelance projects: a Resort Management system where I focused on backend development, and a Truck Scale system where I handled both frontend and backend roles.",
+    desc: "Worked on two freelance projects, a Resort Management System and a Truck Scale System. Focusing mainly on backend development with some frontend work.",
   },
   {
     img: "/images/CORPORATE.jpg",
     title: "CORPORATE",
-    desc: "In my latest corporate role as a Full Stack .NET Programmer, I contributed to the development and maintenance of core internal systems, including Payroll, HRIS, and Manpower Control. I also led the end-to-end creation of a Digital Payslip Automation System, which streamlines payroll distribution by automatically emailing payslips to all employees.",
+    desc: "Worked as a Full Stack .NET Programmer, maintaining core systems like Payroll, HRIS, and Manpower Control, and leading the Digital Payslip Automation project.",
   },
 ];
 
