@@ -18,7 +18,7 @@ const Projects = () => {
         alt="wave"
         width={1920}
         height={500}
-        className="absolute -top-[367px] left-0 object-contain w-fit h-auto"
+        className="absolute -top-92 left-0 object-contain w-fit h-auto"
       />
 
       <div
