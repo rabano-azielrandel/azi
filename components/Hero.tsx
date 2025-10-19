@@ -1,21 +1,7 @@
-"use client";
-
+import FloatingTechStacks from "@/components/FloatingTechStacks";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-const ParticlesBackground = dynamic(() => import("./ui/ParticlesBackground"), {
-  ssr: false, // Optional: avoids server-side rendering
-  loading: () => <div className="w-full h-full" />, // Placeholder
-});
-
-const FloatingTechStacks = dynamic(
-  () => import("@/components/FloatingTechStacks"),
-  {
-    ssr: false,
-    loading: () => null,
-  }
-);
+import ParticlesBackground from "./ui/ParticlesBackground";
 
 export default function Hero() {
   return (
@@ -46,6 +32,7 @@ export default function Hero() {
                   alt="Graduation background"
                   width={1200}
                   height={800}
+                  loading="lazy"
                   className="w-full h-auto rounded-[5%] transition-all duration-400 ease-in-out 
                   shadow-[rgba(0,0,0,0.4)_0px_2px_4px,rgba(0,0,0,0.3)_0px_7px_13px_-3px,rgba(0,0,0,0.2)_0px_-3px_0px_inset] hover:shadow-none"
                 />
@@ -59,6 +46,7 @@ export default function Hero() {
                     alt="Graduation portrait"
                     width={500}
                     height={600}
+                    loading="lazy"
                     className="w-[500px] h-auto rounded-[5%] scale-110 group-hover:scale-100 transition-all"
                     style={{
                       filter: "drop-shadow(12px 10px 6px rgba(0,0,0,0.4))",
