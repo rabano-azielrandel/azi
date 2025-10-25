@@ -2,82 +2,61 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import ExpCard from "./ui/ExpCard";
 
-const exp = [
+const expData = [
   {
-    img: "/images/INTERN.jpg",
-    title: "INTERN",
-    desc: "I've worked as an intern at Toyota Bataan Inc., where my main responsibilities include design related tasks and computer servicing.",
+    backgroundImage: "/images/INTERNS.jpg",
+    label: "INTERN",
+    p: "Intern at Toyota Bataan Inc., focused on design and computer servicing.",
   },
   {
-    img: "/images/FREELANCE.jpg",
-    title: "FREELANCE",
-    desc: "Worked on two freelance projects, a Resort Management System and a Truck Scale System. Focusing mainly on backend development with some frontend work.",
+    backgroundImage: "/images/FREELANCE.jpg",
+    label: "FREELANCE",
+    p: "Freelance developer for Resort and Truck Scale Systems, mainly backend-focused.",
   },
   {
-    img: "/images/CORPORATE.jpg",
-    title: "CORPORATE",
-    desc: "Worked as a Full Stack .NET Programmer, maintaining core systems like Payroll, HRIS, and Manpower Control, and leading the Digital Payslip Automation project.",
+    backgroundImage: "/images/CORPORATE.jpg",
+    label: "CORPORATE",
+    p: "Full Stack .NET dev for Payroll and HR systems, led Payslip Automation.",
   },
 ];
 
 export default function Experience() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, SetActiveIndex] = useState(0);
+
   return (
     <section
       id="experience"
       className="relative mt-8 flex h-screen w-full items-center justify-center bg-gradient-to-t from-theme-accent2"
     >
       <div
-        className="relative w-full max-w-[1360px] h-full pt-10 pb-40 mx-auto gap-x-2 gap-y-4
-      flex justify-center items-center overflow-hidden"
+        className="relative w-full h-[80%] max-w-[1360px] p-2 gap-4
+      flex flex-col justify-center items-center overflow-hidden"
       >
-        <div className="w-full h-full flex flex-col justify-center items-center gap-6">
-          <div className="bg-white/10 border border-white/30 px-6 py-3 rounded-xl">
-            <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center">
-              Chapters In My Path
-            </h2>
-          </div>
+        <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center">
+          Chapters In My Path
+        </h2>
 
-          <div className="w-full h-full flex justify-center items-center">
-            {exp.map((src, idx) => (
-              <div
-                key={idx}
-                className={`w-full h-full overflow-hidden relative transition-all duration-500 ease-in-out ${
-                  activeIndex === idx ? "flex-[3]" : "flex-1"
-                }`}
-                onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
-              >
-                {/* Image */}
-                <Image
-                  alt="img"
-                  src={src.img}
-                  width={900}
-                  height={900}
-                  className={`h-full object-cover transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
-                    activeIndex === idx
-                      ? "scale-105 brightness-100 blur-0"
-                      : "scale-100 brightness-75 blur-[2px]"
-                  }`}
-                />
-                {/* Text */}
-                <div
-                  className={`absolute inset-0 flex flex-col items-center justify-center text-theme1-secondary px-4 transition-all duration-700 ease-[cubic-bezier(0.25, 1, 0.5, 1)] ${
-                    activeIndex === idx
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
-                  }`}
-                >
-                  <div className="flex flex-col text-center justify-center backdrop-blur-sm bg-black/30 rounded-2xl px-6 py-4 ">
-                    <h2 className="text-4xl font-bold text-theme1-secondary">
-                      {src.title}
-                    </h2>
-                    <p className="mt-2 text-lg font-medium text-theme1-secondary">
-                      {src.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div className="flex h-[100%] w-full overflow-hidden">
+          <div className="relative w-full h-[600px] flex justify-between border-2 border-white rounded-lg ">
+            <Image
+              src={expData[activeIndex].backgroundImage}
+              alt="background"
+              fill
+              className="object-cover -z-10"
+              quality={100}
+              priority
+            />
+
+            {expData.map((item, index) => (
+              <ExpCard
+                key={index}
+                data={item}
+                index={index}
+                activeIndex={activeIndex}
+                setActiveIndex={SetActiveIndex}
+              />
             ))}
           </div>
         </div>
