@@ -19,7 +19,6 @@ const ParticlesBackground: React.FC = () => {
       setInit(true);
     });
   }, []);
-  
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -37,7 +36,7 @@ const ParticlesBackground: React.FC = () => {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
+            mode: "repulse",
           },
           onHover: {
             enable: true,

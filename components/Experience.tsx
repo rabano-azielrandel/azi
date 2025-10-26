@@ -34,7 +34,7 @@ export default function Experience() {
         className="relative w-full h-[80%] max-w-[1360px] p-2 gap-4
       flex flex-col justify-center items-center overflow-hidden"
       >
-        <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center">
+        <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center select-none cursor-default">
           Chapters In My Path
         </h2>
 
@@ -45,7 +45,6 @@ export default function Experience() {
               alt="background"
               fill
               className="object-cover -z-10"
-              quality={100}
               priority
             />
 

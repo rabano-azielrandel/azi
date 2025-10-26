@@ -8,7 +8,7 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 export default function Bot() {
   return (
-    <section className="w-full h-[400px]">
+    <section className="w-full h-[400px] rounded-xl overflow-hidden">
       <Spline scene="/splines/yellow-bot.spline" className="w-full h-auto" />
     </section>
   );

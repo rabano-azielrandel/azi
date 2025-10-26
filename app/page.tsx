@@ -6,7 +6,7 @@ import Contacts from "@/components/Contacts";
 
 export default function Home() {
   return (
-    <main className="w-full h-full max-w-full overflow-hidden">
+    <main className="w-full h-full min-w-screen max-w-full">
       <Hero />
       <Projects />
       <Experience />

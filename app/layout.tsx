@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 import Script from "next/script";
 import { Particles } from "@/components/ui/shadcn-io/particles";
@@ -58,6 +59,8 @@ export default function RootLayout({
         />
 
         {children}
+
+        <Footer />
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"

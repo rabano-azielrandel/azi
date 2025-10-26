@@ -26,11 +26,11 @@ const Projects = () => {
       flex flex-col justify-center items-center"
       >
         <div className="w-full h-full flex gap-4">
-          <div className="w-[67%] h-auto rounded-xl bg-white/3 border-1 border-white/30 overflow-hidden">
+          <div className="w-[67%] h-auto rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
             <Bot />
           </div>
 
-          <div className="w-[33%] h-auto  rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
+          <div className="w-[33%] h-auto rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
             <DiceCard
               title="DIGITAL PAYSLIP"
               desc="Digitalize traditional payslip."
