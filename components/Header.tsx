@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ThemeSwitch from "./ui/ThemeSwitch";
+import { useTheme } from "../app/ThemeProvider";
 
 const navLinks = [
   { text: "Me", href: "#me" },
@@ -14,6 +15,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { isDarkMode, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -39,7 +41,9 @@ export default function Header() {
     transition-all duration-300 ease-in-out
     ${
       isScrolled
-        ? "bg-theme1-base border-white/10"
+        ? isDarkMode
+          ? "bg-theme1-base border-white/10"
+          : "bg-theme2-base border-white/10"
         : "bg-transparent border-transparent"
     }
   `;
@@ -48,7 +52,9 @@ export default function Header() {
     <div className="fixed top-0 z-50 w-full px-4 pt-[30px]">
       <div className={headerClasses}>
         <Link href={""}>
-          <span className="font-extrabold text-[#f3eaea] text-[20px] tracking-[0px] transition-all font-oswald italic group">
+          <span
+            className={`font-extrabold text-[#f3eaea] text-[20px] tracking-[0px] transition-all font-oswald italic group`}
+          >
             <span className="text-[#e8d8c9] group-hover:text-theme1-accent transition-all">
               Aziel
             </span>
@@ -76,7 +82,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <ThemeSwitch />
+        <ThemeSwitch checked={isDarkMode} onToggle={toggleTheme} />
       </div>
     </div>
   );

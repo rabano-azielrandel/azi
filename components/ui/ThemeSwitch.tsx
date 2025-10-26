@@ -2,12 +2,20 @@
 
 import { useState } from "react";
 
-const ThemeSwitch = () => {
-  const [checked, setChecked] = useState(false);
+interface ThemeSwitchProps {
+  checked: boolean;
+  onToggle: () => void;
+}
 
+const ThemeSwitch = ({ checked, onToggle }: ThemeSwitchProps) => {
   return (
     <label className="theme-switch">
-      <input type="checkbox" className="theme-switch__checkbox" />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onToggle}
+        className="theme-switch__checkbox"
+      />
       <div className="theme-switch__container">
         <div className="theme-switch__clouds"></div>
         <div className="theme-switch__stars-container">

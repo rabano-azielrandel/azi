@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
+import ThemeProvider from "./ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -47,20 +48,22 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} ${caveat.variable} ${condiment.variable}`}
     >
       <body className="antialiased font-[var(--font-inter)] overflow-x-hidden">
-        <Header />
+        <ThemeProvider>
+          <Header />
 
-        <Particles
-          className="fixed top-0 left-0 inset-0 w-full h-full"
-          quantity={100}
-          ease={80}
-          staticity={50}
-          color="#ffffff"
-          size={0.8}
-        />
+          <Particles
+            className="fixed top-0 left-0 inset-0 w-full h-full"
+            quantity={100}
+            ease={80}
+            staticity={50}
+            color="#ffffff"
+            size={0.8}
+          />
 
-        {children}
+          {children}
 
-        <Footer />
+          <Footer />
+        </ThemeProvider>
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
