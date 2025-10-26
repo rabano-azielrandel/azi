@@ -47,7 +47,7 @@ const socials = [
 
 const Contacts = () => {
   return (
-    <main
+    <section
       id="contacts"
       className="relative mt-8 mb-12 w-full px-4 h-[700px] overflow-hidden"
     >
@@ -56,7 +56,7 @@ const Contacts = () => {
           <p className="text-6xl font-oswald text-theme1-secondary select-none cursor-default">
             Get in touch
           </p>
-          <div className="w-full h-full flex ">
+          <div className="w-full flex items-center">
             {/* ICONS AND OTHER INFO */}
             <div className="w-full h-full flex flex-col gap-9">
               <div className="w-full h-fit flex flex-col gap-12 p-2">
@@ -168,7 +168,7 @@ const Contacts = () => {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 
