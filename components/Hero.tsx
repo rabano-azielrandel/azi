@@ -1,11 +1,21 @@
+"use client";
+
 import FloatingTechStacks from "@/components/FloatingTechStacks";
 import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
+import { useTheme } from "../app/ThemeProvider";
 
 export default function Hero() {
+  const { isDarkMode, toggleTheme } = useTheme();
   return (
-    <section className="relative w-full pt-20  px-4 h-[800px]  overflow-hidden bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base">
+    <section
+      className={`relative w-full pt-20  px-4 h-[800px]  overflow-hidden ${
+        isDarkMode
+          ? "bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
+          : "bg-gradient-to-b from-[#f8c98a]/80 via-[#3a3f52]/60 to-[#0a0f1a]/20"
+      }`}
+    >
       <ParticlesBackground />
 
       <div className="relative z-10 w-full h-full mx-auto flex justify-center items-center">
