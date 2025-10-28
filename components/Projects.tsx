@@ -38,11 +38,19 @@ const Projects = () => {
       flex flex-col justify-center items-center"
       >
         <div className="w-full h-full flex gap-4">
-          <div className="w-[67%] h-auto rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
+          <div
+            className={`w-[67%] h-auto rounded-xl p-4 ${
+              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+            } border-1 border-white/30`}
+          >
             <Bot />
           </div>
 
-          <div className="w-[33%] h-auto rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
+          <div
+            className={`w-[33%] h-auto rounded-xl p-4 ${
+              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+            } border-1 border-white/30`}
+          >
             <DiceCard
               title="DIGITAL PAYSLIP"
               desc="Digitalize traditional payslip."
@@ -51,11 +59,19 @@ const Projects = () => {
         </div>
 
         <div className="w-full h-full flex gap-4">
-          <div className="w-full rounded-xl p-4 bg-[#18161B]  border-1 border-white/30">
+          <div
+            className={`w-full rounded-xl p-4 ${
+              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+            } border-1 border-white/30`}
+          >
             <SplitCard />
           </div>
 
-          <div className="w-full rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
+          <div
+            className={`w-full rounded-xl p-4 ${
+              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+            } border-1 border-white/30`}
+          >
             <RippleCard
               image="project-resort-management.jpg"
               title="RESORT MANAGEMENT"
@@ -63,7 +79,11 @@ const Projects = () => {
             />
           </div>
 
-          <div className="w-full rounded-xl p-4 bg-[#18161B] border-1 border-white/30">
+          <div
+            className={`w-full rounded-xl p-4 ${
+              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+            } border-1 border-white/30`}
+          >
             <FanCard
               title="TRUCK SCALE"
               desc="Data logging and receipt management."

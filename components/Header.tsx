@@ -43,7 +43,7 @@ export default function Header() {
       isScrolled
         ? isDarkMode
           ? "bg-theme1-base border-white/10"
-          : "bg-[#343848] border-white/10"
+          : "bg-[#d6ae76] border-white/10"
         : "bg-transparent border-transparent"
     }
   `;

@@ -9,17 +9,20 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
+  
+  --color-theme-accent1: #f6ad49;
+  --color-theme-accent2: #1a181f;
+  --color-theme-accent3: #ed9e6f;
+  --color-theme-accent4: #80488e;
   --color-theme1-base: #131212;
   --color-theme1-secondary: #e8d8c9;
   --color-theme1-accent: #c94f4f;
   --color-theme2-base: #F0EDE5;
   --color-theme2-secondary: #060D0C;
   --color-theme2-accent1: #F8C98A;
-  --color-theme-accent1: #f6ad49;
-  --color-theme-accent2: #1a181f;
-  --color-theme-accent3: #ed9e6f;
-  --color-theme-accent4: #80488e;
+  --color-theme2-accent2: #F8C469;
+  --color-theme2-accent3: #FFB347;
+  --color-theme2-accent4: #232A36;
 
   --font-inter: var(--font-inter), sans-serif;
   --font-oswald: var(--font-oswald), sans-serif;
