@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+type DataInterface = {
+  backgroundImage: string;
+  label: string;
+  p: string;
+};
+
+interface ExpCardProps {
+  data: DataInterface[];
+}
+
 const getRoundedClass = (idx: number) => {
   if (idx == 0) return "rounded-l-lg";
   if (idx == 2) return "rounded-r-lg";
   return "";
 };
 
-const ExpSplitCard = ({ data }: { data: any[] }) => {
+const ExpSplitCard = ({ data }: ExpCardProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [flipped, setFlipped] = useState<number | null>(null);
 
