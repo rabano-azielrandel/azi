@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "@/app/ThemeProvider";
 
 const links = [
   { text: "Me", href: "#me" },
@@ -25,8 +28,16 @@ const stacks = [
 ];
 
 export default function Footer() {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
-    <div className="relative w-full bottom-0 z-150 flex flex-col items-center justify-center gap-32">
+    <div
+      className={`relative w-full bottom-0 z-10 flex flex-col items-center justify-center gap-32 ${
+        isDarkMode
+          ? ""
+          : "bg-gradient-to-t from-theme2-accent1/20 via-[#3a3f52]/20 to-[#3a3f52]/10"
+      }`}
+    >
       <div className="relative w-full max-w-[1360px] p-2 gap-4 flex flex-col justify-center items-center">
         {/* Image */}
         <div className="relative w-full h-[200px] rounded-xl border-1 border-white">

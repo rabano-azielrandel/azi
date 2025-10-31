@@ -43,7 +43,7 @@ export default function Header() {
       isScrolled
         ? isDarkMode
           ? "bg-theme1-base border-white/10"
-          : "bg-[#d6ae76] border-white/10"
+          : "bg-[#DAB17A] border-white/10"
         : "bg-transparent border-transparent"
     }
   `;
@@ -70,7 +70,9 @@ export default function Header() {
             <Link
               key={index}
               href={item.href}
-              className="text-[14px] text-theme1-secondary relative group-hover/one:opacity-50 group hover:opacity-100 transition-all duration-200 ease-in-out"
+              className={`relative text-[14px] group-hover/one:opacity-50 group hover:opacity-100 transition-all duration-200 ease-in-out ${
+                isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+              } `}
             >
               {item.text}
 

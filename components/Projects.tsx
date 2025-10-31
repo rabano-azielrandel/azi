@@ -18,7 +18,7 @@ const Projects = () => {
       className={`relative mt-60 w-full pt-0 ${
         isDarkMode
           ? "bg-gradient-to-b from-theme-accent2"
-          : "bg-gradient-to-b from-theme2-accent1/85 via-[#3a3f52]/60 to-[#0a0f1a]/10"
+          : "bg-gradient-to-t from-theme2-accent1/10 via-[#3a3f52]/60 to-[#F8C98A]"
       }`}
     >
       <Image
@@ -29,7 +29,7 @@ const Projects = () => {
         className={`absolute -top-92 left-0 object-contain w-fit h-auto ${
           isDarkMode
             ? ""
-            : "bg-gradient-to-t from-[#0a0f1a]/02 via-[#3a3f52]/90 to-[#0a0f1a]/02 "
+            : "bg-gradient-to-t from-[#f6e0b3]/20 via-[#b7b3d9]/10 to-[#0a0f1a]/5 "
         } `}
       />
 

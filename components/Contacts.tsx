@@ -1,7 +1,10 @@
+"use client";
+
 import { main } from "framer-motion/client";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { useTheme } from "@/app/ThemeProvider";
 
 const contact = [
   {
@@ -46,10 +49,16 @@ const socials = [
 ];
 
 const Contacts = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
     <section
       id="contacts"
-      className="relative mt-8 mb-12 w-full px-4 h-[700px] overflow-hidden"
+      className={`relative w-full px-4 h-[700px] overflow-hidden ${
+        isDarkMode
+          ? ""
+          : "bg-gradient-to-b from-theme2-accent1/40 via-[#3a3f52]/60 to-[#3a3f52]/10"
+      }`}
     >
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-12 flex flex-col justify-center items-center">
         <div className="w-full h-screen flex flex-col justify-center items-center gap-8">
@@ -79,10 +88,10 @@ const Contacts = () => {
                     />
 
                     <div className="w-full flex flex-col justify-center items-start pl-6 font-inter">
-                      <p className="text-sm font-extrabold text-theme-accent3">
+                      <p className="text-base font-extrabold text-theme-accent3">
                         {src.Title}
                       </p>
-                      <p className="text-xs font-light text-theme-accent4">
+                      <p className="text-sm font-light text-theme-accent4">
                         {src.Subtitle}
                       </p>
                     </div>
