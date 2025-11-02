@@ -25,7 +25,9 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       <Particles
         className={`fixed top-0 left-0 inset-0 w-full h-full ${
-          isDarkMode ? "" : "bg-gradient-to-b from-[#F7F7F7] to-[#F7F7F7]"
+          isDarkMode
+            ? ""
+            : "bg-gradient-to-b from-[#F5F5F5] via-[#F7F7F7] to-[#F7F7F7]"
         }`}
         quantity={100}
         ease={80}

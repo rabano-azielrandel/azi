@@ -34,7 +34,7 @@ export default function Experience() {
       className={`relative flex h-screen w-full items-center justify-center ${
         isDarkMode
           ? "bg-gradient-to-t from-theme-accent2"
-          : "bg-gradient-to-t from-[#F4F0E5] to-[#5E4075]/10"
+          : "bg-gradient-to-t from-[#e9f1fa] to-[#5E4075]/10"
       }`}
     >
       <div

@@ -18,7 +18,7 @@ const Projects = () => {
       className={`relative mt-60 w-full pt-0 ${
         isDarkMode
           ? "bg-gradient-to-b from-theme-accent2"
-          : "bg-gradient-to-b from-[#F4F0E5] to-[#5E4075]/10"
+          : "bg-gradient-to-b from-[#e9f1fa] to-[#5E4075]/10"
       }`}
     >
       <Image
