@@ -62,9 +62,7 @@ const Hobbies = () => {
       ref={ref}
       id="hobbies"
       className={`relative mt-8 flex h-screen w-full items-center justify-center overflow-hidden ${
-        isDarkMode
-          ? ""
-          : "bg-gradient-to-t from-theme2-accent1/40 via-[#3a3f52]/60 to-[#3a3f52]/2"
+        isDarkMode ? "" : ""
       }`}
     >
       <div

@@ -43,7 +43,7 @@ export default function Header() {
       isScrolled
         ? isDarkMode
           ? "bg-theme1-base border-white/10"
-          : "bg-[#DAB17A] border-white/10"
+          : "bg-[#F7F7F7] border-black/20"
         : "bg-transparent border-transparent"
     }
   `;
@@ -55,11 +55,25 @@ export default function Header() {
           <span
             className={`font-extrabold text-[#f3eaea] text-[20px] tracking-[0px] transition-all font-oswald italic group`}
           >
-            <span className="text-[#e8d8c9] group-hover:text-theme1-accent transition-all">
+            <span
+              className={`${
+                isDarkMode ? "text-[#e8d8c9]" : "text-theme1-base"
+              }  group-hover:text-theme1-accent transition-all`}
+            >
               Aziel
             </span>
-            <span className="text-[#f6ad49]">.</span>
-            <span className="text-theme1-accent group-hover:text-[#e8d8c9] transition-all duration-300 ease-in-out">
+            <span
+              className={`${isDarkMode ? "text-[#f6ad49]" : "text-[#737086]"}`}
+            >
+              .
+            </span>
+            <span
+              className={`text-theme1-accent ${
+                isDarkMode
+                  ? "group-hover:text-[#e8d8c9]"
+                  : "group-hover:text-theme1-base"
+              } transition-all duration-300 ease-in-out`}
+            >
               Randel
             </span>
           </span>
@@ -78,7 +92,9 @@ export default function Header() {
 
               {/* hover */}
               <div
-                className={`group-hover:w-full w-0 h-[2px] bg-theme1-secondary absolute left-0 -bottom-1 transition-all duration-200 ease-in-out rounded-full`}
+                className={`group-hover:w-full w-0 h-[2px]  ${
+                  isDarkMode ? "bg-theme1-secondary" : "bg-theme1-base"
+                } absolute left-0 -bottom-1 transition-all duration-200 ease-in-out rounded-full`}
               />
             </Link>
           ))}

@@ -13,7 +13,7 @@ export default function Hero() {
       className={`relative w-full pt-20  px-4 h-[800px]  overflow-hidden ${
         isDarkMode
           ? "bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
-          : "bg-gradient-to-b from-[#f6e0b3]/90 via-[#b7b3d9]/60 to-[#1b2233]/10"
+          : "bg-gradient-to-b from-[#F7F7F7] via-[#5E4075] to-[#F7F7F7]"
       }`} // original light : bg-gradient-to-b from-[#f8c98a]/80 via-[#3a3f52]/60 to-[#0a0f1a]/20
     >
       <ParticlesBackground />
@@ -70,7 +70,11 @@ export default function Hero() {
               className="absolute bottom-25 -right-45 flex items-center gap-2 h-fit"
             >
               <div className="w-[120px] h-[5px] rounded-full bg-theme1-accent" />
-              <span className="text-theme1-secondary  text-[15px] font-bold">
+              <span
+                className={` ${
+                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                } text-[15px] font-bold`}
+              >
                 VIEW PROJECTS
               </span>
             </Link>
@@ -79,14 +83,30 @@ export default function Hero() {
           {/* text */}
           <div className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto">
             <h1 className="w-fit font-oswald font-bold text-5xl z-50">
-              <span className="text-theme1-secondary">AZIEL </span>
+              <span
+                className={`${
+                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                }`}
+              >
+                AZIEL{" "}
+              </span>
               <span className="text-theme1-accent">RANDEL</span>
             </h1>
             <p className="relative tracking-[6px] text-[14px]">
               <span className="text-theme1-accent font-bold">SOFTWARE</span>{" "}
               <span className="text-theme1-accent"> / </span>
-              <span className="text-theme1-secondary ">WEB DEVELOPER</span>
-              <span className="absolute top-0 -right-1 w-[3px] h-full bg-white animate-fade-pulse" />
+              <span
+                className={`${
+                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                }`}
+              >
+                WEB DEVELOPER
+              </span>
+              <span
+                className={`absolute top-0 -right-1 w-[3px] h-full ${
+                  isDarkMode ? "bg-white" : "bg-gray-700"
+                } animate-fade-pulse`}
+              />
             </p>
           </div>
         </div>

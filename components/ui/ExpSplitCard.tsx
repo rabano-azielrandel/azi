@@ -1,5 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
+import { useTheme } from "@/app/ThemeProvider";
 
 type DataInterface = {
   backgroundImage: string;
@@ -20,6 +23,7 @@ const getRoundedClass = (idx: number) => {
 const ExpSplitCard = ({ data }: ExpCardProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [flipped, setFlipped] = useState<number | null>(null);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const handleFlip = (idx: number) => {
     setFlipped(flipped === idx ? null : idx);
@@ -41,11 +45,14 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
             } group-hover:rounded-xl overflow-hidden`}
           >
             <div
-              className={`absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center ${
-                flipped == idx
-                  ? "bg-[#18161B] border-1 border-white rounded-xl"
-                  : "bg-[#18161B]/40"
-              }`}
+              className={`absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center 
+                ${
+                  flipped == idx
+                    ? isDarkMode
+                      ? "bg-[#18161B] border-1 border-white rounded-xl"
+                      : "bg-[#18161B]/40"
+                    : ""
+                } `}
             >
               <h2
                 className={`text-2xl font-extrabold text-theme-accent3 opacity-0 transition-all duration-400 ease-[cubic-bezier(0.37, 0, 0.63, 1)] ${

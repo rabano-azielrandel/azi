@@ -34,14 +34,18 @@ export default function Experience() {
       className={`relative flex h-screen w-full items-center justify-center ${
         isDarkMode
           ? "bg-gradient-to-t from-theme-accent2"
-          : "bg-gradient-to-b from-[#f8c98a]/10 via-[#f8c98a]/60 to-[#F8C98A]/95"
+          : "bg-gradient-to-t from-[#F4F0E5] to-[#5E4075]/10"
       }`}
     >
       <div
         className="relative w-full h-[80%] max-w-[1360px] p-2 gap-4
       flex flex-col justify-center items-center z-10"
       >
-        <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center select-none cursor-default">
+        <h2
+          className={`text-4xl font-oswald font-semibold text-center ${
+            isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+          } select-none cursor-default`}
+        >
           Chapters In My Path
         </h2>
 

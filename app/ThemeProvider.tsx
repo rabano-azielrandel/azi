@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, ReactNode, createContext, useContext } from "react";
+import { Particles } from "@/components/ui/shadcn-io/particles";
 
 interface ThemeContextType {
   isDarkMode: boolean;
@@ -22,6 +23,16 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+      <Particles
+        className={`fixed top-0 left-0 inset-0 w-full h-full ${
+          isDarkMode ? "" : "bg-gradient-to-b from-[#F7F7F7] to-[#F7F7F7]"
+        }`}
+        quantity={100}
+        ease={80}
+        staticity={50}
+        color={` ${isDarkMode ? "#FFFFFF" : "#4B5563"}`}
+        size={0.8}
+      />
       {children}
     </ThemeContext.Provider>
   );

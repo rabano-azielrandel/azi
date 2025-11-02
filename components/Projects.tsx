@@ -18,7 +18,7 @@ const Projects = () => {
       className={`relative mt-60 w-full pt-0 ${
         isDarkMode
           ? "bg-gradient-to-b from-theme-accent2"
-          : "bg-gradient-to-t from-theme2-accent1/10 via-[#3a3f52]/60 to-[#F8C98A]"
+          : "bg-gradient-to-b from-[#F4F0E5] to-[#5E4075]/10"
       }`}
     >
       <Image
@@ -26,10 +26,8 @@ const Projects = () => {
         alt="wave"
         width={1920}
         height={500}
-        className={`absolute -top-92 left-0 object-contain w-fit h-auto ${
-          isDarkMode
-            ? ""
-            : "bg-gradient-to-t from-[#f6e0b3]/20 via-[#b7b3d9]/10 to-[#0a0f1a]/5 "
+        className={`absolute -top-92 left-0 object-contain w-fit h-fit ${
+          isDarkMode ? "" : ""
         } `}
       />
 
@@ -40,7 +38,7 @@ const Projects = () => {
         <div className="w-full h-full flex gap-4">
           <div
             className={`w-[67%] h-auto rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
             } border-1 border-white/30`}
           >
             <Bot />
@@ -48,7 +46,7 @@ const Projects = () => {
 
           <div
             className={`w-[33%] h-auto rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
             } border-1 border-white/30`}
           >
             <DiceCard
@@ -61,7 +59,7 @@ const Projects = () => {
         <div className="w-full h-full flex gap-4">
           <div
             className={`w-full rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
             } border-1 border-white/30`}
           >
             <SplitCard />
@@ -69,7 +67,7 @@ const Projects = () => {
 
           <div
             className={`w-full rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
             } border-1 border-white/30`}
           >
             <RippleCard
@@ -81,7 +79,7 @@ const Projects = () => {
 
           <div
             className={`w-full rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#232A36]"
+              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
             } border-1 border-white/30`}
           >
             <FanCard

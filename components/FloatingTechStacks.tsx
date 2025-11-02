@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useTheme } from "@/app/ThemeProvider";
 
 type FloatingTechStacksProps = {
   position: "left" | "right";
@@ -9,6 +10,7 @@ type FloatingTechStacksProps = {
 const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
   position,
 }) => {
+  const { isDarkMode, toggleTheme } = useTheme();
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
@@ -25,12 +27,10 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
         position === "left" ? "-left-60" : "-right-60"
       } absolute w-full max-w-[400px] h-[50%] my-a flex items-center justify-center`}
     >
-           {" "}
       <div
         className="absolute w-full h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `rotate(${rotation}deg)` }}
       >
-               {" "}
         {techStacks.map((tech, index) => (
           <div
             key={tech.name + index}
@@ -41,24 +41,22 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
               }deg) translateY(-120px)`, // change the traslate Y to compress items
             }}
           >
-                       {" "}
             <img
               src={tech.src}
               alt={tech.name}
-              className="w-22 h-22 rounded-xl p-4 bg-[#352222] drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
-               hover:scale-125 transition-transform duration-200 border border-white/20 grayscale-[50%]"
+              className={`w-22 h-22 rounded-xl p-4 ${
+                isDarkMode ? "bg-[#352222] grayscale-[50%]" : "bg-[#F8F9ED]"
+              } drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
+              hover:scale-125 transition-transform duration-200 border border-white/20`}
               style={{
                 transform: `rotate(-${
                   (360 / techStacks.length) * index + rotation
                 }deg)`,
               }}
             />
-                     {" "}
           </div>
         ))}
-             {" "}
       </div>
-         {" "}
     </div>
   );
 };
