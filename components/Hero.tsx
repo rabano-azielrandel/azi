@@ -13,7 +13,7 @@ export default function Hero() {
       className={`relative w-full pt-20  px-4 h-[800px]  overflow-hidden ${
         isDarkMode
           ? "bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
-          : "bg-gradient-to-b from-[#F7F7F7] via-[#5E4075] to-[#F7F7F7]"
+          : "bg-gradient-to-b from-[#F7F7F7] via-[#2f486d]/50 to-[#F7F7F7]"
       }`} // original light : bg-gradient-to-b from-[#f8c98a]/80 via-[#3a3f52]/60 to-[#0a0f1a]/20
     >
       <ParticlesBackground />

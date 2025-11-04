@@ -37,17 +37,21 @@ const Projects = () => {
       >
         <div className="w-full h-full flex gap-4">
           <div
-            className={`w-[67%] h-auto rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
-            } border-1 border-white/30`}
+            className={`w-[67%] h-auto rounded-xl p-4 border-1 ${
+              isDarkMode
+                ? "bg-[#18161B] border-white/30"
+                : "bg-[#dce6f0] border-black/30"
+            }`}
           >
             <Bot />
           </div>
 
           <div
-            className={`w-[33%] h-auto rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
-            } border-1 border-white/30`}
+            className={`w-[33%] h-auto rounded-xl p-4 border-1 ${
+              isDarkMode
+                ? "bg-[#18161B] border-white/30"
+                : "bg-[#dce6f0] border-black/30"
+            }`}
           >
             <DiceCard
               title="DIGITAL PAYSLIP"
@@ -58,17 +62,21 @@ const Projects = () => {
 
         <div className="w-full h-full flex gap-4">
           <div
-            className={`w-full rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
-            } border-1 border-white/30`}
+            className={`w-full rounded-xl p-4 border-1 ${
+              isDarkMode
+                ? "bg-[#18161B] border-white/30"
+                : "bg-[#dce6f0] border-black/30"
+            }`}
           >
             <SplitCard />
           </div>
 
           <div
-            className={`w-full rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
-            } border-1 border-white/30`}
+            className={`w-full rounded-xl p-4 border-1 ${
+              isDarkMode
+                ? "bg-[#18161B] border-white/30"
+                : "bg-[#dce6f0] border-black/30"
+            }`}
           >
             <RippleCard
               image="project-resort-management.jpg"
@@ -78,9 +86,11 @@ const Projects = () => {
           </div>
 
           <div
-            className={`w-full rounded-xl p-4 ${
-              isDarkMode ? "bg-[#18161B]" : "bg-[#020b21]"
-            } border-1 border-white/30`}
+            className={`w-full rounded-xl p-4 border-1 ${
+              isDarkMode
+                ? "bg-[#18161B] border-white/30"
+                : "bg-[#dce6f0]  border-black/30"
+            }`}
           >
             <FanCard
               title="TRUCK SCALE"

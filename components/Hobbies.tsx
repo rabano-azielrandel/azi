@@ -69,13 +69,21 @@ const Hobbies = () => {
         className="relative w-full max-w-[1360px] p-2 gap-4
       flex flex-col justify-center items-center overflow-hidden"
       >
-        <h2 className="text-4xl font-oswald font-semibold text-theme1-secondary text-center">
+        <h2
+          className={`text-4xl font-oswald font-semibold text-center ${
+            isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+          } select-none cursor-default`}
+        >
           Between Logic and Art
         </h2>
         {/* Labels */}
         <div className="w-full flex items-center justify-between px-10 transition-opacity duration-500">
           {/* Category Text (Left Side) */}
-          <h2 className="text-theme1-secondary text-xl font-semibold">
+          <h2
+            className={`${
+              isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+            } text-xl font-semibold`}
+          >
             {category === "anime"
               ? "Stories That Echo"
               : category === "music"
@@ -95,14 +103,15 @@ const Hobbies = () => {
                 width={48}
                 height={48}
                 onClick={() => setIndex(i)}
-                className={`w-12 h-12 object-cover rounded-full border border-white/30 cursor-pointer 
-                transition-all duration-300 
-                hover:scale-110 
-                ${
-                  i === index
-                    ? "scale-110 border-white filter invert-[93%] sepia-[11%] saturate-[234%] hue-rotate-[323deg] brightness-[100%] contrast-[90%]"
-                    : "opacity-60 hover:opacity-100"
-                }`}
+                className={`w-12 h-12 object-cover rounded-full border cursor-pointer 
+                  transition-all duration-300 hover:scale-110
+                  ${
+                    i === index
+                      ? isDarkMode
+                        ? "scale-110 border-white filter invert-[93%] sepia-[11%] saturate-[234%] hue-rotate-[323deg] brightness-[100%] contrast-[90%]"
+                        : "scale-110 border-black"
+                      : "border-white/30 opacity-60 hover:opacity-100"
+                  }`}
               />
             ))}
           </div>
