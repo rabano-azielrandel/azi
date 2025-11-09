@@ -10,17 +10,17 @@ const expData = [
   {
     backgroundImage: "/images/EXP1.jpg",
     label: "INTERN",
-    p: "Intern at Toyota Bataan Inc., focused on design and computer servicing.",
+    p: "Interned at Toyota Bataan Inc., focusing on design tasks and computer servicing to support the company’s technical operations.",
   },
   {
     backgroundImage: "/images/EXP2.jpg",
     label: "FREELANCE",
-    p: "Freelance developer for Resort and Truck Scale Systems, mainly backend-focused.",
+    p: "Worked as a freelance developer on resort management and truck scale systems, focusing on backend functionality and system reliability.",
   },
   {
     backgroundImage: "/images/EXP3.jpg",
     label: "CORPORATE",
-    p: "Full Stack .NET dev for Payroll and HR systems, led Payslip Automation.",
+    p: "Served as a Full Stack .NET Developer for Payroll and HR systems, leading the design and deployment of Payslip Automation features.",
   },
 ];
 

@@ -5,9 +5,9 @@ import SplitCard from "./ui/SplitCard";
 import RippleCard from "./ui/RippleCard";
 import FanCard from "./ui/FanCard";
 import DiceCard from "./ui/DiceCard";
-import RegCard from "./ui/RegCard";
 import Bot from "./ui/Bot";
 import Image from "next/image";
+import Wave from "./ui/Wave";
 import { useTheme } from "../app/ThemeProvider";
 
 const Projects = () => {
@@ -21,16 +21,15 @@ const Projects = () => {
           : "bg-gradient-to-b from-[#e9f1fa] to-[#5E4075]/10"
       }`}
     >
-      <Image
-        src={isDarkMode ? "/images/wave_dark.svg" : "/images/wave_light.svg"}
-        alt="wave"
-        width={1920}
-        height={500}
-        className={`absolute -top-92 left-0 object-contain w-fit h-fit ${
-          isDarkMode ? "" : ""
-        } `}
-      />
+      {/* Wave */}
+      <div className="absolute -top-92 left-0 w-[1920px] h-fit">
+        <Wave
+          isDarkMode={isDarkMode}
+          className="absolute object-contain w-fit h-fit"
+        />
+      </div>
 
+      {/* Content */}
       <div
         className="relative w-full max-w-[1360px] pt-20 pb-40 mx-auto gap-x-2 gap-y-4
       flex flex-col justify-center items-center"

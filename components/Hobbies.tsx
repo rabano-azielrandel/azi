@@ -61,9 +61,7 @@ const Hobbies = () => {
     <section
       ref={ref}
       id="hobbies"
-      className={`relative mt-8 flex h-screen w-full items-center justify-center overflow-hidden ${
-        isDarkMode ? "" : ""
-      }`}
+      className={`relative mt-8 flex h-screen w-full items-center justify-center overflow-hidden`}
     >
       <div
         className="relative w-full max-w-[1360px] p-2 gap-4
@@ -123,9 +121,17 @@ const Hobbies = () => {
             onClick={handlePrev}
             className="w-fit hover:scale-185 cursor-pointer"
           >
-            <ChevronLeft className="w-8 h-8 text-white" />
+            <ChevronLeft
+              className={`w-8 h-8 ${
+                isDarkMode ? "text-white" : "text-gray-700"
+              }`}
+            />
           </button>
-          <div className="relative w-full flex items-center p-2 gap-1 bg-white/3 border-1 border-white/30 rounded-2xl">
+          <div
+            className={`relative w-full flex items-center p-2 gap-1 bg-white/3 rounded-2xl border-1  ${
+              isDarkMode ? "border-white/30" : "border-gray-700"
+            } `}
+          >
             {hobbySets[category].map((img, idx) => (
               <React.Fragment key={`${category}-${idx}`}>
                 <ColumnCarousel
@@ -137,7 +143,11 @@ const Hobbies = () => {
 
                 {/* Divider */}
                 {idx < hobbySets[category].length - 1 && (
-                  <div className="w-[8px] h-[500px] bg-theme1-secondary/50 mx-2 rounded-full" />
+                  <div
+                    className={`w-[8px] h-[500px] mx-2 rounded-full ${
+                      isDarkMode ? "bg-theme1-secondary/50" : "bg-theme1-base"
+                    }`}
+                  />
                 )}
               </React.Fragment>
             ))}
@@ -146,7 +156,11 @@ const Hobbies = () => {
             onClick={handleNext}
             className="w-fit hover:scale-185 cursor-pointer"
           >
-            <ChevronRight className="w-8 h-8 text-white" />
+            <ChevronRight
+              className={`w-8 h-8 ${
+                isDarkMode ? "text-white" : "text-gray-700"
+              }`}
+            />
           </button>
         </div>
       </div>

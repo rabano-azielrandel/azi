@@ -50,7 +50,7 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
                   flipped == idx
                     ? isDarkMode
                       ? "bg-[#18161B] border-1 border-white rounded-xl"
-                      : "bg-[#18161B]/40"
+                      : "bg-[#18161B] border-1 border-black rounded-xl"
                     : ""
                 } `}
             >

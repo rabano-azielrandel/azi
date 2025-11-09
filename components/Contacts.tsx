@@ -55,14 +55,16 @@ const Contacts = () => {
     <section
       id="contacts"
       className={`relative w-full px-4 h-[700px] overflow-hidden ${
-        isDarkMode
-          ? ""
-          : "bg-gradient-to-b from-theme2-accent1/40 via-[#3a3f52]/60 to-[#3a3f52]/10"
+        isDarkMode ? "" : "bg-gradient-to-t from-[#939FB2]"
       }`}
     >
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-12 flex flex-col justify-center items-center">
         <div className="w-full h-screen flex flex-col justify-center items-center gap-8">
-          <p className="text-6xl font-oswald text-theme1-secondary select-none cursor-default">
+          <p
+            className={`text-6xl font-oswald select-none cursor-default ${
+              isDarkMode ? "text-theme1-secondary" : "text-theme-accent2"
+            }`}
+          >
             Get in touch
           </p>
           <div className="w-full flex items-center">
@@ -82,16 +84,29 @@ const Contacts = () => {
                       draggable={false}
                       className="transition-transform duration-300 ease-[cubic-bezier(.03,.98,.52,.99)] group-hover:scale-110"
                       style={{
-                        filter:
-                          "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
+                        filter: isDarkMode
+                          ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
+                          : "none",
                       }}
                     />
 
                     <div className="w-full flex flex-col justify-center items-start pl-6 font-inter">
-                      <p className="text-base font-extrabold text-theme-accent3">
+                      <p
+                        className={`text-base font-extrabold ${
+                          isDarkMode
+                            ? "text-theme-accent3"
+                            : "text-theme-dark-accent3"
+                        }`}
+                      >
                         {src.Title}
                       </p>
-                      <p className="text-sm font-light text-theme-accent4">
+                      <p
+                        className={`text-sm font-light ${
+                          isDarkMode
+                            ? "text-theme-accent4"
+                            : "text-theme-dark-accent4"
+                        }`}
+                      >
                         {src.Subtitle}
                       </p>
                     </div>
@@ -100,7 +115,11 @@ const Contacts = () => {
               </div>
 
               <div className="w-full pl-4">
-                <p className="text-xl text-theme1-secondary font-semibold select-none cursor-default">
+                <p
+                  className={`txt-xl font-semibold select-none cursor-default ${
+                    isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                  }`}
+                >
                   Visit Me
                 </p>
               </div>
@@ -122,8 +141,9 @@ const Contacts = () => {
                       draggable={false}
                       className="cursor-pointer"
                       style={{
-                        filter:
-                          "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
+                        filter: isDarkMode
+                          ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
+                          : "none",
                       }}
                     />
                   </Link>
@@ -137,7 +157,11 @@ const Contacts = () => {
                 <input
                   id="name"
                   type="text"
-                  className="w-full px-3 py-2 rounded-md text-theme1-secondary border border-theme1-secondary focus:border-theme-accent1 focus:outline-none placeholder:[var(bg-theme-accent4)]"
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
+                    isDarkMode
+                      ? "text-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                  }`}
                   placeholder="Name"
                   required
                 />
@@ -145,7 +169,11 @@ const Contacts = () => {
                 <input
                   id="email"
                   type="email"
-                  className="w-full px-3 py-2 rounded-md text-theme1-secondary border border-theme1-secondary focus:border-theme-accent1 focus:outline-none"
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
+                    isDarkMode
+                      ? "text-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                  }`}
                   placeholder="Email"
                   required
                 />
@@ -153,7 +181,11 @@ const Contacts = () => {
                 <input
                   id="subject"
                   type="subject"
-                  className="w-full px-3 py-2 rounded-md text-theme1-secondary border border-theme1-secondary focus:border-theme-accent1 focus:outline-none"
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
+                    isDarkMode
+                      ? "text-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                  }`}
                   placeholder="Subject"
                   required
                 />
@@ -161,7 +193,11 @@ const Contacts = () => {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-3 py-2 rounded-md text-white border border-theme1-secondary focus:border-theme-accent1 focus:outline-none resize-none"
+                  className={`w-full px-3 py-2 rounded-md resize-none focus:outline-none border ${
+                    isDarkMode
+                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-base placeholder-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                  }`}
                   placeholder="Write your message here..."
                   required
                 />

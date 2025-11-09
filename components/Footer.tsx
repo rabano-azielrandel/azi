@@ -32,15 +32,17 @@ export default function Footer() {
 
   return (
     <div
-      className={`relative w-full bottom-0 z-10 flex flex-col items-center justify-center gap-32 ${
-        isDarkMode
-          ? ""
-          : "bg-gradient-to-t from-theme2-accent1/20 via-[#3a3f52]/20 to-[#3a3f52]/10"
+      className={`relative w-full z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
+        isDarkMode ? "" : "bg-[#939FB2]"
       }`}
     >
       <div className="relative w-full max-w-[1360px] p-2 gap-4 flex flex-col justify-center items-center">
         {/* Image */}
-        <div className="relative w-full h-[200px] rounded-xl border-1 border-white">
+        <div
+          className={`relative w-full h-[200px] rounded-xl border-1 ${
+            isDarkMode ? "border-white" : "border-black"
+          }`}
+        >
           <Image
             src="/images/footery.jpg"
             alt="black hole"
@@ -53,7 +55,11 @@ export default function Footer() {
         <div className="w-full flex items-start gap-16 mb-10">
           {/* FOOTER TITLE */}
           <div className="w-[30%] min-w-96 h-full flex flex-col gap-8 select-none cursor-default">
-            <h2 className="font-semibold leading-snug text-4xl text-theme-accent3">
+            <h2
+              className={`font-semibold leading-snug text-4xl ${
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+              } `}
+            >
               Got an Idea? <br /> Let’s Make It Real.
             </h2>
             <p className="font-light leading-tight text-sm text-theme-accent4">
@@ -63,12 +69,22 @@ export default function Footer() {
 
           {/* Nav Links */}
           <div className="w-fit min-w-32 h-full flex flex-col items-start justify-center gap-2">
-            <h3 className="font-extrabold mb-4 text-theme-accent3">
+            <h3
+              className={`font-extrabold mb-4 ${
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+              }`}
+            >
               Quick Links
             </h3>
 
             {links.map((src, idx) => (
-              <Link key={idx} href={src.href} className="text-theme-accent4">
+              <Link
+                key={idx}
+                href={src.href}
+                className={`${
+                  isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
+                }`}
+              >
                 {src.text}
               </Link>
             ))}
@@ -76,12 +92,22 @@ export default function Footer() {
 
           {/* Assets Credits */}
           <div className="w-fit min-w-32 h-full flex flex-col items-start justify-center gap-2">
-            <h3 className="font-extrabold mb-4 text-theme-accent3">
+            <h3
+              className={`font-extrabold mb-4 ${
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+              }`}
+            >
               Resources
             </h3>
 
             {asset.map((src, idx) => (
-              <Link key={idx} href={src.href} className="text-theme-accent4">
+              <Link
+                key={idx}
+                href={src.href}
+                className={`${
+                  isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
+                }`}
+              >
                 {src.text}
               </Link>
             ))}
@@ -89,12 +115,22 @@ export default function Footer() {
 
           {/* Stacks */}
           <div className="w-fit min-w-32  h-full flex flex-col items-start justify-center gap-2">
-            <h3 className="font-extrabold mb-4 text-theme-accent3">
+            <h3
+              className={`font-extrabold mb-4 ${
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+              }`}
+            >
               Built With
             </h3>
 
             {stacks.map((src, idx) => (
-              <Link key={idx} href={src.href} className="text-theme-accent4">
+              <Link
+                key={idx}
+                href={src.href}
+                className={`${
+                  isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
+                }`}
+              >
                 {src.text}
               </Link>
             ))}
@@ -102,11 +138,19 @@ export default function Footer() {
 
           {/* Message */}
           <div className="w-fit min-w-32 h-full flex flex-col items-start justify-center gap-2 select-none cursor-default">
-            <h3 className="font-extrabold mb-2 text-theme-accent3">
+            <h3
+              className={`font-extrabold mb-2 ${
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+              }`}
+            >
               Behind the Code
             </h3>
 
-            <p className="text-wrap text-theme-accent4">
+            <p
+              className={`text-wrap ${
+                isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
+              }`}
+            >
               A product of fleeting midnight moments, persistence, and
               unwavering passion.
             </p>
