@@ -22,11 +22,11 @@ const getRoundedClass = (idx: number) => {
 
 const ExpSplitCard = ({ data }: ExpCardProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [flipped, setFlipped] = useState<number | null>(null);
+  const [clicked, setClicked] = useState<number | null>(null);
   const { isDarkMode, toggleTheme } = useTheme();
 
-  const handleFlip = (idx: number) => {
-    setFlipped(flipped === idx ? null : idx);
+  const handdleClick = (idx: number) => {
+    setClicked(clicked === idx ? null : idx);
   };
 
   return (
@@ -35,33 +35,32 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
         {data.map((src, idx) => (
           <div
             key={idx}
-            onClick={() => handleFlip(idx)}
+            onClick={() => handdleClick(idx)}
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
             className={`relative h-[600px] w-[33.3%] flex-none flex justify-center items-center ${getRoundedClass(
               idx
-            )} transition-all duration-700 ease-[cubic-bezier(0.37, 0, 0.63, 1)] ${
-              flipped == idx ? "rotate-y-180" : ""
-            } group-hover:rounded-xl overflow-hidden`}
+            )} transition-all duration-700 ease-[cubic-bezier(0.37, 0, 0.63, 1)] group-hover:rounded-xl overflow-hidden`}
           >
             <div
-              className={`absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center 
+              className={`absolute top-0 left-0 h-full w-full flex flex-col justify-end items-center
                 ${
-                  flipped == idx
+                  clicked == idx
                     ? isDarkMode
-                      ? "bg-[#18161B] border-1 border-white rounded-xl"
-                      : "bg-[#18161B] border-1 border-black rounded-xl"
+                      ? " border-1 border-white rounded-xl"
+                      : " border-1 border-black rounded-xl"
                     : ""
                 } `}
             >
               <h2
-                className={`text-2xl font-extrabold text-theme-accent3 opacity-0 transition-all duration-400 ease-[cubic-bezier(0.37, 0, 0.63, 1)] ${
-                  flipped == idx
-                    ? "opacity-0"
-                    : hoveredIndex == idx
-                    ? "opacity-100 -translate-y-3"
-                    : "opacity-0 translate-y-0"
-                } select-none`}
+                className={`text-2xl font-extrabold text-[#F7F7F7] opacity-0 transition-all duration-400 ease-[cubic-bezier(0.37, 0, 0.63, 1)] 
+                  mb-30 ${
+                    hoveredIndex == idx
+                      ? clicked == idx
+                        ? ""
+                        : "opacity-100 -translate-y-3 z-10"
+                      : "opacity-0 translate-y-0"
+                  } select-none`}
               >
                 {src.label}
               </h2>
@@ -71,22 +70,29 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
               alt={"EXP"}
               height={400}
               width={800}
-              className="object-contain"
+              className={`object-contain transition-transform duration-700 ease-[cubic-bezier(0.37,0,0.63,1)] ${
+                clicked == idx ? "scale-110" : "scale-100"
+              } ${
+                hoveredIndex == idx && clicked !== idx
+                  ? "brightness-90"
+                  : "brightness-100"
+              }`}
             />
             <div
-              className={`absolute top-0 left-0 h-full w-full flex flex-col gap-2 justify-center items-start p-8 transition-all duration-200 ease-in-out ${
-                flipped == idx
-                  ? "rounded-xl opacity-100 rotate-y-180 "
-                  : "opacity-0"
-              }`}
+              className={`absolute inset-0 h-full w-full flex flex-col gap-2 justify-center items-start p-8 transition-all duration-700 
+                ease-[cubic-bezier(0.37, 0, 0.63, 1)] ${
+                  clicked == idx
+                    ? "rounded-xl opacity-100 translate-y-0 bg-gray-700/20"
+                    : "rounded-xl opacity-0 translate-y-full"
+                }`}
             >
               <h2
-                className={`text-2xl font-extrabold text-theme-accent3 select-none`}
+                className={`text-2xl font-extrabold text-[#F7F7F7] select-none`}
               >
                 {src.label}
               </h2>
               <p
-                className={`text-wrap text-md text-theme-accent4 leading-snug font-normal tracking-normal select-none`}
+                className={`text-wrap text-md text-gray-200 leading-snug font-normal tracking-normal select-none`}
               >
                 {src.p}
               </p>

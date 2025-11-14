@@ -97,6 +97,7 @@ const Contacts = () => {
                             ? "text-theme-accent3"
                             : "text-theme-dark-accent3"
                         }`}
+                        style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                       >
                         {src.Title}
                       </p>
@@ -106,6 +107,7 @@ const Contacts = () => {
                             ? "text-theme-accent4"
                             : "text-theme-dark-accent4"
                         }`}
+                        style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                       >
                         {src.Subtitle}
                       </p>
@@ -119,6 +121,7 @@ const Contacts = () => {
                   className={`txt-xl font-semibold select-none cursor-default ${
                     isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
                   }`}
+                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                 >
                   Visit Me
                 </p>
@@ -204,7 +207,12 @@ const Contacts = () => {
 
                 <button
                   type="submit"
-                  className="mt-2 py-2 px-4 rounded-md bg-theme-accent1 text-theme1-base font-medium hover:bg-theme1-accent hover:cursor-pointer transition-colors"
+                  className={`mt-2 py-2 px-4 rounded-md text-theme1-base font-medium hover:text-white hover:cursor-pointer transition-colors 
+                    border  ${
+                      isDarkMode
+                        ? "border-white bg-theme1-secondary hover:bg-theme1-base  "
+                        : "border-black bg-[#F7F7F7] hover:bg-[#A4AEBE] "
+                    }`}
                 >
                   Send Message
                 </button>

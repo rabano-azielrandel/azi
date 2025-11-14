@@ -28,14 +28,14 @@ export default function SplitCard() {
       <div className="w-full h-1/5 flex flex-col items-start justify-center py-4 gap-1">
         <h2
           className={`text-lg font-extrabold ${
-            isDarkMode ? "text-theme-accent3" : "text-[#e85c0d]"
+            isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
           } leading-tight tracking-wider`}
         >
           FILENGGWAHE
         </h2>
         <p
           className={`text-xs ${
-            isDarkMode ? "text-theme-accent4" : "text-[#7a2dc9]"
+            isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
           }  leading-snug font-normal tracking-normal`}
         >
           A cursive writing assistant using ANN & NLP.

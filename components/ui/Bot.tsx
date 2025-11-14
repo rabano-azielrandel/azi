@@ -10,10 +10,10 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 export default function Bot() {
   const { isDarkMode, toggleTheme } = useTheme();
   return (
-    <section className="relative w-full h-[400px] rounded-xl overflow-hidden">
+    <section className="relative w-full h-[360px] rounded-xl overflow-hidden">
       {/* Dark Mode Spline */}
       <div
-        className={`absolute inset-0 transition-opacity duration-200 ${
+        className={`absolute w-full h-[400px] inset-0 transition-opacity duration-200 ${
           isDarkMode ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -22,7 +22,7 @@ export default function Bot() {
 
       {/* Light Mode Spline */}
       <div
-        className={`absolute inset-0 transition-opacity duration-200 ${
+        className={`absolute w-full h-[400px] inset-0 transition-opacity duration-200 ${
           isDarkMode ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
