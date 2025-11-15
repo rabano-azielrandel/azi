@@ -52,12 +52,12 @@ export default function Footer() {
         </div>
 
         {/* Text */}
-        <div className="w-full flex items-start gap-16 mb-10">
+        <div
+          className="w-full flex items-start gap-16 mb-10"
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
+        >
           {/* FOOTER TITLE */}
-          <div
-            className="w-[30%] min-w-96 h-full flex flex-col gap-8 select-none cursor-default"
-            style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
-          >
+          <div className="w-[30%] min-w-96 h-full flex flex-col gap-8 select-none cursor-default">
             <h2
               className={`font-semibold leading-snug text-4xl ${
                 isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"

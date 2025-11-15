@@ -42,8 +42,9 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
               idx
             )} transition-all duration-700 ease-[cubic-bezier(0.37, 0, 0.63, 1)] group-hover:rounded-xl overflow-hidden`}
           >
+            {/* HOVER */}
             <div
-              className={`absolute top-0 left-0 h-full w-full flex flex-col justify-end items-center
+              className={`absolute top-0 left-0 h-full w-full flex flex-col justify-end items-start pl-8
                 ${
                   clicked == idx
                     ? isDarkMode
@@ -78,12 +79,13 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
                   : "brightness-100"
               }`}
             />
+            {/* CLICK */}
             <div
               className={`absolute inset-0 h-full w-full flex flex-col gap-2 justify-center items-start p-8 transition-all duration-700 
                 ease-[cubic-bezier(0.37, 0, 0.63, 1)] ${
                   clicked == idx
-                    ? "rounded-xl opacity-100 translate-y-0 bg-gray-700/20"
-                    : "rounded-xl opacity-0 translate-y-full"
+                    ? "rounded-xl opacity-100 -translate-y-10 bg-gray-700/20"
+                    : "rounded-xl opacity-0 translate-y-40"
                 }`}
             >
               <h2
