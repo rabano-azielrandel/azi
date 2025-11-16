@@ -9,7 +9,7 @@ interface ThemeSwitchProps {
 
 const ThemeSwitch = ({ checked, onToggle }: ThemeSwitchProps) => {
   return (
-    <label className="theme-switch">
+    <label className="theme-switch !ml-auto lg:ml-0">
       <input
         type="checkbox"
         checked={checked}

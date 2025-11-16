@@ -34,23 +34,23 @@ export default function Header() {
     };
   }, []);
 
-  const headerClasses = `
-    w-full h-[50px] max-w-fit px-6 py-2 
-    rounded-2xl mx-auto flex items-center justify-center gap-10 border
-    shadow-[rgba(0,0,0,0.19)_0px_10px_20px,rgba(0,0,0,0.23)_0px_6px_6px] p-4
-    transition-all duration-300 ease-in-out
-    ${
-      isScrolled
-        ? isDarkMode
-          ? "bg-theme1-base border-white/10"
-          : "bg-[#e9f1fa] border-black/20"
-        : "bg-transparent border-transparent"
-    }
-  `;
-
   return (
-    <div className="fixed top-0 z-50 w-full px-4 pt-[30px]">
-      <div className={headerClasses}>
+    <div className="absolute lg:fixed top-0 z-50 w-full px-4 pt-[30px]">
+      <div
+        className={`
+          w-full h-[50px] lg:max-w-fit px-0 lg:px-6 py-2 
+          rounded-2xl mx-auto flex items-center justify-start lg:justify-center gap-4 lg:gap-10 border
+          shadow-[rgba(0,0,0,0.19)_0px_10px_20px,rgba(0,0,0,0.23)_0px_6px_6px] p-4
+          transition-all duration-300 ease-in-out
+          ${
+            isScrolled
+              ? isDarkMode
+                ? "lg:bg-theme1-base lg:border-white/10"
+                : "lg:bg-[#e9f1fa] lg:border-black/20"
+              : "bg-transparent border-transparent"
+          }
+        `}
+      >
         <Link href={""}>
           <span
             className={`font-extrabold text-[#f3eaea] text-[20px] tracking-[0px] transition-all font-oswald italic group`}
@@ -79,7 +79,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="flex gap-4 group/one">
+        <nav className="hidden lg:flex gap-4 group/one">
           {navLinks.map((item, index) => (
             <Link
               key={index}
@@ -101,6 +101,18 @@ export default function Header() {
         </nav>
 
         <ThemeSwitch checked={isDarkMode} onToggle={toggleTheme} />
+
+        <button className="lg:hidden">
+          <Image
+            src="/images/hamburger.png"
+            alt="hamburger"
+            width={30}
+            height={30}
+            className={` ${
+              isDarkMode ? "invert" : ""
+            } object-cover w-[20px] h-[20px]`}
+          />
+        </button>
       </div>
     </div>
   );

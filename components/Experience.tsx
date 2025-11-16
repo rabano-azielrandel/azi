@@ -31,14 +31,14 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className={`relative flex h-screen w-full items-center justify-center ${
+      className={`relative w-full  ${
         isDarkMode
           ? "bg-gradient-to-t from-theme-accent2"
           : "bg-gradient-to-t from-[#e9f1fa] to-[#5E4075]/10"
       }`}
     >
       <div
-        className="relative w-full h-[80%] max-w-[1360px] p-2 gap-4
+        className="relative w-full max-w-[1360px] mx-auto p-2 gap-4
       flex flex-col justify-center items-center z-10"
       >
         <h2
@@ -49,11 +49,7 @@ export default function Experience() {
           Chapters In My Path
         </h2>
 
-        <div className="flex h-[100%] w-full">
-          <div className="relative w-full h-[600px] flex justify-between rounded-lg">
-            <ExpSplitCard data={expData} />
-          </div>
-        </div>
+        <ExpSplitCard data={expData} />
       </div>
 
       <Image

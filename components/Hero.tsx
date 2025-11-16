@@ -10,7 +10,7 @@ export default function Hero() {
   const { isDarkMode, toggleTheme } = useTheme();
   return (
     <section
-      className={`relative w-full pt-20  px-4 h-[800px]  overflow-hidden ${
+      className={`relative w-full pt-0 lg:pt-20  px-4 h-[800px]  overflow-hidden ${
         isDarkMode
           ? "bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
           : "bg-gradient-to-b from-[#F7F7F7] via-[#2f486d]/50 to-[#F7F7F7]"
@@ -26,9 +26,9 @@ export default function Hero() {
           {/* image and cta */}
           <div className="relative">
             {/* grad image */}
-            <div className="relative group">
+            <div className="relative group ">
               <div
-                className="relative flex w-[400px] h-auto flex-col items-center justify-center rounded-[5%] transition-transform 
+                className="relative flex w-[320px] lg:w-[380px] 2xl:w-[400px] h-auto flex-col items-center justify-center rounded-[5%] transition-transform 
               duration-500 [transform-style:preserve-3d] [transform:perspective(1000px)] [transition-timing-function:cubic-bezier(.03,.98,.52,.99)]"
                 data-tilt
                 data-tilt-glare
@@ -67,9 +67,9 @@ export default function Hero() {
             {/* cta button */}
             <Link
               href={"#projects"}
-              className="absolute bottom-25 -right-45 flex items-center gap-2 h-fit"
+              className="absolute bottom-25 -right-40 2xl:-right-45 hidden 2xl:flex items-center gap-2 h-fit"
             >
-              <div className="w-[120px] h-[5px] rounded-full bg-theme1-accent" />
+              <div className="w-[100px] 2xl:w-[120px] h-[5px] rounded-full bg-theme1-accent" />
               <span
                 className={` ${
                   isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -81,19 +81,19 @@ export default function Hero() {
           </div>
 
           {/* text */}
-          <div className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto">
-            <h1 className="w-fit font-oswald font-bold text-5xl z-50">
+          <div className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto mt-2 lg:mt-0">
+            <h1 className="w-fit font-oswald font-bold text-4xl 2xl:text-5xl z-50">
               <span
                 className={`${
                   isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
                 }`}
               >
-                AZIEL{" "}
+                AZIEL
               </span>
               <span className="text-theme1-accent">RANDEL</span>
             </h1>
-            <p className="relative tracking-[6px] text-[14px]">
-              <span className="text-theme1-accent font-bold">SOFTWARE</span>{" "}
+            <p className="relative tracking-[6px] text-[12px] lg:text-[14px]">
+              <span className="text-theme1-accent font-bold">SOFTWARE</span>
               <span className="text-theme1-accent"> / </span>
               <span
                 className={`${
@@ -108,6 +108,21 @@ export default function Hero() {
                 } animate-fade-pulse`}
               />
             </p>
+
+            <Link
+              href={"#projects"}
+              className=" 2xl:-right-45 flex 2xl:hidden items-center gap-2 h-fit mt-4"
+            >
+              <div className="w-[100px] 2xl:w-[120px] h-[3px] 2xl:h-[5px] rounded-full bg-theme1-accent" />
+              <span
+                className={` ${
+                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                } text-[15px] font-bold`}
+              >
+                VIEW PROJECTS
+              </span>
+              <div className="w-[100px] 2xl:w-[120px] h-[3px] 2xl:h-[5px] rounded-full bg-theme1-accent" />
+            </Link>
           </div>
         </div>
 

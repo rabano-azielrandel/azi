@@ -25,7 +25,7 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
     <div
       className={`${
         position === "left" ? "-left-60" : "-right-60"
-      } absolute w-full max-w-[400px] h-[50%] my-a flex items-center justify-center`}
+      } absolute w-full max-w-[400px] h-[40%] xl:h-[45%] 2xl:h-[50%] hidden lg:flex items-center justify-center`}
     >
       <div
         className="absolute w-full h-full transition-transform duration-700 ease-in-out"
@@ -44,7 +44,7 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
             <img
               src={tech.src}
               alt={tech.name}
-              className={`w-22 h-22 rounded-xl p-4 ${
+              className={`w-20 xl:w-21 2xl:w-22 h-20 xl:h-21 2xl:h-22 rounded-xl p-4 ${
                 isDarkMode ? "bg-[#352222] grayscale-[50%]" : "bg-[#F8F9ED]"
               } drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
               hover:scale-125 transition-transform duration-200 border border-white/20`}
