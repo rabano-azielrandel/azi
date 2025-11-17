@@ -31,7 +31,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className={`relative w-full  ${
+      className={`relative w-full mt-10 sm:mt-60 ${
         isDarkMode
           ? "bg-gradient-to-t from-theme-accent2"
           : "bg-gradient-to-t from-[#e9f1fa] to-[#5E4075]/10"
@@ -42,11 +42,11 @@ export default function Experience() {
       flex flex-col justify-center items-center z-10"
       >
         <h2
-          className={`text-4xl font-oswald font-semibold text-center ${
+          className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
             isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
           } select-none cursor-default`}
         >
-          Chapters In My Path
+          EXPERIENCE
         </h2>
 
         <ExpSplitCard data={expData} />

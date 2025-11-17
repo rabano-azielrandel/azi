@@ -4,6 +4,7 @@ import ThemeProvider from "./ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import "../CSS/ThemeSwitch.css";
 import Script from "next/script";
 
 const inter = Inter({

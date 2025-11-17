@@ -29,14 +29,14 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
   return (
     <div className="w-full h-full px-4">
       <div
-        className={`w-full h-full flex justify-between items-center transition-300 hover:gap-6 gap-0 rounded-lg group`}
+        className={`w-full h-full flex flex-col lg:flex-row justify-between items-center transition-300 gap-4 lg:hover:gap-6 lg:gap-0 rounded-lg group`}
       >
         {/* cards */}
         {data.map((item, index) => (
           <div
             key={index}
             onClick={() => setClicked(index == clicked ? null : index)}
-            className="relative px-4 py-6 flex w-full h-[500px]   group-hover:rounded-lg overflow-hidden"
+            className="relative px-4 py-6 flex w-full h-[360px] lg:h-[500px] rounded-lg lg:group-hover:rounded-lg overflow-hidden"
           >
             <Image
               src={item.backgroundImage}
@@ -56,7 +56,9 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
             >
               <div
                 className={`${
-                  clicked == index ? "translate-y-0" : "translate-y-90"
+                  clicked == index
+                    ? "translate-y-0"
+                    : "translate-y-60 lg:translate-y-90"
                 } w-full h-fit flex flex-col gap-2 transition-300 pr-6`}
               >
                 <h2 className="text-white text-[22px] font-bold tracking-[3px]">
