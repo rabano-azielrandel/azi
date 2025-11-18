@@ -41,8 +41,10 @@ const Projects = () => {
         >
           PROJECTS
         </h2>
-        <div className="w-full gap-4 flex flex-col">
-          <div className="w-full h-full flex flex-col lg:flex-row gap-4">
+        <div className="max-w-full w-full h-[400px] lg:h-fit gap-4 flex lg:flex-col overflow-x-auto">
+          {/* TOP DIV */}
+          <div className="w-full h-full flex gap-4">
+            {/* BOT */}
             <div
               className={`hidden lg:block  w-full lg:w-[67%] h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
@@ -53,8 +55,9 @@ const Projects = () => {
               <Bot />
             </div>
 
+            {/* DIGITAL PAYSLIP */}
             <div
-              className={`w-full lg:w-[33%] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`min-w-[350px] lg:w-[33%] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -67,9 +70,11 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="w-full h-full flex flex-col lg:flex-row gap-4">
+          {/* BOT DIV */}
+          <div className="w-full h-full flex gap-4">
+            {/* THESIS */}
             <div
-              className={`w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`min-w-[350px] lg:w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -78,8 +83,9 @@ const Projects = () => {
               <SplitCard />
             </div>
 
+            {/* RESORT MANAGEMENT */}
             <div
-              className={`w-full rounded-xl p-4 border-1 ${
+              className={`min-w-[350px] lg:w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -92,8 +98,9 @@ const Projects = () => {
               />
             </div>
 
+            {/* TRUCKSCALE */}
             <div
-              className={`w-full rounded-xl p-4 border-1 ${
+              className={`min-w-[350px] lg:w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0]  border-black/30"

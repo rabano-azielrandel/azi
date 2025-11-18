@@ -35,13 +35,13 @@ export default function RippleCard({ image, title, desc }: RippleCardProps) {
     >
       {/* Text section */}
       <div className="w-full h-1/5 flex flex-col items-start justify-center">
-        <h2
-          className={`text-lg font-extrabold ${
+        <h3
+          className={`text-lg text-nowrap font-extrabold ${
             isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
           } leading-tight tracking-wider`}
         >
           {title}
-        </h2>
+        </h3>
         <p
           className={`text-xs ${
             isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
