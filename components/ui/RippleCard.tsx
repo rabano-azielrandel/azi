@@ -51,7 +51,7 @@ export default function RippleCard({ image, title, desc }: RippleCardProps) {
         </p>
       </div>
 
-      <div className="w-full h-4/5 flex justify-center items-center relative">
+      <div className="w-full h-4/5 flex justify-center items-center relative overflow-hidden">
         {/* Ripple Effect */}
         <Ripple
           mainCircleSize={200}

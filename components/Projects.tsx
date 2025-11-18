@@ -41,7 +41,7 @@ const Projects = () => {
         >
           PROJECTS
         </h2>
-        <div className="max-w-full w-full h-[400px] lg:h-fit gap-4 flex lg:flex-col overflow-x-auto">
+        <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll lg:overflow-hidden">
           {/* TOP DIV */}
           <div className="w-full h-full flex gap-4">
             {/* BOT */}
@@ -57,7 +57,7 @@ const Projects = () => {
 
             {/* DIGITAL PAYSLIP */}
             <div
-              className={`min-w-[350px] lg:w-[33%] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[350px] lg:w-[33%] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -74,7 +74,7 @@ const Projects = () => {
           <div className="w-full h-full flex gap-4">
             {/* THESIS */}
             <div
-              className={`min-w-[350px] lg:w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[350px] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -85,7 +85,7 @@ const Projects = () => {
 
             {/* RESORT MANAGEMENT */}
             <div
-              className={`min-w-[350px] lg:w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[350px] h-[365px] lg:h-auto  rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -98,9 +98,9 @@ const Projects = () => {
               />
             </div>
 
-            {/* TRUCKSCALE */}
+            {/* TRUCK SCALE */}
             <div
-              className={`min-w-[350px] lg:w-full h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[350px] h-[365px] lg:h-auto  rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0]  border-black/30"
