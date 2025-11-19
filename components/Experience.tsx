@@ -53,12 +53,10 @@ export default function Experience() {
         <ExpSplitCard data={expData} />
       </div>
 
-      <div className="absolute -bot-70 sm:-bot-92 left-0 w-full sm:w-[1920px] h-[60px] transform scale-y-[-1]">
-        <Wave
-          isDarkMode={isDarkMode}
-          className="absolute object-contain w-fit h-fit"
-        />
-      </div>
+      <Wave
+        isDarkMode={isDarkMode}
+        className="absolute w-fit h-fit transform scale-y-[-1]"
+      />
     </section>
   );
 }

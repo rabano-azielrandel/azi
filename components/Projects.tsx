@@ -22,12 +22,10 @@ const Projects = () => {
       }`}
     >
       {/* Wave */}
-      <div className="absolute -top-60 sm:-top-92 left-0 w-[1100px] sm:w-[1920px] h-fit">
-        <Wave
-          isDarkMode={isDarkMode}
-          className="absolute object-contain w-fit h-fit"
-        />
-      </div>
+      <Wave
+        isDarkMode={isDarkMode}
+        className="absolute -top-20 lg:-top-90 left-0 w-full h-auto transition-colors duration-500"
+      />
 
       {/* Content */}
       <div

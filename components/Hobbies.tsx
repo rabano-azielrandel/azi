@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTheme } from "@/app/ThemeProvider";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import ColumnCarousel from "./ui/ColumnCarousel";
+import HobbiesMobile from "./HobbiesMobile";
 import Image from "next/image";
-import { useTheme } from "@/app/ThemeProvider";
 
 const hobbySets = {
   anime: [
@@ -61,7 +62,7 @@ const Hobbies = () => {
     <section
       ref={ref}
       id="hobbies"
-      className={`relative mt-8 flex h-screen w-full items-center justify-center overflow-hidden`}
+      className={`relative mt-8 px-4 flex w-full items-center justify-center overflow-hidden`}
     >
       <div
         className="relative w-full max-w-[1360px] p-2 gap-4
@@ -74,7 +75,7 @@ const Hobbies = () => {
         >
           HOBBIES
         </h2>
-        {/* Labels */}
+        {/* Labels for LG UP */}
         <div className="w-full hidden lg:flex items-center justify-between px-10 transition-opacity duration-500">
           {/* Category Text (Left Side) */}
           <h2
@@ -115,7 +116,7 @@ const Hobbies = () => {
           </div>
         </div>
 
-        {/* Images */}
+        {/* Images for LG UP */}
         <div className="w-full hidden lg:flex justify-center items-center gap-2">
           <button
             onClick={handlePrev}
@@ -163,6 +164,9 @@ const Hobbies = () => {
             />
           </button>
         </div>
+
+        {/* FOR SM */}
+        <HobbiesMobile />
       </div>
     </section>
   );
