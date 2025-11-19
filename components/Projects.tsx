@@ -43,7 +43,7 @@ const Projects = () => {
         </h2>
         <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll lg:overflow-hidden">
           {/* TOP DIV */}
-          <div className="w-full h-full flex gap-4">
+          <div className="w-full h-full flex gap-6">
             {/* BOT */}
             <div
               className={`hidden lg:block  w-full lg:w-[67%] h-auto rounded-xl p-4 border-1 ${
@@ -71,7 +71,7 @@ const Projects = () => {
           </div>
 
           {/* BOT DIV */}
-          <div className="w-full h-full flex gap-4">
+          <div className="w-full h-full flex gap-6">
             {/* THESIS */}
             <div
               className={`w-full min-w-[350px] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${

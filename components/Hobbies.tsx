@@ -72,10 +72,10 @@ const Hobbies = () => {
             isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
           } select-none cursor-default`}
         >
-          Between Logic and Art
+          HOBBIES
         </h2>
         {/* Labels */}
-        <div className="w-full flex items-center justify-between px-10 transition-opacity duration-500">
+        <div className="w-full hidden lg:flex items-center justify-between px-10 transition-opacity duration-500">
           {/* Category Text (Left Side) */}
           <h2
             className={`${
@@ -116,7 +116,7 @@ const Hobbies = () => {
         </div>
 
         {/* Images */}
-        <div className="w-full flex justify-center items-center gap-2">
+        <div className="w-full hidden lg:flex justify-center items-center gap-2">
           <button
             onClick={handlePrev}
             className="w-fit hover:scale-185 cursor-pointer"

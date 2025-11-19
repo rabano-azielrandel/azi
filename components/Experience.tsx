@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Wave from "./ui/Wave";
 import ExpCard from "./ui/ExpCard";
 import ExpSplitCard from "./ui/ExpSplitCard";
 import { useTheme } from "@/app/ThemeProvider";
@@ -52,13 +53,12 @@ export default function Experience() {
         <ExpSplitCard data={expData} />
       </div>
 
-      <Image
-        src={isDarkMode ? "/images/wave_dark.svg" : "/images/wave_light.svg"}
-        alt="wave"
-        width={1920}
-        height={500}
-        className="absolute -bottom-90 left-0 object-contain w-fit h-auto scale-y-[-1]"
-      />
+      <div className="absolute -bot-70 sm:-bot-92 left-0 w-full sm:w-[1920px] h-[60px] transform scale-y-[-1]">
+        <Wave
+          isDarkMode={isDarkMode}
+          className="absolute object-contain w-fit h-fit"
+        />
+      </div>
     </section>
   );
 }
