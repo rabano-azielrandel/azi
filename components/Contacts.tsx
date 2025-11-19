@@ -54,7 +54,7 @@ const Contacts = () => {
   return (
     <section
       id="contacts"
-      className={`relative w-full px-4 h-[700px] overflow-hidden ${
+      className={`relative w-full px-4 h-[700px] overflow-hidden bg-theme1-base ${
         isDarkMode ? "" : "bg-gradient-to-t from-[#939FB2]"
       }`}
     >
