@@ -6,7 +6,7 @@ export default function HobbiesContentMobile() {
     <div className="lg:hidden w-full flex flex-col gap-4 mt-4">
       {/* cards */}
       {[...Array(4)].map((item, index) => (
-        <HobbiesCard index={index}/>
+        <HobbiesCard key={index} index={index} />
       ))}
     </div>
   );

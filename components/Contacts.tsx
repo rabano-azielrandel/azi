@@ -54,7 +54,7 @@ const Contacts = () => {
   return (
     <section
       id="contacts"
-      className={`relative w-full px-4 h-[700px] overflow-hidden bg-theme1-base ${
+      className={`relative w-full mt-10 px-4 pt-10 pb-12 overflow-hidden bg-theme1-base ${
         isDarkMode ? "" : "bg-gradient-to-t from-[#939FB2]"
       }`}
     >
@@ -67,10 +67,10 @@ const Contacts = () => {
           >
             Get in touch
           </p>
-          <div className="w-full flex items-center">
+          <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-center gap-4">
             {/* ICONS AND OTHER INFO */}
-            <div className="w-full h-full flex flex-col gap-9">
-              <div className="w-full h-fit flex flex-col gap-12 p-2">
+            <div className="w-full h-full flex flex-col gap-9 items-center">
+              <div className="w-fit h-fit flex flex-col gap-12 p-2">
                 {contact.map((src, idx) => (
                   <div
                     key={idx}
@@ -116,7 +116,7 @@ const Contacts = () => {
                 ))}
               </div>
 
-              <div className="w-full pl-4">
+              <div className="w-full flex justify-center lg:pl-4">
                 <p
                   className={`txt-xl font-semibold select-none cursor-default ${
                     isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -127,7 +127,7 @@ const Contacts = () => {
                 </p>
               </div>
 
-              <div className="flex pl-4 gap-4">
+              <div className="flex pl-4 gap-4 justify-center">
                 {socials.map((src, idx) => (
                   <Link
                     key={idx}
@@ -155,7 +155,7 @@ const Contacts = () => {
             </div>
 
             {/* FORMS */}
-            <div className="w-full h-full">
+            <div className="w-full h-full flex justify-center">
               <form className="w-[80%] h-full flex flex-col justify-start items-start gap-8">
                 <input
                   id="name"

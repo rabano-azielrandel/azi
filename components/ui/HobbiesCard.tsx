@@ -13,11 +13,11 @@ export default function HobbiesCard({ index }: HobbiesCardProps): JSX.Element {
     <div className="flex flex-col">
       <div className="w-full flex justify-start items-start gap-4 rounded-lg p-4 text-white">
         <Image
-          src="/images/anime1.jpg"
+          src={`/images/anime${index + 1}.jpg`}
           alt="hobbies pic"
           width={200}
           height={200}
-          className="object-contain w-[30%] h-auto rounded-sm"
+          className="object-contain w-[100px] h-[100px] rounded-sm"
         />
 
         <div className="flex flex-col">
@@ -33,7 +33,14 @@ export default function HobbiesCard({ index }: HobbiesCardProps): JSX.Element {
           </div>
 
           <div className="mt-2 text-[11px] font-thin">
-            <span className={`${isDescOpened ? "line-clamp-none" : "line-clamp-3"}`}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id mollitia dicta ullam, cupiditate dignissimos atque nesciunt. Aliquam, voluptate, sapiente eum accusamus doloribus deserunt, accusantium ex soluta animi expedita tenetur eius?</span>
+            <span
+              className={`${isDescOpened ? "line-clamp-none" : "line-clamp-3"}`}
+            >
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id
+              mollitia dicta ullam, cupiditate dignissimos atque nesciunt.
+              Aliquam, voluptate, sapiente eum accusamus doloribus deserunt,
+              accusantium ex soluta animi expedita tenetur eius?
+            </span>
             <button
               onClick={() => setIsDescOpened(!isDescOpened)}
               className="mt-1 text-yellow-200"
