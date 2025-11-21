@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <div
-      className={`relative w-full z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
+      className={`relative w-full pt-10 z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
         isDarkMode ? "" : "bg-[#939FB2]"
       }`}
     >

@@ -10,17 +10,19 @@ export default function HobbiesCard({ index }: HobbiesCardProps): JSX.Element {
   const [isDescOpened, setIsDescOpened] = useState(false);
 
   return (
-    <div className="flex flex-col">
-      <div className="w-full flex justify-start items-start gap-4 rounded-lg p-4 text-white">
-        <Image
-          src={`/images/anime${index + 1}.jpg`}
-          alt="hobbies pic"
-          width={200}
-          height={200}
-          className="object-contain w-[100px] h-[100px] rounded-sm"
-        />
+    <div className="flex flex-col boder-2 border-amber-500">
+      <div className="w-full flex justify-start items-center gap-4 rounded-lg p-4 text-white">
+        <div className="relative flex w-[100px] h-[130px] overflow-hidden">
+          <Image
+            src={`/images/anime${index + 1}.jpg`}
+            alt="hobbies pic"
+            width={100}
+            height={100}
+            className="w-full h-full object-cover object-[50%_20%]"
+          />
+        </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full h-full">
           <h3 className="font-bold text-[16px] tracking-wide text-theme-accent1">
             Designing Dashboards
           </h3>
