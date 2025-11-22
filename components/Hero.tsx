@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
 import { useTheme } from "../app/ThemeProvider";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -113,15 +114,14 @@ export default function Hero() {
               href={"#projects"}
               className=" 2xl:-right-45 flex 2xl:hidden items-center gap-2 h-fit mt-4"
             >
-              <div className="w-[100px] 2xl:w-[120px] h-[3px] 2xl:h-[5px] rounded-full bg-theme1-accent" />
               <span
                 className={` ${
                   isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-                } text-[15px] font-bold`}
+                } text-[15px] font-bold py-2 px-8 2xl:p-0 rounded-xl border 2xl:border-0 border-theme1-accent`}
               >
                 VIEW PROJECTS
               </span>
-              <div className="w-[100px] 2xl:w-[120px] h-[3px] 2xl:h-[5px] rounded-full bg-theme1-accent" />
+              <div className="hidden 2xl:block w-[100px] 2xl:w-[120px] h-[3px] 2xl:h-[5px] rounded-full bg-theme1-accent" />
             </Link>
           </div>
         </div>
