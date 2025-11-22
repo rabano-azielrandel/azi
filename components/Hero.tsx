@@ -117,7 +117,7 @@ export default function Hero() {
               <span
                 className={` ${
                   isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-                } text-[15px] font-bold py-2 px-8 2xl:p-0 rounded-xl border 2xl:border-0 border-theme1-accent`}
+                } text-[15px] font-bold py-2 px-8 2xl:p-0 rounded-xl border 2xl:border-0 border-theme1-accent bg-theme1-accent 2xl:bg-none`}
               >
                 VIEW PROJECTS
               </span>

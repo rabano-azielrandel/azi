@@ -1,12 +1,25 @@
 import Image from "next/image";
 import React, { JSX } from "react";
 import { useState } from "react";
+import { Star } from "lucide-react";
 
 type HobbiesCardProps = {
   index: number;
+  tag: string;
+  title: string;
+  image: string;
+  p: string;
+  rating: number;
 };
 
-export default function HobbiesCard({ index }: HobbiesCardProps): JSX.Element {
+export default function HobbiesCard({
+  index,
+  tag,
+  title,
+  image,
+  p,
+  rating,
+}: HobbiesCardProps): JSX.Element {
   const [isDescOpened, setIsDescOpened] = useState(false);
 
   return (
@@ -14,7 +27,7 @@ export default function HobbiesCard({ index }: HobbiesCardProps): JSX.Element {
       <div className="w-full flex justify-start items-center gap-4 rounded-lg p-4 text-white">
         <div className="relative flex w-[100px] h-[130px] overflow-hidden">
           <Image
-            src={`/images/anime${index + 1}.jpg`}
+            src={image}
             alt="hobbies pic"
             width={100}
             height={100}
@@ -24,24 +37,23 @@ export default function HobbiesCard({ index }: HobbiesCardProps): JSX.Element {
 
         <div className="flex flex-col w-full h-full">
           <h3 className="font-bold text-[16px] tracking-wide text-theme-accent1">
-            Designing Dashboards
+            {title}
           </h3>
 
           <div className="mt-4 flex justify-start items-center gap-4 text-[10px]">
-            <span className="rounded-full bg-theme1-secondary py-[2px] px-2 text-theme-accent2">
-              2020
+            <span className="inline-flex items-center gap-1 rounded-full bg-theme1-secondary py-1 px-1.5 text-theme-accent2 text-[10px]">
+              <Star className="w-3 h-3 flex-shrink-0" />
+              <span className="leading-none">{rating}</span>
             </span>
-            <span>Dashboard</span>
+
+            <span>{tag}</span>
           </div>
 
           <div className="mt-2 text-[11px] font-thin">
             <span
               className={`${isDescOpened ? "line-clamp-none" : "line-clamp-3"}`}
             >
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id
-              mollitia dicta ullam, cupiditate dignissimos atque nesciunt.
-              Aliquam, voluptate, sapiente eum accusamus doloribus deserunt,
-              accusantium ex soluta animi expedita tenetur eius?
+              {p}
             </span>
             <button
               onClick={() => setIsDescOpened(!isDescOpened)}
