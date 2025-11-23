@@ -71,7 +71,7 @@ const Hobbies = () => {
       flex flex-col justify-center items-center overflow-hidden"
       >
         <h2
-          className={`text-4xl font-oswald font-semibold text-center ${
+          className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
             isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
           } select-none cursor-default`}
         >

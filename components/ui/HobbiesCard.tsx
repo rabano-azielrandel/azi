@@ -31,7 +31,7 @@ export default function HobbiesCard({
             alt="hobbies pic"
             width={100}
             height={100}
-            className="w-full h-full object-cover object-[50%_20%]"
+            className="w-full h-full object-cover object-[50%_20%] rounded-md"
           />
         </div>
 
@@ -41,8 +41,8 @@ export default function HobbiesCard({
           </h3>
 
           <div className="mt-4 flex justify-start items-center gap-4 text-[10px]">
-            <span className="inline-flex items-center gap-1 rounded-full bg-theme1-secondary py-1 px-1.5 text-theme-accent2 text-[10px]">
-              <Star className="w-3 h-3 flex-shrink-0" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#383537] py-1 px-1.5 text-theme1-secondary text-[10px]">
+              <Star className="w-3 h-3 flex-shrink-0 fill-theme1-secondary" />
               <span className="leading-none">{rating}</span>
             </span>
 
