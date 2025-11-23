@@ -60,14 +60,14 @@ const Contacts = () => {
     >
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-12 flex flex-col justify-center items-center">
         <div className="w-full h-screen flex flex-col justify-center items-center gap-8">
-          <p
-            className={`text-6xl font-oswald select-none cursor-default ${
-              isDarkMode ? "text-theme1-secondary" : "text-theme-accent2"
-            }`}
+          <h2
+            className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
+              isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+            } select-none cursor-default`}
           >
-            Get in touch
-          </p>
-          <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-center gap-4">
+            CONTACTS
+          </h2>
+          <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-4">
             {/* ICONS AND OTHER INFO */}
             <div className="w-full h-full flex flex-col gap-9 items-center">
               <div className="w-fit h-fit flex flex-col gap-12 p-2">
@@ -82,7 +82,7 @@ const Contacts = () => {
                       height={60}
                       width={60}
                       draggable={false}
-                      className="transition-transform duration-300 ease-[cubic-bezier(.03,.98,.52,.99)] group-hover:scale-110"
+                      className="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] transition-transform duration-300 ease-[cubic-bezier(.03,.98,.52,.99)] group-hover:scale-110"
                       style={{
                         filter: isDarkMode
                           ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
@@ -92,7 +92,7 @@ const Contacts = () => {
 
                     <div className="w-full flex flex-col justify-center items-start pl-6 font-inter">
                       <p
-                        className={`text-base font-extrabold ${
+                        className={`text-sm lg:text-base font-extrabold ${
                           isDarkMode
                             ? "text-theme-accent3"
                             : "text-theme-dark-accent3"
@@ -102,7 +102,7 @@ const Contacts = () => {
                         {src.Title}
                       </p>
                       <p
-                        className={`text-sm font-light ${
+                        className={`text-[12px] lg:text-sm font-light ${
                           isDarkMode
                             ? "text-theme-accent4"
                             : "text-theme-dark-accent4"
@@ -156,7 +156,7 @@ const Contacts = () => {
 
             {/* FORMS */}
             <div className="w-full h-full flex justify-center">
-              <form className="w-[80%] h-full flex flex-col justify-start items-start gap-8">
+              <form className="w-[80%] h-full flex flex-col lg:justify-start lg:items-start gap-8">
                 <input
                   id="name"
                   type="text"

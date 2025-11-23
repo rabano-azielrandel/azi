@@ -131,9 +131,9 @@ export default function HobbiesContentMobile() {
   const [selectedHobby, setSelectedHobby] = useState(0);
 
   return (
-    <div className="lg:hidden w-full flex flex-col gap-4 mt-4">
+    <div className="lg:hidden w-full flex flex-col gap-4 mt-2">
       {/* navs */}
-      <div className="w-full pt-8 pb-8 overflow-x-auto no-scrollbar">
+      <div className="w-full overflow-x-auto no-scrollbar">
         <div className="flex items-center gap-4">
           {hobbiesType.map((item, index) => (
             <button
