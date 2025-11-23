@@ -123,7 +123,7 @@ const Contacts = () => {
                   }`}
                   style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                 >
-                  Visit Me
+                  Connect With Me
                 </p>
               </div>
 
@@ -134,7 +134,7 @@ const Contacts = () => {
                     href={src.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-transform duration-200 ease-cubic-bezier(.03, .98, .52, .99) hover:-translate-y-2"
+                    className="rounded-full border border-theme1-secondary p-1 transition-transform duration-200 ease-cubic-bezier(.03, .98, .52, .99) hover:-translate-y-2"
                   >
                     <Image
                       src={src.icon}
@@ -142,7 +142,7 @@ const Contacts = () => {
                       height={25}
                       width={25}
                       draggable={false}
-                      className="cursor-pointer"
+                      className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px] cursor-pointer"
                       style={{
                         filter: isDarkMode
                           ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
