@@ -75,7 +75,7 @@ const hobbies = [
       tag: "LEARNING",
       title: "DATA STRUCTURE",
       img: "/images/code2.jpg",
-      p: "I enjoy studying data structures because it combines logic and mathematics in a fascinating way. Exploring patterns like Fibonacci numbers and angles makes learning both challenging and rewarding.",
+      p: "I enjoy studying data structures because they bring together logic, patterns, and mathematical reasoning. Exploring how different structures optimize performance makes learning engaging and fulfilling.",
       rating: 9.9,
     },
     {
