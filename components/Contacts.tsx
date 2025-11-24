@@ -158,7 +158,7 @@ const Contacts = () => {
             </div>
 
             {/* FORMS */}
-            <div className="w-full h-full flex justify-center">
+            <div className="w-full h-full flex justify-center pb-2">
               <form className="w-[80%] h-full flex flex-col lg:justify-start lg:items-start gap-8">
                 <input
                   id="name"
