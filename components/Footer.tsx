@@ -32,46 +32,41 @@ export default function Footer() {
 
   return (
     <div
-      className={`relative w-full pt-10 z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
-        isDarkMode ? "" : "bg-[#939FB2]"
+      className={`relative w-full pt-10 px-4 z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
+        isDarkMode ? "bg-[#0A0A0A]" : "bg-[#939FB2]"
       }`}
     >
       <div className="relative w-full max-w-[1360px] p-2 gap-4 flex flex-col justify-center items-center">
-        {/* Image */}
-        <div
-          className={`relative w-full h-[200px] rounded-xl border-1 ${
-            isDarkMode ? "border-white" : "border-black"
-          }`}
-        >
-          <Image
-            src="/images/footery.jpg"
-            alt="black hole"
-            fill
-            className="object-cover object-center rounded-xl"
-          />
-        </div>
-
         {/* Text */}
         <div
-          className="w-full flex items-start gap-16 mb-10"
+          className="w-full flex flex-col-reverse lg:flex-row items-start gap-16 mb-10"
           style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
         >
           {/* FOOTER TITLE */}
-          <div className="w-[30%] min-w-96 h-full flex flex-col gap-8 select-none cursor-default">
+          <div className="w-[30%] min-w-96 h-full flex flex-col items-center gap-8 select-none cursor-default">
             <h2
-              className={`font-semibold leading-snug text-4xl ${
+              className={`font-semibold leading-snug text-4xl text-center lg:text-left ${
                 isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
-              } `}
+              }`}
             >
-              Got an Idea? <br /> Let’s Make It Real.
+              {/* Mobile version */}
+              <span className="lg:hidden">
+                Got an Idea? Let’s Make It Real.
+              </span>
+
+              {/* Desktop version */}
+              <span className="hidden lg:inline">
+                Got an Idea? <br /> Let’s Make It Real.
+              </span>
             </h2>
+
             <p className="font-light leading-tight text-sm text-theme-accent4">
               © 2025 Aziel Randel Rabano All rights reserved.
             </p>
           </div>
 
           {/* Nav Links */}
-          <div className="w-fit min-w-32 h-full flex flex-col items-start justify-center gap-2">
+          <div className="hidden lg:flex flex-col w-fit min-w-32 h-full items-start justify-center gap-2">
             <h3
               className={`font-extrabold mb-4 ${
                 isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
@@ -94,7 +89,7 @@ export default function Footer() {
           </div>
 
           {/* Assets Credits */}
-          <div className="w-fit min-w-32 h-full flex flex-col items-start justify-center gap-2">
+          <div className="hidden lg:flex flex-col w-fit min-w-32 h-full items-start justify-center gap-2">
             <h3
               className={`font-extrabold mb-4 ${
                 isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
@@ -117,7 +112,7 @@ export default function Footer() {
           </div>
 
           {/* Stacks */}
-          <div className="w-fit min-w-32  h-full flex flex-col items-start justify-center gap-2">
+          <div className="hidden lg:flex flex-col w-fit min-w-32  h-full items-start justify-center gap-2">
             <h3
               className={`font-extrabold mb-4 ${
                 isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
@@ -140,7 +135,7 @@ export default function Footer() {
           </div>
 
           {/* Message */}
-          <div className="w-fit min-w-32 h-full flex flex-col items-start justify-center gap-2 select-none cursor-default">
+          <div className="w-fit min-w-32 h-full flex flex-col text-center lg:text-left items-center lg:items-start justify-center gap-2 select-none cursor-default">
             <h3
               className={`font-extrabold mb-2 ${
                 isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
