@@ -40,7 +40,7 @@ const Projects = () => {
         >
           PROJECTS
         </h2>
-        <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll lg:overflow-hidden">
+        <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
           {/* TOP DIV */}
           <div className="w-full h-full flex gap-6">
             {/* BOT */}

@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <div
       className={`relative w-full pt-10 px-4 z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
-        isDarkMode ? "bg-[#0A0A0A]" : "bg-[#939FB2]"
+        isDarkMode ? "bg-[#0A0A0A]" : "bg-[#E9F2FB]"
       }`}
     >
       <div className="relative w-full max-w-[1360px] p-2 gap-4 flex flex-col justify-center items-center">

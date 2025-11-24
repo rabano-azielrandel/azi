@@ -133,7 +133,7 @@ export default function HobbiesContentMobile() {
   return (
     <div className="lg:hidden w-full flex flex-col gap-4 mt-2">
       {/* navs */}
-      <div className="w-full overflow-x-auto no-scrollbar">
+      <div className="w-full overflow-x-scroll pb-2">
         <div className="flex items-center gap-4">
           {hobbiesType.map((item, index) => (
             <button
