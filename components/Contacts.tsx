@@ -69,7 +69,7 @@ const Contacts = () => {
           </h2>
           <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-4">
             {/* ICONS AND OTHER INFO */}
-            <div className="w-full h-full flex flex-col gap-9 items-center">
+            <div className="w-full h-full flex flex-col gap-9 px-8 items-center lg:items-start">
               <div className="w-fit h-fit flex flex-col gap-12 p-2">
                 {contact.map((src, idx) => (
                   <div
@@ -116,7 +116,7 @@ const Contacts = () => {
                 ))}
               </div>
 
-              <div className="w-full flex justify-center lg:pl-4">
+              <div className="w-full flex justify-center lg:justify-start lg:px-8">
                 <p
                   className={`txt-xl font-semibold select-none cursor-default ${
                     isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -127,28 +127,31 @@ const Contacts = () => {
                 </p>
               </div>
 
-              <div className="flex pl-4 gap-4 justify-center">
+              <div className="flex gap-4 justify-center lg:px-8">
                 {socials.map((src, idx) => (
                   <Link
                     key={idx}
                     href={src.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-theme1-secondary p-1 transition-transform duration-200 ease-cubic-bezier(.03, .98, .52, .99) hover:-translate-y-2"
+                    className="group relative flex items-center justify-center
+                 h-12 w-12 rounded-full border border-theme1-secondary"
                   >
-                    <Image
-                      src={src.icon}
-                      alt={src.alt}
-                      height={25}
-                      width={25}
-                      draggable={false}
-                      className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px] cursor-pointer"
-                      style={{
-                        filter: isDarkMode
-                          ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
-                          : "none",
-                      }}
-                    />
+                    {/* Inner filled circle */}
+                    <div
+                      className="flex items-center justify-center 
+                   h-9 w-9 rounded-full bg-theme1-secondary
+                   transition duration-200 group-hover:scale-110"
+                    >
+                      <Image
+                        src={src.icon}
+                        alt={src.alt}
+                        height={20}
+                        width={20}
+                        draggable={false}
+                        className="w-[18px] h-[18px]"
+                      />
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -214,7 +217,7 @@ const Contacts = () => {
                         : "border-black bg-[#F7F7F7] hover:bg-[#A4AEBE] "
                     }`}
                 >
-                  Send Message
+                  Send Email
                 </button>
               </form>
             </div>
