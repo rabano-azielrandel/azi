@@ -61,7 +61,7 @@ export default function Footer() {
               </span>
             </h2>
 
-            <p className="font-light leading-tight text-sm text-theme-accent4">
+            <p className="font-light leading-tight text-[12px] sm:text-sm text-theme-accent4">
               © 2025 Aziel Randel Rabano All rights reserved.
             </p>
           </div>

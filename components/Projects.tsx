@@ -25,7 +25,7 @@ const Projects = () => {
 
       <Wave
         isDarkMode={isDarkMode}
-        className="absolute -top-20 lg:-top-60 left-0 w-full h-auto transition-colors duration-500"
+        className="absolute -top-30 sm:-top-[144px] md:-top-42 lg:-top-58 xl:-top-70 2xl:-top-84 left-0 w-full h-auto transition-colors duration-500"
       />
 
       {/* Content */}
