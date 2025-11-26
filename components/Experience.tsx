@@ -32,14 +32,14 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className={`relative w-full mt-10 sm:mt-60 ${
+      className={`relative w-full mt-10 sm:mt-40 ${
         isDarkMode
           ? "bg-gradient-to-t from-theme-accent2"
           : "bg-gradient-to-t from-[#e9f1fa] to-[#5E4075]/10"
       }`}
     >
       <div
-        className="relative w-full max-w-[1360px] mx-auto p-2 gap-4
+        className="relative w-full max-w-[1360px] mx-auto p-2 gap-10
       flex flex-col justify-center items-center z-10"
       >
         <h2

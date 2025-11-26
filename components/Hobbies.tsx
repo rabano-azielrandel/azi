@@ -64,10 +64,10 @@ const Hobbies = () => {
     <section
       ref={ref}
       id="hobbies"
-      className={`relative mt-10 px-4 pt-8 pb-8 flex w-full items-center justify-center overflow-hidden bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2`}
+      className={`relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2`}
     >
       <div
-        className="relative w-full max-w-[1360px] p-2 gap-4
+        className="relative w-full max-w-[1360px] p-2 gap-10
       flex flex-col justify-center items-center overflow-hidden"
       >
         <h2

@@ -15,7 +15,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className={`relative mt-10 sm:mt-60 w-full pt-0 px-4 ${
+      className={`relative mt-10 sm:mt-40 w-full px-4 py-20  ${
         isDarkMode
           ? "bg-gradient-to-b from-theme-accent2"
           : "bg-gradient-to-b from-[#e9f1fa] to-[#5E4075]/10"

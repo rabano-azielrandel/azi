@@ -54,12 +54,12 @@ const Contacts = () => {
   return (
     <section
       id="contacts"
-      className={`relative w-full mt-10 px-4 pt-10 pb-12 overflow-hidden bg-theme1-base ${
+      className={`relative w-full px-4 py-20  overflow-hidden bg-theme1-base ${
         isDarkMode ? "" : "bg-gradient-to-t from-[#939FB2]"
       }`}
     >
-      <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 gap-12 flex flex-col justify-center items-center">
-        <div className="w-full h-screen flex flex-col justify-center items-center gap-8">
+      <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 flex flex-col items-center">
+        <div className="w-full flex flex-col justify-center items-center gap-10">
           <h2
             className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
               isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -67,10 +67,10 @@ const Contacts = () => {
           >
             CONTACTS
           </h2>
-          <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-4">
+          <div className="w-full h-full flex flex-col lg:flex-row items-start justify-start gap-4">
             {/* ICONS AND OTHER INFO */}
-            <div className="w-full h-full flex flex-col gap-9 px-8 items-center lg:items-start">
-              <div className="w-fit h-fit flex flex-col gap-12 p-2">
+            <div className="w-full h-full flex flex-col justify-between items-center gap-9 px-8  lg:items-start">
+              <div className="w-fit h-fit flex flex-col gap-12">
                 {contact.map((src, idx) => (
                   <div
                     key={idx}
@@ -116,7 +116,8 @@ const Contacts = () => {
                 ))}
               </div>
 
-              <div className="w-full flex justify-center lg:justify-start lg:px-8">
+              {/* CONNECT WITH ME */}
+              <div className="w-full flex justify-center lg:justify-start">
                 <p
                   className={`txt-xl font-semibold select-none cursor-default ${
                     isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -127,7 +128,7 @@ const Contacts = () => {
                 </p>
               </div>
 
-              <div className="flex gap-4 justify-center lg:px-8">
+              <div className="flex gap-4 justify-center">
                 {socials.map((src, idx) => (
                   <Link
                     key={idx}
@@ -158,7 +159,16 @@ const Contacts = () => {
             </div>
 
             {/* FORMS */}
-            <div className="w-full h-full flex justify-center pb-2">
+            <div className="w-full h-full flex flex-col justify-center items-center gap-6 mt-10 lg:mt-0">
+              <p
+                className={`txt-xl font-semibold select-none cursor-default ${
+                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                }`}
+                style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
+              >
+                Send Me an Email
+              </p>
+
               <form className="w-[80%] h-full flex flex-col lg:justify-start lg:items-start gap-8">
                 <input
                   id="name"
