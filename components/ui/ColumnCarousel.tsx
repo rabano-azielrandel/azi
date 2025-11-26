@@ -9,6 +9,8 @@ type ColumnCarouselProps = {
   direction: "up" | "down";
   inView: boolean;
   active: boolean;
+  title: string;
+  desc: string;
 };
 
 export default function ColumnCarousel({
@@ -16,6 +18,8 @@ export default function ColumnCarousel({
   direction,
   inView,
   active,
+  title,
+  desc,
 }: ColumnCarouselProps) {
   const { isDarkMode, toggleTheme } = useTheme();
 
@@ -46,6 +50,20 @@ export default function ColumnCarousel({
           height={600}
           className="w-full h-full object-cover"
         />
+        <div className="absolute top-0 flex flex-col w-full h-full justify-between p-4">
+          <div className="relative left-10 w-[80px] h-fit px-2 py-4 place-self-end rounded-lg border border-white/20 bg-gray-800">
+            <h3
+              className="text-lg text-theme1-secondary font-bold tracking-widest [writing-mode:vertical-rl]"
+              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.92)" }}
+            >
+              {title}
+            </h3>
+          </div>
+
+          <p className="text-left text-sm text-theme1-secondary font-medium leading-snug pl-2">
+            {desc}
+          </p>
+        </div>
       </div>
     </div>
   );

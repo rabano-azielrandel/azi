@@ -22,7 +22,6 @@ const Projects = () => {
       }`}
     >
       {/* Wave */}
-
       <Wave
         isDarkMode={isDarkMode}
         className="absolute -top-18 sm:-top-[144px] md:-top-42 lg:-top-58 xl:-top-70 2xl:-top-84 left-0 w-full h-auto transition-colors duration-500"
@@ -56,7 +55,7 @@ const Projects = () => {
 
             {/* DIGITAL PAYSLIP */}
             <div
-              className={`w-full min-w-[350px] lg:w-[33%] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[340px] lg:w-[33%] h-[355px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -73,7 +72,7 @@ const Projects = () => {
           <div className="w-full h-full flex gap-6">
             {/* THESIS */}
             <div
-              className={`w-full min-w-[350px] h-[365px] lg:h-auto rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[340px] h-[355px] lg:h-auto rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -84,7 +83,7 @@ const Projects = () => {
 
             {/* RESORT MANAGEMENT */}
             <div
-              className={`w-full min-w-[350px] h-[365px] lg:h-auto  rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0] border-black/30"
@@ -99,7 +98,7 @@ const Projects = () => {
 
             {/* TRUCK SCALE */}
             <div
-              className={`w-full min-w-[350px] h-[365px] lg:h-auto  rounded-xl p-4 border-1 ${
+              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 ${
                 isDarkMode
                   ? "bg-[#18161B] border-white/30"
                   : "bg-[#dce6f0]  border-black/30"

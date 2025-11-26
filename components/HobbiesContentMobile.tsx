@@ -98,7 +98,7 @@ const hobbies = [
       tag: "GAMING",
       title: "DELTA FORCE",
       img: "/images/game1.jpg",
-      p: "Delta Force is one of the games that I like to play because of its intense missions and tactical gameplay. Operator Tempest is my favorite character, bringing skill and strategy to every battle",
+      p: "Delta Force is one of the games that I like to play because of its intense missions and tactical gameplay. Operator Tempest is my favorite character, bringing skill and strategy to every battle.",
       rating: 9.6,
     },
     {

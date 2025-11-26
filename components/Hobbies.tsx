@@ -9,31 +9,96 @@ import HobbiesMobile from "./HobbiesMobile";
 import Image from "next/image";
 import { useTheme } from "@/app/ThemeProvider";
 import HobbiesContentMobile from "./HobbiesContentMobile";
+import { image } from "framer-motion/client";
 
 const hobbySets = {
   anime: [
-    "/images/anime1.jpg",
-    "/images/anime2.jpg",
-    "/images/anime3.jpg",
-    "/images/anime4.jpg",
+    {
+      title: "SAKAMOTO DAYS",
+      desc: "Nonstop action with fun, memorable characters.",
+      image: "/images/anime1.jpg",
+    },
+    {
+      title: "CHAINSAW MAN",
+      desc: "Brutal, emotional, and powered by Makima’s presence.",
+      image: "/images/anime2.jpg",
+    },
+    {
+      title: "DEMON SLAYER",
+      desc: "Shinobu’s resolve and poison plan inspire me.",
+      image: "/images/anime3.jpg",
+    },
+    {
+      title: "JUJUTSU KAISEN",
+      desc: "Dark themes and Geto’s calm intensity stand out.",
+      image: "/images/anime4.jpg",
+    },
   ],
   music: [
-    "/images/music1.jpg",
-    "/images/music2.jpg",
-    "/images/music3.jpg",
-    "/images/music4.jpg",
+    {
+      title: "IV OF SPADES",
+      desc: "Retro sound with unforgettable bass lines.",
+      image: "/images/music1.jpg",
+    },
+    {
+      title: "TWENTY ONE PILOTS",
+      desc: "Unique style and deep, meaningful songs.",
+      image: "/images/music2.jpg",
+    },
+    {
+      title: "LiSA",
+      desc: "Energetic anime songs with strong emotion.",
+      image: "/images/music3.jpg",
+    },
+    {
+      title: "IU",
+      desc: "Soft vocals and heartfelt storytelling.",
+      image: "/images/music4.jpg",
+    },
   ],
   programming: [
-    "/images/code1.jpg",
-    "/images/code2.jpg",
-    "/images/code3.jpg",
-    "/images/code4.jpg",
+    {
+      title: "PROGRAMMING",
+      desc: "Creative problem-solving through code.",
+      image: "/images/code1.jpg",
+    },
+    {
+      title: "DATA STRUCTURE",
+      desc: "Logic, patterns, and efficient design.",
+      image: "/images/code2.jpg",
+    },
+    {
+      title: "ORGANIZING",
+      desc: "Clear plans help me stay focused.",
+      image: "/images/code3.jpg",
+    },
+    {
+      title: "READING",
+      desc: "Docs sharpen my coding skills.",
+      image: "/images/code4.jpg",
+    },
   ],
   game: [
-    "/images/game1.jpg",
-    "/images/game2.jpg",
-    "/images/game3.jpg",
-    "/images/game5.jpg",
+    {
+      title: "DELTA FORCE",
+      desc: "Tactical missions with strong teamwork.",
+      image: "/images/game1.jpg",
+    },
+    {
+      title: "VALORANT",
+      desc: "Strategic rounds with KAY/O as my pick.",
+      image: "/images/game2.jpg",
+    },
+    {
+      title: "NARAKA",
+      desc: "Fast duels with Wu Chen’s mobility.",
+      image: "/images/game3.jpg",
+    },
+    {
+      title: "DOTA 2",
+      desc: "Deep strategy—Windranger started my journey.",
+      image: "/images/game5.jpg",
+    },
   ],
 };
 
@@ -136,17 +201,19 @@ const Hobbies = () => {
               isDarkMode ? "border-white/30" : "border-gray-700"
             } `}
           >
-            {hobbySets[category].map((img, idx) => (
-              <React.Fragment key={`${category}-${idx}`}>
+            {hobbySets[category].map((item, index) => (
+              <React.Fragment key={`${category}-${index}`}>
                 <ColumnCarousel
-                  image={img}
-                  direction={idx % 2 === 0 ? "down" : "up"}
+                  image={item.image}
+                  direction={index % 2 === 0 ? "down" : "up"}
                   inView={inView}
                   active
+                  title={item.title}
+                  desc={item.desc}
                 />
 
                 {/* Divider */}
-                {idx < hobbySets[category].length - 1 && (
+                {index < hobbySets[category].length - 1 && (
                   <div
                     className={`w-[8px] h-[500px] mx-2 rounded-full ${
                       isDarkMode ? "bg-theme1-secondary/50" : "bg-theme1-base"

@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <div
-      className={`relative w-full pt-10 px-4 z-10 flex flex-col items-center justify-center gap-32 overflow-x-hidden ${
+      className={`relative w-full px-4 z-10 flex flex-col items-center justify-center overflow-x-hidden ${
         isDarkMode ? "bg-[#0A0A0A]" : "bg-[#E9F2FB]"
       }`}
     >
@@ -58,7 +58,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Divider (Optional, like Apple) */}
+          {/* Divider */}
           <div className="w-full max-w-xs border-t border-white/10" />
 
           {/* Footer Title */}

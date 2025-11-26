@@ -116,8 +116,19 @@ export default function Hero() {
             >
               <span
                 className={` ${
-                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-                } text-[15px] font-bold py-2 px-8 2xl:p-0 rounded-xl border 2xl:border-0 border-theme1-accent bg-theme1-accent 2xl:bg-none`}
+                  isDarkMode
+                    ? "text-theme1-secondary bg-white/5"
+                    : "text-theme1-base bg-black/10"
+                }   text-[14px] font-medium tracking-wide
+                    px-8 py-2.5 rounded-full
+                    border border-white/30
+                    backdrop-blur-md
+                    shadow-[0_8px_30px_rgba(0,0,0,0.12)]
+                    hover:bg-white/10
+                    hover:border-white/50
+                    hover:shadow-[0_10px_40px_rgba(255,255,255,0.08)]
+                    transition-all duration-300 ease-out
+                    active:scale-95`}
               >
                 VIEW PROJECTS
               </span>
