@@ -51,7 +51,7 @@ export default function ColumnCarousel({
           className="w-full h-full object-cover"
         />
         <div className="absolute top-0 flex flex-col w-full h-full justify-between p-4">
-          <div className="relative left-10 w-[80px] h-fit px-2 py-4 place-self-end rounded-lg border border-white/20 bg-gray-800">
+          <div className="relative left-10 w-[75px] h-fit px-2 py-4 place-self-end rounded-lg border border-white/20 bg-gray-800">
             <h3
               className="text-lg text-theme1-secondary font-bold tracking-widest [writing-mode:vertical-rl]"
               style={{ textShadow: "0 1px 2px rgba(0,0,0,0.92)" }}
@@ -60,9 +60,11 @@ export default function ColumnCarousel({
             </h3>
           </div>
 
-          <p className="text-left text-sm text-theme1-secondary font-medium leading-snug pl-2">
-            {desc}
-          </p>
+          <div className="w-full rounded-lg bg-[linear-gradient(to_right,transparent_0%,rgba(10,10,10,0.45)_40%,rgba(10,10,10,0.45)_60%,transparent_100%)]">
+            <p className="text-left text-sm text-theme1-secondary font-medium leading-snug pl-2 ">
+              {desc}
+            </p>
+          </div>
         </div>
       </div>
     </div>

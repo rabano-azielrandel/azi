@@ -15,88 +15,88 @@ const hobbySets = {
   anime: [
     {
       title: "SAKAMOTO DAYS",
-      desc: "Nonstop action with fun, memorable characters.",
+      desc: "Clean action with smooth comedy.",
       image: "/images/anime1.jpg",
     },
     {
       title: "CHAINSAW MAN",
-      desc: "Brutal, emotional, and powered by Makima’s presence.",
+      desc: "Wild, stylish, and unpredictable.",
       image: "/images/anime2.jpg",
     },
     {
       title: "DEMON SLAYER",
-      desc: "Shinobu’s resolve and poison plan inspire me.",
+      desc: "Elegant fights with cinematic flair.",
       image: "/images/anime3.jpg",
     },
     {
       title: "JUJUTSU KAISEN",
-      desc: "Dark themes and Geto’s calm intensity stand out.",
+      desc: "Dark energy with hype battles.",
       image: "/images/anime4.jpg",
     },
   ],
   music: [
     {
       title: "IV OF SPADES",
-      desc: "Retro sound with unforgettable bass lines.",
+      desc: "Retro grooves with sharp style.",
       image: "/images/music1.jpg",
     },
     {
       title: "TWENTY ONE PILOTS",
-      desc: "Unique style and deep, meaningful songs.",
+      desc: "Deep lyrics with modern edge.",
       image: "/images/music2.jpg",
     },
     {
       title: "LiSA",
-      desc: "Energetic anime songs with strong emotion.",
+      desc: "High-energy vocals with punch.",
       image: "/images/music3.jpg",
     },
     {
       title: "IU",
-      desc: "Soft vocals and heartfelt storytelling.",
+      desc: "Soft melodies with pure emotion.",
       image: "/images/music4.jpg",
     },
   ],
   programming: [
     {
       title: "PROGRAMMING",
-      desc: "Creative problem-solving through code.",
+      desc: "Ideas turned into logic.",
       image: "/images/code1.jpg",
     },
     {
       title: "DATA STRUCTURE",
-      desc: "Logic, patterns, and efficient design.",
+      desc: "Smart patterns behind speed.",
       image: "/images/code2.jpg",
     },
     {
       title: "ORGANIZING",
-      desc: "Clear plans help me stay focused.",
+      desc: "Clean plans, clear mind.",
       image: "/images/code3.jpg",
     },
     {
       title: "READING",
-      desc: "Docs sharpen my coding skills.",
+      desc: "Small insights, big gains.",
       image: "/images/code4.jpg",
     },
   ],
   game: [
     {
       title: "DELTA FORCE",
-      desc: "Tactical missions with strong teamwork.",
+      desc: "Tactical fights with intensity.",
       image: "/images/game1.jpg",
     },
     {
       title: "VALORANT",
-      desc: "Strategic rounds with KAY/O as my pick.",
+      desc: "Sharp aim, smarter plays.",
       image: "/images/game2.jpg",
     },
     {
       title: "NARAKA",
-      desc: "Fast duels with Wu Chen’s mobility.",
+      desc: "Fast duels with style.",
       image: "/images/game3.jpg",
     },
     {
       title: "DOTA 2",
-      desc: "Deep strategy—Windranger started my journey.",
+      desc: "Strategy that never repeats.",
       image: "/images/game5.jpg",
     },
   ],
