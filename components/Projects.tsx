@@ -24,7 +24,8 @@ const Projects = () => {
       {/* Wave */}
       <Wave
         isDarkMode={isDarkMode}
-        className="absolute -top-18 sm:-top-[144px] md:-top-42 lg:-top-58 xl:-top-70 2xl:-top-84 left-0 w-full h-auto transition-colors duration-500"
+        className="absolute -top-18 sm:-top-[144px] md:-top-42 lg:-top-58 xl:-top-70 2xl:-top-76 3xl:-top-80 4xl:-top-87 8xl:-top-90
+        left-0 w-full h-auto transition-colors duration-500"
       />
 
       {/* Content */}
