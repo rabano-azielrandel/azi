@@ -37,14 +37,14 @@ export default function RippleCard({ image, title, desc }: RippleCardProps) {
       <div className="w-full h-1/5 flex flex-col items-start justify-center">
         <h3
           className={`text-lg text-nowrap font-extrabold ${
-            isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+            isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
           } leading-tight tracking-wider`}
         >
           {title}
         </h3>
         <p
           className={`text-xs ${
-            isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
+            isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent2"
           }  leading-snug font-normal tracking-normal`}
         >
           {desc}

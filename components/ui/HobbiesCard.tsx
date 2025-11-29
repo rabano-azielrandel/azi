@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { JSX } from "react";
 import { useState } from "react";
 import { Star } from "lucide-react";
+import { useTheme } from "@/app/ThemeProvider";
 
 type HobbiesCardProps = {
   index: number;
@@ -21,10 +22,15 @@ export default function HobbiesCard({
   rating,
 }: HobbiesCardProps): JSX.Element {
   const [isDescOpened, setIsDescOpened] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
-    <div className="flex flex-col boder-2 border-amber-500">
-      <div className="w-full flex justify-start items-center gap-4 rounded-lg p-4 text-white">
+    <div className="flex flex-col boder-2">
+      <div
+        className={`${
+          isDarkMode ? " text-white" : " text-black"
+        } w-full flex justify-start items-center gap-4 rounded-lg p-4`}
+      >
         <div className="relative flex w-[100px] h-[130px] overflow-hidden">
           <Image
             src={image}
@@ -36,7 +42,11 @@ export default function HobbiesCard({
         </div>
 
         <div className="flex flex-col w-full h-full">
-          <h3 className="font-bold text-[16px] tracking-wide text-theme-accent1">
+          <h3
+            className={`${
+              isDarkMode ? "text-theme-accent1" : "text-[#4DA3FF]"
+            } font-bold text-[16px] tracking-wide`}
+          >
             {title}
           </h3>
 
@@ -51,13 +61,17 @@ export default function HobbiesCard({
 
           <div className="mt-2 text-[11px] font-thin">
             <span
-              className={`${isDescOpened ? "line-clamp-none" : "line-clamp-3"}`}
+              className={`${
+                isDescOpened ? "line-clamp-none" : "line-clamp-3"
+              } ${isDarkMode ? "text-gray-300" : "text-theme-dark-accent1"}`}
             >
               {p}
             </span>
             <button
               onClick={() => setIsDescOpened(!isDescOpened)}
-              className="mt-1 text-yellow-200"
+              className={`${
+                isDarkMode ? "text-yellow-200" : "text-[#4DA3FF]"
+              } mt-1 `}
             >
               {isDescOpened ? "See less" : "See more"}
             </button>

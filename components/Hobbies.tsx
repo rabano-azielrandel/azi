@@ -129,7 +129,11 @@ const Hobbies = () => {
     <section
       ref={ref}
       id="hobbies"
-      className={`relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2`}
+      className={`${
+        isDarkMode
+          ? "bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2"
+          : "bg-gradient-to-b from-transparent via-[#dce6f0] to-[#dce6f0]"
+      } relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden`}
     >
       <div
         className="relative w-full max-w-[1360px] p-2 gap-10
@@ -148,7 +152,7 @@ const Hobbies = () => {
           {/* Category Text (Left Side) */}
           <h2
             className={`${
-              isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+              isDarkMode ? "text-theme1-secondary" : "text-theme-dark-accent1"
             } text-xl font-semibold`}
           >
             {category === "anime"

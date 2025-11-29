@@ -18,13 +18,13 @@ const Projects = () => {
       className={`relative mt-10 sm:mt-40 w-full px-4 py-20  ${
         isDarkMode
           ? "bg-gradient-to-b from-theme-accent2"
-          : "bg-gradient-to-b from-[#e9f1fa] to-[#5E4075]/10"
+          : "bg-gradient-to-b from-[#e9f1fa] to-[#F6F6F6]/10"
       }`}
     >
       {/* Wave */}
       <Wave
         isDarkMode={isDarkMode}
-        className="absolute -top-18 sm:-top-[144px] md:-top-42 lg:-top-58 xl:-top-70 2xl:-top-76 3xl:-top-80 4xl:-top-87 8xl:-top-90
+        className="absolute -top-18 xxs:-top-20 xs:-top-24 2xs:-top-30 sm:-top-36 md:-top-42 2md:-top-46 3md:-top-50 lg:-top-58 2lg:-top-60 xl:-top-70 2xl:-top-76 3xl:-top-80 4xl:-top-85 8xl:-top-90
         left-0 w-full h-auto transition-colors duration-500"
       />
 

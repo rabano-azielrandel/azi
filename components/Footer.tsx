@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <div
       className={`relative w-full px-4 z-10 flex flex-col items-center justify-center overflow-x-hidden ${
-        isDarkMode ? "bg-[#0A0A0A]" : "bg-[#E9F2FB]"
+        isDarkMode ? "bg-[#0A0A0A]" : "bg-[#111111]"
       }`}
     >
       <div className="relative w-full max-w-[1360px] p-2 gap-4 flex flex-col justify-center items-center">
@@ -46,13 +46,13 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-2 max-w-md text-center">
             <h3
               className={`font-semibold text-xl ${
-                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
               }`}
             >
               Behind the Code
             </h3>
 
-            <p className="font-light text-sm leading-snug text-theme-accent4">
+            <p className="font-light text-sm leading-snug text-theme1-secondary">
               A product of fleeting midnight moments, persistence, and
               unwavering passion.
             </p>
@@ -65,13 +65,13 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-2">
             <h3
               className={`font-semibold text-xl ${
-                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
               }`}
             >
               Got an Idea? Let’s Make It Real.
             </h3>
 
-            <p className="font-light text-xs text-theme-accent4">
+            <p className="font-light text-xs text-theme1-secondary">
               © 2025 Aziel Randel Rabano. All rights reserved.
             </p>
           </div>

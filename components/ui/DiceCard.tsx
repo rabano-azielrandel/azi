@@ -65,14 +65,14 @@ export default function DiceCard({ title, desc }: DiceCardProps) {
       <div className="w-full flex flex-col items-start justify-center gap-1">
         <h2
           className={`text-lg font-extrabold ${
-            isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent3"
+            isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
           } leading-tight tracking-wider`}
         >
           {title}
         </h2>
         <p
           className={`text-xs ${
-            isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent4"
+            isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent2"
           }  leading-snug font-normal tracking-normal`}
         >
           {desc}

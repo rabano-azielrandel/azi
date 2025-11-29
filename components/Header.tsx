@@ -57,8 +57,10 @@ export default function Header() {
           >
             <span
               className={`${
-                isDarkMode ? "text-[#e8d8c9]" : "text-theme1-base"
-              }  group-hover:text-theme1-accent transition-all`}
+                isDarkMode
+                  ? "text-[#e8d8c9] group-hover:text-theme1-accent"
+                  : "text-theme1-base group-hover:text-theme-dark-accent1"
+              } transition-all`}
             >
               Aziel
             </span>
@@ -68,10 +70,10 @@ export default function Header() {
               .
             </span>
             <span
-              className={`text-theme1-accent ${
+              className={`${
                 isDarkMode
-                  ? "group-hover:text-[#e8d8c9]"
-                  : "group-hover:text-theme1-base"
+                  ? "text-theme1-accent group-hover:text-[#e8d8c9]"
+                  : "text-theme-dark-accent1 group-hover:text-theme1-base"
               } transition-all duration-300 ease-in-out`}
             >
               Randel

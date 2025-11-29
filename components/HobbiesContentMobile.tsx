@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HobbiesCard from "./ui/HobbiesCard";
 import { useState } from "react";
+import { useTheme } from "@/app/ThemeProvider";
 
 const hobbies = [
   [
@@ -129,6 +130,7 @@ const hobbiesType = ["Anime", "Music", "Learning", "Gaming"];
 
 export default function HobbiesContentMobile() {
   const [selectedHobby, setSelectedHobby] = useState(0);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <div className="lg:hidden w-full flex flex-col gap-4 mt-2">
@@ -141,9 +143,13 @@ export default function HobbiesContentMobile() {
               onClick={() => setSelectedHobby(index)}
               className={`${
                 selectedHobby == index
-                  ? "bg-theme1-secondary text-theme-accent2"
-                  : "text-theme1-secondary"
-              } min-w-25 w-25 px-3 text-sm py-1 rounded-full border border-theme1-secondary whitespace-nowrap`}
+                  ? isDarkMode
+                    ? "bg-theme1-secondary text-theme-accent2 border-theme1-secondary"
+                    : "bg-black/10 text-theme-dark-accent1 border-theme1-base"
+                  : isDarkMode
+                  ? "text-theme1-secondary"
+                  : "text-theme-dark-accent1 border-black/10"
+              } min-w-25 w-25 px-3 text-sm py-1 rounded-full border whitespace-nowrap`}
             >
               {item}
             </button>

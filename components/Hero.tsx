@@ -70,7 +70,11 @@ export default function Hero() {
               href={"#projects"}
               className="absolute bottom-25 -right-40 2xl:-right-45 hidden 2xl:flex items-center gap-2 h-fit"
             >
-              <div className="w-[100px] 2xl:w-[120px] h-[5px] rounded-full bg-theme1-accent" />
+              <div
+                className={`${
+                  isDarkMode ? "bg-theme1-accent" : "bg-theme-dark-accent1"
+                } w-[100px] 2xl:w-[120px] h-[5px] rounded-full`}
+              />
               <span
                 className={` ${
                   isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -91,11 +95,30 @@ export default function Hero() {
               >
                 AZIEL
               </span>
-              <span className="text-theme1-accent">RANDEL</span>
+              <span
+                className={` ${
+                  isDarkMode ? "text-theme1-accent" : "text-theme-dark-accent1"
+                }`}
+              >
+                RANDEL
+              </span>
             </h1>
             <p className="relative tracking-[6px] text-[12px] lg:text-[14px]">
-              <span className="text-theme1-accent font-bold">SOFTWARE</span>
-              <span className="text-theme1-accent"> / </span>
+              <span
+                className={` ${
+                  isDarkMode ? "text-theme1-accent" : "text-theme-dark-accent1"
+                } font-bold`}
+              >
+                SOFTWARE
+              </span>
+              <span
+                className={` ${
+                  isDarkMode ? "text-theme1-accent" : "text-theme-dark-accent1"
+                }`}
+              >
+                {" "}
+                /{" "}
+              </span>
               <span
                 className={`${
                   isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
@@ -110,9 +133,10 @@ export default function Hero() {
               />
             </p>
 
+            {/* xl below button */}
             <Link
               href={"#projects"}
-              className=" 2xl:-right-45 flex 2xl:hidden items-center gap-2 h-fit mt-4"
+              className=" flex 2xl:hidden items-center gap-2 h-fit mt-4"
             >
               <span
                 className={` ${

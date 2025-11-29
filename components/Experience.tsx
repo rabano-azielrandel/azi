@@ -35,7 +35,7 @@ export default function Experience() {
       className={`relative w-full mt-10 sm:mt-40 ${
         isDarkMode
           ? "bg-gradient-to-t from-theme-accent2"
-          : "bg-gradient-to-t from-[#e9f1fa] to-[#5E4075]/10"
+          : "bg-gradient-to-t from-[#e9f1fa] to-[#F6F6F6]/10"
       }`}
     >
       <div

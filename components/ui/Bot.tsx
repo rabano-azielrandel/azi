@@ -26,10 +26,7 @@ export default function Bot() {
           isDarkMode ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
-        <Spline
-          scene="/splines/yellow_light_bot.spline"
-          className="w-full h-full"
-        />
+        <Spline scene="/splines/blue_bot.spline" className="w-full h-full" />
       </div>
     </section>
   );

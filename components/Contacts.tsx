@@ -54,15 +54,15 @@ const Contacts = () => {
   return (
     <section
       id="contacts"
-      className={`relative w-full px-4 py-20  overflow-hidden bg-theme1-base ${
-        isDarkMode ? "" : "bg-gradient-to-t from-[#939FB2]"
+      className={`relative w-full px-4 py-20  overflow-hidden ${
+        isDarkMode ? "bg-theme1-base" : "bg-[#1e1f23]"
       }`}
     >
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 flex flex-col items-center">
         <div className="w-full flex flex-col justify-center items-center gap-10">
           <h2
             className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
-              isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+              isDarkMode ? "text-theme1-secondary" : "text-theme-dark-accent1"
             } select-none cursor-default`}
           >
             CONTACTS
@@ -95,7 +95,7 @@ const Contacts = () => {
                         className={`text-sm lg:text-base font-extrabold ${
                           isDarkMode
                             ? "text-theme-accent3"
-                            : "text-theme-dark-accent3"
+                            : "text-theme-dark-accent1"
                         }`}
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                       >
@@ -105,7 +105,7 @@ const Contacts = () => {
                         className={`text-[12px] lg:text-sm font-light ${
                           isDarkMode
                             ? "text-theme-accent4"
-                            : "text-theme-dark-accent4"
+                            : "text-theme1-secondary"
                         }`}
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                       >
@@ -120,7 +120,9 @@ const Contacts = () => {
               <div className="w-full flex justify-center lg:justify-start">
                 <p
                   className={`txt-xl font-semibold select-none cursor-default ${
-                    isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                    isDarkMode
+                      ? "text-theme1-secondary"
+                      : "text-theme-dark-accent1"
                   }`}
                   style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                 >
@@ -135,14 +137,20 @@ const Contacts = () => {
                     href={src.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex items-center justify-center
-                 h-12 w-12 rounded-full border border-theme1-secondary"
+                    className={` ${
+                      isDarkMode
+                        ? "border-theme1-secondary"
+                        : "border-theme-dark-accent1"
+                    } group relative flex items-center justify-center
+                      h-12 w-12 rounded-full border`}
                   >
                     {/* Inner filled circle */}
                     <div
-                      className="flex items-center justify-center 
-                   h-9 w-9 rounded-full bg-theme1-secondary
-                   transition duration-200 group-hover:scale-110"
+                      className={` ${
+                        isDarkMode ? "bg-theme1-secondary" : "bg-theme1-base"
+                      } flex items-center justify-center 
+                        h-9 w-9 rounded-full
+                        transition duration-200 group-hover:scale-110`}
                     >
                       <Image
                         src={src.icon}
@@ -151,6 +159,11 @@ const Contacts = () => {
                         width={20}
                         draggable={false}
                         className="w-[18px] h-[18px]"
+                        style={{
+                          filter: isDarkMode
+                            ? "none"
+                            : "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
+                        }}
                       />
                     </div>
                   </Link>
@@ -162,7 +175,9 @@ const Contacts = () => {
             <div className="w-full h-full flex flex-col justify-center items-center gap-6 mt-10 lg:mt-0">
               <p
                 className={`txt-xl font-semibold select-none cursor-default ${
-                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
+                  isDarkMode
+                    ? "text-theme1-secondary"
+                    : "text-theme-dark-accent1"
                 }`}
                 style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
               >
@@ -175,8 +190,8 @@ const Contacts = () => {
                   type="text"
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
                     isDarkMode
-                      ? "text-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
                   }`}
                   placeholder="Name"
                   required
@@ -187,8 +202,8 @@ const Contacts = () => {
                   type="email"
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
                     isDarkMode
-                      ? "text-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
                   }`}
                   placeholder="Email"
                   required
@@ -199,8 +214,8 @@ const Contacts = () => {
                   type="subject"
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
                     isDarkMode
-                      ? "text-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
+                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
                   }`}
                   placeholder="Subject"
                   required
@@ -212,7 +227,7 @@ const Contacts = () => {
                   className={`w-full px-3 py-2 rounded-md resize-none focus:outline-none border ${
                     isDarkMode
                       ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-base placeholder-theme1-base border-theme1-base focus:border-theme-dark-accent3"
+                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
                   }`}
                   placeholder="Write your message here..."
                   required
@@ -224,7 +239,7 @@ const Contacts = () => {
                     border  ${
                       isDarkMode
                         ? "border-white bg-theme1-secondary hover:bg-theme1-base  "
-                        : "border-black bg-[#F7F7F7] hover:bg-[#A4AEBE] "
+                        : "border-theme-dark-accent1 bg-[#F7F7F7] hover:bg-[#1e1f23] "
                     }`}
                 >
                   Send Email
