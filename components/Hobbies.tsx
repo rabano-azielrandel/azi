@@ -5,11 +5,9 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import ColumnCarousel from "./ui/ColumnCarousel";
-import HobbiesMobile from "./HobbiesMobile";
 import Image from "next/image";
 import { useTheme } from "@/app/ThemeProvider";
 import HobbiesContentMobile from "./HobbiesContentMobile";
-import { image } from "framer-motion/client";
 
 const hobbySets = {
   anime: [
