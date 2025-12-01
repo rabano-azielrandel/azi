@@ -11,6 +11,7 @@ import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground: React.FC = () => {
   const [init, setInit] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -18,6 +19,13 @@ const ParticlesBackground: React.FC = () => {
     }).then(() => {
       setInit(true);
     });
+  }, []);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   const options: ISourceOptions = useMemo(
@@ -31,15 +39,15 @@ const ParticlesBackground: React.FC = () => {
           value: "transparent",
         },
       },
-      fpsLimit: 120,
+      fpsLimit: isMobile ? 30 : 120,
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: !isMobile,
             mode: "repulse",
           },
           onHover: {
-            enable: true,
+            enable: !isMobile,
             mode: "attract",
           },
         },
@@ -75,7 +83,7 @@ const ParticlesBackground: React.FC = () => {
             default: OutMode.out,
           },
           random: false,
-          speed: 2,
+          speed: isMobile ? 0.8 : 2,
           straight: true,
         },
         number: {
@@ -83,7 +91,7 @@ const ParticlesBackground: React.FC = () => {
             enable: false,
             area: 800,
           },
-          value: 110,
+          value: isMobile ? 25 : 110,
         },
         opacity: {
           value: 0.5,
@@ -92,12 +100,12 @@ const ParticlesBackground: React.FC = () => {
           type: ["square", "circle"],
         },
         size: {
-          value: { min: 2, max: 5 },
+          value: isMobile ? { min: 1, max: 2 } : { min: 2, max: 5 },
         },
       },
       detectRetina: true,
     }),
-    []
+    [isMobile]
   );
 
   if (init) {
