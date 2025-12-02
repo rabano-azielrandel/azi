@@ -23,7 +23,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      <Particles
+      {/* <Particles
         className={`fixed top-0 left-0 inset-0 w-full h-full ${
           isDarkMode
             ? ""
@@ -34,7 +34,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         staticity={50}
         color={` ${isDarkMode ? "#FFFFFF" : "#4B5563"}`}
         size={0.8}
-      />
+      /> */}
       {children}
     </ThemeContext.Provider>
   );
