@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Wave from "./ui/Wave";
-import ExpCard from "./ui/ExpCard";
 import ExpSplitCard from "./ui/ExpSplitCard";
 import { useTheme } from "@/app/ThemeProvider";
 

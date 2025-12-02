@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
 import { useTheme } from "../app/ThemeProvider";
-import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const { isDarkMode, toggleTheme } = useTheme();

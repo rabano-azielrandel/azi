@@ -6,7 +6,6 @@ import RippleCard from "./ui/RippleCard";
 import FanCard from "./ui/FanCard";
 import DiceCard from "./ui/DiceCard";
 import Bot from "./ui/Bot";
-import Image from "next/image";
 import Wave from "./ui/Wave";
 import { useTheme } from "../app/ThemeProvider";
 

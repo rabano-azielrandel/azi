@@ -1,31 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { useTheme } from "@/app/ThemeProvider";
-
-const links = [
-  { text: "Me", href: "#me" },
-  { text: "Projects", href: "#projects" },
-  { text: "Experience", href: "#experience" },
-  { text: "Hobbies", href: "#hobbies" },
-  { text: "Contacts", href: "#contacts" },
-];
-
-const asset = [
-  { text: "Pinterest", href: "https://ph.pinterest.com/" },
-  { text: "Spline", href: "https://app.spline.design" },
-  { text: "Shadcn", href: "https://www.shadcn.io/" },
-  { text: "Flaticon", href: "https://www.flaticon.com/" },
-];
-
-const stacks = [
-  { text: "Vercel", href: "https://vercel.com/" },
-  { text: "Next.js", href: "https://nextjs.org/" },
-  { text: "Tailwind CSS", href: "https://tailwindcss.com/" },
-  { text: "Lucide Icons", href: "https://lucide.dev/" },
-];
 
 export default function Footer() {
   const { isDarkMode, toggleTheme } = useTheme();

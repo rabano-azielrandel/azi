@@ -3,11 +3,9 @@ import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
 import ThemeProvider from "./ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import GlobalParticlesWrapper from "@/components/ui/GlobalParticlesWrapper";
 import "./globals.css";
 import "../CSS/ThemeSwitch.css";
 import Script from "next/script";
-import dynamic from "next/dynamic";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,8 +49,6 @@ export default function RootLayout({
     >
       <body className="w-screen antialiased font-[var(--font-inter)] overflow-x-hidden">
         <ThemeProvider>
-          <GlobalParticlesWrapper />
-
           <Header />
 
           {children}
