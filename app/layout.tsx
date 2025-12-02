@@ -50,13 +50,13 @@ export default function RootLayout({
     >
       <body className="w-screen antialiased font-[var(--font-inter)] overflow-x-hidden">
         <ThemeProvider>
-          <GlobalParticlesWrapper />
+          <GlobalParticlesWrapper>
+            <Header />
 
-          <Header />
+            {children}
 
-          {children}
-
-          <Footer />
+            <Footer />
+          </GlobalParticlesWrapper>
         </ThemeProvider>
 
         <Script

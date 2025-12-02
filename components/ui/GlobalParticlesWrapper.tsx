@@ -1,23 +1,30 @@
 "use client";
 
-import { useTheme } from "@/app/ThemeProvider";
-import { Particles } from "@/components/ui/shadcn-io/particles";
+import dynamic from "next/dynamic";
+import { ReactNode } from "react";
 
-export default function GlobalParticlesWrapper() {
-  const { isDarkMode } = useTheme();
+const Particles = dynamic(
+  () =>
+    import("@/components/ui/shadcn-io/particles").then((mod) => mod.Particles),
+  { ssr: false }
+);
 
+interface WrapperProps {
+  children?: ReactNode;
+}
+
+export default function GlobalParticlesWrapper({ children }: WrapperProps) {
   return (
-    <Particles
-      className={`fixed inset-0 w-full h-full ${
-        isDarkMode
-          ? ""
-          : "bg-gradient-to-b from-[#F5F5F5] via-[#F7F7F7] to-[#F7F7F7]"
-      }`}
-      quantity={100}
-      ease={80}
-      staticity={50}
-      color={isDarkMode ? "#FFFFFF" : "#4B5563"}
-      size={0.8}
-    />
+    <>
+      <Particles
+        className="fixed inset-0 pointer-events-none"
+        quantity={100}
+        ease={80}
+        staticity={50}
+        size={0.8}
+        color="#ffffff"
+      />
+      {children}
+    </>
   );
 }
