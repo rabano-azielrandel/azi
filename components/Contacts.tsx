@@ -86,7 +86,7 @@ const Contacts = () => {
                       style={{
                         filter: isDarkMode
                           ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
-                          : "none",
+                          : "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
                       }}
                     />
 
