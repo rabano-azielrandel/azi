@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Cloud, Bell, Container, Weight } from "lucide-react";
 import Image from "next/image";
-import { useTheme } from "@/app/ThemeProvider";
 
 type FanCardProps = {
   title: string;
@@ -11,26 +10,20 @@ type FanCardProps = {
 };
 
 export default function FanCards({ title, desc }: FanCardProps) {
-  const { isDarkMode, toggleTheme } = useTheme();
   return (
     <div
-      className={`w-full h-full flex flex-col rounded-xl p-2 gap-4 cursor-pointer transition-colors ${
-        isDarkMode ? "hover:bg-theme1-secondary/10" : "hover:bg-[#0f1f2e]/10"
-      }`}
+      className={`w-full h-full flex flex-col rounded-xl p-2 gap-4 cursor-pointer transition-colors 
+        hover:bg-theme1-secondary/10 light:hover:bg-[#0f1f2e]/10`}
     >
       {/* Text section */}
       <div className="w-full h-1/5  flex flex-col items-start justify-center">
         <h2
-          className={`text-lg font-extrabold ${
-            isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
-          } leading-tight tracking-wider`}
+          className={`text-lg font-extrabold text-theme-accent3 light:text-theme-dark-accent1 leading-tight tracking-wider`}
         >
           {title}
         </h2>
         <p
-          className={`text-xs ${
-            isDarkMode ? "text-theme-accent4" : "text-theme-dark-accent2"
-          }  leading-snug font-normal tracking-normal`}
+          className={`text-xs text-theme-accent4 light:text-theme-dark-accent2 leading-snug font-normal tracking-normal`}
         >
           {desc}
         </p>
@@ -96,38 +89,22 @@ export default function FanCards({ title, desc }: FanCardProps) {
       {/* Stacks */}
       <div className="w-full flex gap-2 text-xs font-bold">
         <span
-          className={`w-[50px] ${
-            isDarkMode
-              ? "text-theme1-secondary/80 bg-white/5"
-              : "text-[#0A0A0A]/90 bg-[#1e2a3f]/5"
-          } py-[2px]  rounded-full text-center`}
+          className={`w-[50px] text-theme1-secondary/80 bg-white/5 light:text-[#0A0A0A]/90 light:bg-[#1e2a3f]/5 py-[2px]  rounded-full text-center`}
         >
           C#
         </span>
         <span
-          className={`w-[50px] ${
-            isDarkMode
-              ? "text-theme1-secondary/80 bg-white/5"
-              : "text-[#0A0A0A]/90 bg-[#1e2a3f]/5"
-          } py-[2px]  rounded-full text-center`}
+          className={`w-[50px] text-theme1-secondary/80 bg-white/5 light:text-[#0A0A0A]/90 light:bg-[#1e2a3f]/5 py-[2px]  rounded-full text-center`}
         >
           JS
         </span>
         <span
-          className={`w-[50px] ${
-            isDarkMode
-              ? "text-theme1-secondary/80 bg-white/5"
-              : "text-[#0A0A0A]/90 bg-[#1e2a3f]/5"
-          } py-[2px]  rounded-full text-center`}
+          className={`w-[50px] text-theme1-secondary/80 bg-white/5 light:text-[#0A0A0A]/90 light:bg-[#1e2a3f]/5 py-[2px]  rounded-full text-center`}
         >
           SQL
         </span>
         <span
-          className={`w-[50px] ${
-            isDarkMode
-              ? "text-theme1-secondary/80 bg-white/5"
-              : "text-[#0A0A0A]/90 bg-[#1e2a3f]/5"
-          } py-[2px]  rounded-full text-center`}
+          className={`w-[50px] text-theme1-secondary/80 bg-white/5 light:text-[#0A0A0A]/90 light:bg-[#1e2a3f]/5 py-[2px]  rounded-full text-center`}
         >
           .NET
         </span>

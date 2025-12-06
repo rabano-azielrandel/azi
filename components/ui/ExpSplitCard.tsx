@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { useTheme } from "@/app/ThemeProvider";
-import { div } from "framer-motion/client";
 
 type DataInterface = {
   backgroundImage: string;
@@ -24,7 +22,6 @@ const getRoundedClass = (idx: number) => {
 const ExpSplitCard = ({ data }: ExpCardProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clicked, setClicked] = useState<number | null>(null);
-  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <div className="w-full h-full px-4">

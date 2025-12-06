@@ -4,7 +4,6 @@ import { main } from "framer-motion/client";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import { useTheme } from "@/app/ThemeProvider";
 
 const contact = [
   {
@@ -49,21 +48,15 @@ const socials = [
 ];
 
 const Contacts = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
-
   return (
     <section
       id="contacts"
-      className={`relative w-full px-4 py-20  overflow-hidden ${
-        isDarkMode ? "bg-theme1-base" : "bg-[#1e1f23]"
-      }`}
+      className={`relative w-full px-4 py-20  overflow-hidden bg-theme1-base light:bg-[#1e1f23]`}
     >
       <div className="relative z-10 w-full max-w-[1360px] h-full mx-auto p-4 flex flex-col items-center">
         <div className="w-full flex flex-col justify-center items-center gap-10">
           <h2
-            className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
-              isDarkMode ? "text-theme1-secondary" : "text-theme-dark-accent1"
-            } select-none cursor-default`}
+            className={`text-4xl font-oswald font-semibold text-center tracking-[8px] text-theme1-secondary light:text-theme-dark-accent1 select-none cursor-default`}
           >
             CONTACTS
           </h2>
@@ -84,29 +77,20 @@ const Contacts = () => {
                       draggable={false}
                       className="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] transition-transform duration-300 ease-[cubic-bezier(.03,.98,.52,.99)] group-hover:scale-110"
                       style={{
-                        filter: isDarkMode
-                          ? "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)"
-                          : "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
+                        filter:
+                          "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
                       }}
                     />
 
                     <div className="w-full flex flex-col justify-center items-start pl-6 font-inter">
                       <p
-                        className={`text-sm lg:text-base font-extrabold ${
-                          isDarkMode
-                            ? "text-theme-accent3"
-                            : "text-theme-dark-accent1"
-                        }`}
+                        className={`text-sm lg:text-base font-extrabold text-theme-accent3 light:text-theme-dark-accent1`}
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                       >
                         {src.Title}
                       </p>
                       <p
-                        className={`text-[12px] lg:text-sm font-light ${
-                          isDarkMode
-                            ? "text-theme-accent4"
-                            : "text-theme1-secondary"
-                        }`}
+                        className={`text-[12px] lg:text-sm font-light text-theme-accent4 light:text-theme1-secondary`}
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                       >
                         {src.Subtitle}
@@ -119,11 +103,8 @@ const Contacts = () => {
               {/* CONNECT WITH ME */}
               <div className="w-full flex justify-center lg:justify-start">
                 <p
-                  className={`txt-xl font-semibold select-none cursor-default ${
-                    isDarkMode
-                      ? "text-theme1-secondary"
-                      : "text-theme-dark-accent1"
-                  }`}
+                  className={`txt-xl font-semibold select-none cursor-default
+                    text-theme1-secondary light:text-theme-dark-accent1`}
                   style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
                 >
                   Connect With Me
@@ -137,18 +118,13 @@ const Contacts = () => {
                     href={src.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={` ${
-                      isDarkMode
-                        ? "border-theme1-secondary"
-                        : "border-theme-dark-accent1"
-                    } group relative flex items-center justify-center
+                    className={`border-theme1-secondary light:border-theme-dark-accent1 group relative flex items-center justify-center
                       h-12 w-12 rounded-full border`}
                   >
                     {/* Inner filled circle */}
                     <div
-                      className={` ${
-                        isDarkMode ? "bg-theme1-secondary" : "bg-theme1-base"
-                      } flex items-center justify-center 
+                      className={`bg-theme1-secondary light:bg-theme1-base
+                        flex items-center justify-center 
                         h-9 w-9 rounded-full
                         transition duration-200 group-hover:scale-110`}
                     >
@@ -158,12 +134,7 @@ const Contacts = () => {
                         height={20}
                         width={20}
                         draggable={false}
-                        className="w-[18px] h-[18px]"
-                        style={{
-                          filter: isDarkMode
-                            ? "none"
-                            : "invert(93%) sepia(11%) saturate(234%) hue-rotate(323deg) brightness(100%) contrast(90%)",
-                        }}
+                        className="w-[18px] h-[18px] light:invert-[93%] light:sepia-[11%] light:saturate-[234%] light:hue-rotate-[323deg] light:brightness-[100%] light:contrast-[90%]"
                       />
                     </div>
                   </Link>
@@ -174,11 +145,7 @@ const Contacts = () => {
             {/* FORMS */}
             <div className="w-full h-full flex flex-col justify-center items-center gap-6 mt-10 lg:mt-0">
               <p
-                className={`txt-xl font-semibold select-none cursor-default ${
-                  isDarkMode
-                    ? "text-theme1-secondary"
-                    : "text-theme-dark-accent1"
-                }`}
+                className={`txt-xl font-semibold select-none cursor-default text-theme1-secondary light:text-theme-dark-accent1`}
                 style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}
               >
                 Send Me an Email
@@ -188,11 +155,9 @@ const Contacts = () => {
                 <input
                   id="name"
                   type="text"
-                  className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
-                    isDarkMode
-                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
-                  }`}
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border
+                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Name"
                   required
                 />
@@ -200,11 +165,9 @@ const Contacts = () => {
                 <input
                   id="email"
                   type="email"
-                  className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
-                    isDarkMode
-                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
-                  }`}
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border
+                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Email"
                   required
                 />
@@ -212,11 +175,9 @@ const Contacts = () => {
                 <input
                   id="subject"
                   type="subject"
-                  className={`w-full px-3 py-2 rounded-md focus:outline-none border ${
-                    isDarkMode
-                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
-                  }`}
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border
+                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Subject"
                   required
                 />
@@ -224,23 +185,18 @@ const Contacts = () => {
                 <textarea
                   id="message"
                   rows={4}
-                  className={`w-full px-3 py-2 rounded-md resize-none focus:outline-none border ${
-                    isDarkMode
-                      ? "text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1"
-                      : "text-theme1-secondary placeholder-theme-dark-accent1 border-theme1-secondary focus:border-theme-dark-accent1"
-                  }`}
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border
+                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Write your message here..."
                   required
                 />
 
                 <button
                   type="submit"
-                  className={`mt-2 py-2 px-4 rounded-md text-theme1-base font-medium hover:text-white hover:cursor-pointer transition-colors 
-                    border  ${
-                      isDarkMode
-                        ? "border-white bg-theme1-secondary hover:bg-theme1-base  "
-                        : "border-theme-dark-accent1 bg-[#F7F7F7] hover:bg-[#1e1f23] "
-                    }`}
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border
+                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                 >
                   Send Email
                 </button>

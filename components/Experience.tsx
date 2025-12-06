@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Wave from "./ui/Wave";
 import ExpSplitCard from "./ui/ExpSplitCard";
-import { useTheme } from "@/app/ThemeProvider";
 
 const expData = [
   {
@@ -24,26 +23,19 @@ const expData = [
 ];
 
 export default function Experience() {
-  const { isDarkMode, toggleTheme } = useTheme();
   const [activeIndex, SetActiveIndex] = useState(0);
 
   return (
     <section
       id="experience"
-      className={`relative w-full mt-10 sm:mt-40 ${
-        isDarkMode
-          ? "bg-gradient-to-t from-theme-accent2"
-          : "bg-gradient-to-t from-[#e9f1fa] to-[#F6F6F6]/10"
-      }`}
+      className={`relative w-full mt-10 sm:mt-40 bg-gradient-to-t from-theme-accent2 light:bg-gradient-to-t light:from-[#e9f1fa] light:to-[#F6F6F6]/10`}
     >
       <div
         className="relative w-full max-w-[1360px] mx-auto p-2 gap-10
       flex flex-col justify-center items-center z-10"
       >
         <h2
-          className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
-            isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-          } select-none cursor-default`}
+          className={`text-4xl font-oswald font-semibold text-center tracking-[8px] text-theme1-secondary light:text-theme1-base select-none cursor-default`}
         >
           EXPERIENCE
         </h2>
@@ -51,10 +43,7 @@ export default function Experience() {
         <ExpSplitCard data={expData} />
       </div>
 
-      <Wave
-        isDarkMode={isDarkMode}
-        className="absolute object-contain w-fit h-fit  transform scale-y-[-1]"
-      />
+      <Wave className="absolute object-contain w-fit h-fit  transform scale-y-[-1]" />
     </section>
   );
 }

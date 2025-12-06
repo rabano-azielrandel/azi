@@ -6,7 +6,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import ColumnCarousel from "./ui/ColumnCarousel";
 import Image from "next/image";
-import { useTheme } from "@/app/ThemeProvider";
 import HobbiesContentMobile from "./HobbiesContentMobile";
 
 const hobbySets = {
@@ -115,7 +114,6 @@ const Hobbies = () => {
     threshold: 0.6,
   });
 
-  const { isDarkMode, toggleTheme } = useTheme();
   const [index, setIndex] = useState(0);
   const category = categories[index];
 
@@ -127,20 +125,15 @@ const Hobbies = () => {
     <section
       ref={ref}
       id="hobbies"
-      className={`${
-        isDarkMode
-          ? "bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2"
-          : "bg-gradient-to-b from-transparent via-[#dce6f0] to-[#dce6f0]"
-      } relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden`}
+      className={`bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2 light:from-transparent light:via-[#dce6f0] light:to-[#dce6f0] 
+        relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden`}
     >
       <div
         className="relative w-full max-w-[1360px] p-2 gap-10
       flex flex-col justify-center items-center overflow-hidden"
       >
         <h2
-          className={`text-4xl font-oswald font-semibold text-center tracking-[8px] ${
-            isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-          } select-none cursor-default`}
+          className={`text-4xl font-oswald font-semibold text-center tracking-[8px] text-theme1-secondary light:text-theme1-base select-none cursor-default`}
         >
           HOBBIES
         </h2>
@@ -149,9 +142,7 @@ const Hobbies = () => {
         <div className="w-full hidden lg:flex items-center justify-between px-10 transition-opacity duration-500">
           {/* Category Text (Left Side) */}
           <h2
-            className={`${
-              isDarkMode ? "text-theme1-secondary" : "text-theme-dark-accent1"
-            } text-xl font-semibold`}
+            className={`text-theme1-secondary light:text-theme-dark-accent1 text-xl font-semibold`}
           >
             {category === "anime"
               ? "Stories That Echo"
@@ -176,9 +167,7 @@ const Hobbies = () => {
                   transition-all duration-300 hover:scale-110
                   ${
                     i === index
-                      ? isDarkMode
-                        ? "scale-110 border-white filter invert-[93%] sepia-[11%] saturate-[234%] hue-rotate-[323deg] brightness-[100%] contrast-[90%]"
-                        : "scale-110 border-black"
+                      ? "scale-110 border-white filter invert-[93%] sepia-[11%] saturate-[234%] hue-rotate-[323deg] brightness-[100%] contrast-[90%] light:filter-none light:scale-110 light:border-black"
                       : "border-white/30 opacity-60 hover:opacity-100"
                   }`}
               />
@@ -192,16 +181,11 @@ const Hobbies = () => {
             onClick={handlePrev}
             className="w-fit hover:scale-185 cursor-pointer"
           >
-            <ChevronLeft
-              className={`w-8 h-8 ${
-                isDarkMode ? "text-white" : "text-gray-700"
-              }`}
-            />
+            <ChevronLeft className={`w-8 h-8 text-white light:text-gray-700`} />
           </button>
           <div
-            className={`relative w-full flex items-center p-2 gap-1 bg-white/3 rounded-2xl border-1  ${
-              isDarkMode ? "border-white/30" : "border-gray-700"
-            } `}
+            className={`relative w-full flex items-center p-2 gap-1 bg-white/3 rounded-2xl border-1
+              border-white/30 light:border-gray-700`}
           >
             {hobbySets[category].map((item, index) => (
               <React.Fragment key={`${category}-${index}`}>
@@ -217,9 +201,7 @@ const Hobbies = () => {
                 {/* Divider */}
                 {index < hobbySets[category].length - 1 && (
                   <div
-                    className={`w-[8px] h-[500px] mx-2 rounded-full ${
-                      isDarkMode ? "bg-theme1-secondary/50" : "bg-theme1-base"
-                    }`}
+                    className={`w-[8px] h-[500px] mx-2 rounded-full bg-theme1-secondary/50 light:bg-theme1-base`}
                   />
                 )}
               </React.Fragment>
@@ -229,11 +211,7 @@ const Hobbies = () => {
             onClick={handleNext}
             className="w-fit hover:scale-185 cursor-pointer"
           >
-            <ChevronRight
-              className={`w-8 h-8 ${
-                isDarkMode ? "text-white" : "text-gray-700"
-              }`}
-            />
+            <ChevronRight className={`w-8 h-8 text-white light:bg-gray-700`} />
           </button>
         </div>
 

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
-import ThemeProvider from "./ThemeProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Particles } from "@/components/ui/shadcn-io/particles";
+import ParticlesWrapper from "@/components/ui/ParticlesWrapper";
 import "./globals.css";
 import "../CSS/ThemeSwitch.css";
 import Script from "next/script";
@@ -49,21 +48,12 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} ${caveat.variable} ${condiment.variable}`}
     >
       <body className="w-screen antialiased font-[var(--font-inter)] overflow-x-hidden">
-        <Particles
-          className={`fixed top-0 left-0 inset-0 w-full h-full light:bg-gradient-to-b light:from-[#F5F5F5] light:via-[#F7F7F7] light:to-[#F7F7F7]`}
-          quantity={100}
-          ease={80}
-          staticity={50}
-          color={`document.documentElement.classList.contains("light") ? "#FFFFFF : "#4B5563"`}
-          size={0.8}
-        />
-        <ThemeProvider>
-          <Header />
+        <ParticlesWrapper />
+        <Header />
 
-          {children}
+        {children}
 
-          <Footer />
-        </ThemeProvider>
+        <Footer />
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"

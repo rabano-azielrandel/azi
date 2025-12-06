@@ -1,16 +1,11 @@
 "use client";
 
 import React from "react";
-import { useTheme } from "@/app/ThemeProvider";
 
 export default function Footer() {
-  const { isDarkMode, toggleTheme } = useTheme();
-
   return (
     <div
-      className={`relative w-full px-4 z-10 flex flex-col items-center justify-center overflow-x-hidden ${
-        isDarkMode ? "bg-[#0A0A0A]" : "bg-[#111111]"
-      }`}
+      className={`relative w-full px-4 z-10 flex flex-col items-center justify-center overflow-x-hidden bg-[#0A0A0A] light:bg-[#111111]`}
     >
       <div className="relative w-full max-w-[1360px] p-2 gap-4 flex flex-col justify-center items-center">
         {/* Text */}
@@ -21,9 +16,7 @@ export default function Footer() {
           {/* Message */}
           <div className="flex flex-col items-center gap-2 max-w-md text-center">
             <h3
-              className={`font-semibold text-xl ${
-                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
-              }`}
+              className={`font-semibold text-xl text-theme-accent3 light:text-theme-dark-accent1`}
             >
               Behind the Code
             </h3>
@@ -40,9 +33,7 @@ export default function Footer() {
           {/* Footer Title */}
           <div className="flex flex-col items-center gap-2">
             <h3
-              className={`font-semibold text-xl ${
-                isDarkMode ? "text-theme-accent3" : "text-theme-dark-accent1"
-              }`}
+              className={`font-semibold text-xl text-theme-accent3 light:text-theme-dark-accent1`}
             >
               Got an Idea? Let’s Make It Real.
             </h3>
