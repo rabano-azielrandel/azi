@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud, Bell, Container, Weight } from "lucide-react";
+import { Container, Weight } from "lucide-react";
 import Image from "next/image";
 
 type FanCardProps = {

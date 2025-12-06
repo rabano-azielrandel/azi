@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Wave from "./ui/Wave";
 import ExpSplitCard from "./ui/ExpSplitCard";
 
@@ -23,8 +20,6 @@ const expData = [
 ];
 
 export default function Experience() {
-  const [activeIndex, SetActiveIndex] = useState(0);
-
   return (
     <section
       id="experience"

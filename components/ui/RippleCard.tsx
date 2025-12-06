@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { Ripple } from "./shadcn-io/ripple";
 
 type RippleCardProps = {
-  image: string;
   title: string;
   desc: string;
 };
@@ -15,7 +14,7 @@ const cards = [
   { text: "Smart Alerts", color: "bg-theme1-base" },
 ];
 
-export default function RippleCard({ image, title, desc }: RippleCardProps) {
+export default function RippleCard({ title, desc }: RippleCardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {

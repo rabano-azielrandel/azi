@@ -69,7 +69,6 @@ const Projects = () => {
               className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] lgiht:border-black/30`}
             >
               <RippleCard
-                image="project-resort-management.jpg"
                 title="RESORT MANAGEMENT"
                 desc="Streamline reservations, billing, and staff managemnt."
               />

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HobbiesCard from "./ui/HobbiesCard";
 import { useState } from "react";
 

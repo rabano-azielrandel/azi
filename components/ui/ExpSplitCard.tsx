@@ -13,14 +13,7 @@ interface ExpCardProps {
   data: DataInterface[];
 }
 
-const getRoundedClass = (idx: number) => {
-  if (idx == 0) return "rounded-l-lg";
-  if (idx == 2) return "rounded-r-lg";
-  return "";
-};
-
 const ExpSplitCard = ({ data }: ExpCardProps) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clicked, setClicked] = useState<number | null>(null);
 
   return (
