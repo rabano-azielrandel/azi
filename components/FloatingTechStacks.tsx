@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useTheme } from "@/app/ThemeProvider";
 
 type FloatingTechStacksProps = {
   position: "left" | "right";
@@ -10,7 +9,6 @@ type FloatingTechStacksProps = {
 const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
   position,
 }) => {
-  const { isDarkMode, toggleTheme } = useTheme();
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
@@ -44,10 +42,9 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
             <img
               src={tech.src}
               alt={tech.name}
-              className={`w-20 xl:w-21 2xl:w-22 h-20 xl:h-21 2xl:h-22 rounded-xl p-4 ${
-                isDarkMode ? "bg-[#352222] grayscale-[50%]" : "bg-[#F8F9ED]"
-              } drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
-              hover:scale-125 transition-transform duration-200 border border-white/20`}
+              className={`w-20 xl:w-21 2xl:w-22 h-20 xl:h-21 2xl:h-22 rounded-xl p-4 bg-[#352222] grayscale-[50%] light:bg-[#F8F9ED] 
+                drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
+                hover:scale-125 transition-transform duration-200 border border-white/20`}
               style={{
                 transform: `rotate(-${
                   (360 / techStacks.length) * index + rotation

@@ -1,20 +1,14 @@
-"use client";
-
 import FloatingTechStacks from "@/components/FloatingTechStacks";
 import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
-import { useTheme } from "../app/ThemeProvider";
 
 export default function Hero() {
-  const { isDarkMode, toggleTheme } = useTheme();
   return (
     <section
-      className={`relative w-full pt-0 lg:pt-20  px-4 h-[800px]  overflow-hidden ${
-        isDarkMode
-          ? "bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base"
-          : "bg-gradient-to-b from-[#F7F7F7] via-[#2f486d]/50 to-[#F7F7F7]"
-      }`} // original light : bg-gradient-to-b from-[#f8c98a]/80 via-[#3a3f52]/60 to-[#0a0f1a]/20
+      className={`relative w-full pt-0 lg:pt-20 px-4 h-[800px] overflow-hidden 
+        bg-gradient-to-b from-white/4 via-[#11020f] to-theme1-base
+        light:bg-gradient-to-b light:from-[#F7F7F7] light:via-[#2f486d]/50 light:to-[#F7F7F7]`} // original light : bg-gradient-to-b from-[#f8c98a]/80 via-[#3a3f52]/60 to-[#0a0f1a]/20
     >
       <ParticlesBackground />
 
@@ -70,14 +64,10 @@ export default function Hero() {
               className="absolute bottom-25 -right-40 2xl:-right-45 hidden 2xl:flex items-center gap-2 h-fit"
             >
               <div
-                className={`${
-                  isDarkMode ? "bg-theme1-accent" : "bg-theme-dark-accent1"
-                } w-[100px] 2xl:w-[120px] h-[5px] rounded-full`}
+                className={`bg-theme1-accent light:bg-theme-dark-accent1 w-[100px] 2xl:w-[120px] h-[5px] rounded-full`}
               />
               <span
-                className={` ${
-                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-                } text-[15px] font-bold`}
+                className={`text-theme1-secondary light:text-theme1-base text-[15px] font-bold`}
               >
                 VIEW PROJECTS
               </span>
@@ -87,48 +77,31 @@ export default function Hero() {
           {/* text */}
           <div className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto mt-2 lg:mt-0">
             <h1 className="w-fit font-oswald font-bold text-4xl 2xl:text-5xl z-50">
-              <span
-                className={`${
-                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-                }`}
-              >
+              <span className={`text-theme1-secondary light:text-theme1-base `}>
                 AZIEL
               </span>
               <span
-                className={` ${
-                  isDarkMode ? "text-theme1-accent" : "text-theme-dark-accent1"
-                }`}
+                className={`text-theme1-accent light:text-theme-dark-accent1`}
               >
                 RANDEL
               </span>
             </h1>
             <p className="relative tracking-[6px] text-[12px] lg:text-[14px]">
               <span
-                className={` ${
-                  isDarkMode ? "text-theme1-accent" : "text-theme-dark-accent1"
-                } font-bold`}
+                className={`text-theme1-accent light:text-theme-dark-accent1 font-bold`}
               >
                 SOFTWARE
               </span>
               <span
-                className={` ${
-                  isDarkMode ? "text-theme1-accent" : "text-theme-dark-accent1"
-                }`}
+                className={`text-theme1-accent light:text-theme-dark-accent1 `}
               >
-                {" "}
-                /{" "}
+                /
               </span>
-              <span
-                className={`${
-                  isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-                }`}
-              >
+              <span className={`text-theme1-secondary light:text-theme1-base `}>
                 WEB DEVELOPER
               </span>
               <span
-                className={`absolute top-0 -right-1 w-[3px] h-full ${
-                  isDarkMode ? "bg-white" : "bg-gray-700"
-                } animate-fade-pulse`}
+                className={`absolute top-0 -right-1 w-[3px] h-full bg-white light:bg-gray-700 animate-fade-pulse`}
               />
             </p>
 
@@ -138,11 +111,8 @@ export default function Hero() {
               className=" flex 2xl:hidden items-center gap-2 h-fit mt-4"
             >
               <span
-                className={` ${
-                  isDarkMode
-                    ? "text-theme1-secondary bg-white/5"
-                    : "text-theme1-base bg-black/10"
-                }   text-[14px] font-medium tracking-wide
+                className={`text-theme1-secondary bg-white/5 light:text-theme1-base light:bg-black/10 
+                    text-[14px] font-medium tracking-wide
                     px-8 py-2.5 rounded-full
                     border border-white/30
                     backdrop-blur-md

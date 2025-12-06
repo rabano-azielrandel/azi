@@ -2,18 +2,21 @@
 
 import { useState } from "react";
 
-interface ThemeSwitchProps {
-  checked: boolean;
-  onToggle: () => void;
-}
+const ThemeSwitch = () => {
+  const [isDark, setTheme] = useState(true);
 
-const ThemeSwitch = ({ checked, onToggle }: ThemeSwitchProps) => {
+  const handleToggle = () => {
+    const element = document.documentElement;
+    element.classList.toggle("light");
+    setTheme(!isDark);
+  };
+
   return (
     <label className="theme-switch !ml-auto lg:ml-0">
       <input
         type="checkbox"
-        checked={checked}
-        onChange={onToggle}
+        checked={isDark}
+        onChange={handleToggle}
         className="theme-switch__checkbox"
       />
       <div className="theme-switch__container">

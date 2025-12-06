@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ThemeSwitch from "./ui/ThemeSwitch";
-import { useTheme } from "../app/ThemeProvider";
 
 const navLinks = [
   { text: "Me", href: "#me" },
@@ -15,7 +14,6 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const { isDarkMode, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -44,9 +42,7 @@ export default function Header() {
           transition-all duration-300 ease-in-out
           ${
             isScrolled
-              ? isDarkMode
-                ? "lg:bg-theme1-base lg:border-white/10"
-                : "lg:bg-[#e9f1fa] lg:border-black/20"
+              ? "lg:bg-theme1-base lg:border-white/10 light:lg:bg-[#e9f1fa] light:lg:border-black/20"
               : "bg-transparent border-transparent"
           }
         `}
@@ -56,25 +52,14 @@ export default function Header() {
             className={`font-extrabold text-[#f3eaea] text-[20px] tracking-[0px] transition-all font-oswald italic group`}
           >
             <span
-              className={`${
-                isDarkMode
-                  ? "text-[#e8d8c9] group-hover:text-theme1-accent"
-                  : "text-theme1-base group-hover:text-theme-dark-accent1"
-              } transition-all`}
+              className={`text-[#e8d8c9] group-hover:text-theme1-accent light:text-theme1-base light:group-hover:text-theme-dark-accent1 transition-all`}
             >
               Aziel
             </span>
+            <span className={`text-[#f6ad49] light:text-[#737086]`}>.</span>
             <span
-              className={`${isDarkMode ? "text-[#f6ad49]" : "text-[#737086]"}`}
-            >
-              .
-            </span>
-            <span
-              className={`${
-                isDarkMode
-                  ? "text-theme1-accent group-hover:text-[#e8d8c9]"
-                  : "text-theme-dark-accent1 group-hover:text-theme1-base"
-              } transition-all duration-300 ease-in-out`}
+              className={`text-theme1-accent group-hover:text-[#e8d8c9] light:text-theme-dark-accent1 light:group-hover:text-theme1-base 
+                transition-all duration-300 ease-in-out`}
             >
               Randel
             </span>
@@ -86,23 +71,20 @@ export default function Header() {
             <Link
               key={index}
               href={item.href}
-              className={`relative text-[14px] group-hover/one:opacity-50 group hover:opacity-100 transition-all duration-200 ease-in-out ${
-                isDarkMode ? "text-theme1-secondary" : "text-theme1-base"
-              } `}
+              className={`relative text-[14px] group-hover/one:opacity-50 group hover:opacity-100 transition-all duration-200 ease-in-out
+                text-theme1-secondary light:text-theme1-base `}
             >
               {item.text}
 
               {/* hover */}
               <div
-                className={`group-hover:w-full w-0 h-[2px]  ${
-                  isDarkMode ? "bg-theme1-secondary" : "bg-theme1-base"
-                } absolute left-0 -bottom-1 transition-all duration-200 ease-in-out rounded-full`}
+                className={`group-hover:w-full w-0 h-[2px] bg-theme1-secondary light:bg-theme1-base absolute left-0 -bottom-1 transition-all duration-200 ease-in-out rounded-full`}
               />
             </Link>
           ))}
         </nav>
 
-        <ThemeSwitch checked={isDarkMode} onToggle={toggleTheme} />
+        <ThemeSwitch />
 
         <button className="lg:hidden">
           <Image
@@ -110,9 +92,7 @@ export default function Header() {
             alt="hamburger"
             width={30}
             height={30}
-            className={` ${
-              isDarkMode ? "invert" : ""
-            } object-cover w-[20px] h-[20px]`}
+            className={` invert object-cover w-[20px] h-[20px]`}
           />
         </button>
       </div>
