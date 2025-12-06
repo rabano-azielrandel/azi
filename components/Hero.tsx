@@ -38,6 +38,7 @@ export default function Hero() {
                   height={800}
                   className="w-full h-auto rounded-[5%] transition-all duration-400 ease-in-out 
                   shadow-[rgba(0,0,0,0.4)_0px_2px_4px,rgba(0,0,0,0.3)_0px_7px_13px_-3px,rgba(0,0,0,0.2)_0px_-3px_0px_inset] hover:shadow-none"
+                  loading="lazy"
                 />
 
                 <div
@@ -53,6 +54,7 @@ export default function Hero() {
                     style={{
                       filter: "drop-shadow(12px 10px 6px rgba(0,0,0,0.4))",
                     }}
+                    loading="lazy"
                   />
                 </div>
               </div>
