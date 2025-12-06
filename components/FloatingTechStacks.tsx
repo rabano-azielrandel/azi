@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 type FloatingTechStacksProps = {
   position: "left" | "right";
@@ -39,17 +40,20 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
               }deg) translateY(-120px)`, // change the traslate Y to compress items
             }}
           >
-            <img
+            <Image
               src={tech.src}
               alt={tech.name}
               className={`w-20 xl:w-21 2xl:w-22 h-20 xl:h-21 2xl:h-22 rounded-xl p-4 bg-[#352222] grayscale-[50%] light:bg-[#F8F9ED] 
                 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] 
                 hover:scale-125 transition-transform duration-200 border border-white/20`}
+              width={100}
+              height={100}
               style={{
                 transform: `rotate(-${
                   (360 / techStacks.length) * index + rotation
                 }deg)`,
               }}
+              loading="lazy"
             />
           </div>
         ))}
@@ -63,54 +67,50 @@ export default FloatingTechStacks;
 const techStacks = [
   {
     name: "Docker",
-    src: "https://cdn.simpleicons.org/docker/1D63ED",
+    src: "/hero/DOCKER.svg",
   },
   {
     name: "Next.js",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    src: "/hero/NEXT.svg",
   },
   {
     name: "TailwindCSS",
-    src: "https://cdn.simpleicons.org/tailwindcss/38BDF8",
+    src: "/hero/TAILWIND.svg",
   },
   {
     name: "TypeScript",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    src: "/hero/TS.svg",
   },
   {
     name: "HTML5",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    src: "/hero/HTML5.svg",
   },
   {
     name: "CSS3",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    src: "/hero/CSS.svg",
   },
   {
     name: "Java",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    src: "/hero/JAVA.svg",
   },
   {
     name: "C#",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg",
+    src: "/hero/DOTNET.svg",
   },
   {
     name: "MySQL",
-    src: "https://cdn.simpleicons.org/mysql",
+    src: "/hero/MYSQL.svg",
   },
   {
     name: "Git",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    src: "/hero/GIT.svg",
   },
   {
     name: "SQLServer",
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/microsoftsqlserver.svg",
+    src: "/hero/SQLSERVER.svg",
   },
   {
     name: "Python",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  },
-  {
-    name: "Codewars",
-    src: "https://cdn.simpleicons.org/codewars",
+    src: "/hero/PYTHON.svg",
   },
 ];
