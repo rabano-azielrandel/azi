@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../CSS/Hero.css";
+@import "../CSS/Ripple.css";
+@import "../CSS/Projects.css";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
-
-/* Default colors */
 
 /* Theme variables */
 @theme inline {
@@ -33,8 +34,6 @@
   --font-oswald: var(--font-oswald), sans-serif;
   --font-caveat: var(--font-caveat), sans-serif;
   --font-condiment: var(--font-condiment), sans-serif;
-
-  --animate-spin-slow: spin-slow 20s linear infinite;
 
   --color-sidebar-ring: var(--sidebar-ring);
 
@@ -102,20 +101,6 @@
 
   --radius-xl: calc(var(--radius) + 4px);
 
-  --animate-meteor-effect: meteor 5s linear infinite;
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
-    }
-  }
 
   /* BREAKPOINTS */
   --breakpoint-xxs: 375px;
@@ -138,8 +123,6 @@
   --breakpoint-9xl: 1920px;
 }
 
-/* Dark mode */
-
 /* Global body styles */
 body {
   background: var(--color-theme1-base);
@@ -151,70 +134,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Utility class for explicitly using Inter */
-@layer utilities {
-  .text-vertical-bt {
-    writing-mode: vertical-rl; /* Vertical text */
-    transform: rotate(180deg); /* Reverse top-to-bottom to bottom-to-top */
-    white-space: nowrap; /* Prevent line breaks */
-  }
 
-  @keyframes fadePulse {
-    0%,
-    100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  .animate-fade-pulse {
-    animation: fadePulse 1.2s ease-in-out infinite;
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes spin-slow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-
-/* Ripple effect */
-@keyframes ripple {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-}
-
-.animate-ripple {
-  animation: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
-}
-
+/* for rounded edges of cards */
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -248,147 +169,6 @@ html {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  @keyframes meteor-diag {
-    from {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-    to {
-      transform: translate(var(--dx, -800px), var(--dy, 800px));
-      opacity: 0;
-    }
-  }
-
-  .animate-meteor {
-    animation-name: meteor-diag;
-    animation-duration: var(--duration, 4s);
-    animation-delay: var(--delay, 0s);
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-    @keyframes slide-in {
-    from {
-      opacity: 0; 
-      transform: translateY(100vh); 
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes slide-out {
-    from {
-      opacity: 0; 
-      transform: translateY(-100vh); 
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-    @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-
-.animate-slide-in {
-  animation: slide-in 1s ease-in forwards;
-}
-
-.animate-slide-out {
-  animation: slide-out 1s ease-in forwards;
-}
-
-.animate-slide-in:first-child {
-  animation-duration: 2s;
-  animation-timing-function: cubic-bezier(2, 1, .3, .1);
-}
-
-.animate-slide-out:last-child {
-  animation-duration: 2s;
-  animation-timing-function: cubic-bezier(2, 1, .3, .1);
-}
-
-.animate-slide-up {
-  animation: slide-up 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.animate-slide-down {
-  animation: slide-down 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.transition-300 {
-  transition: all;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
 }
 
 
