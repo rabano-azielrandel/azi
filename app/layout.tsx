@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "Frontend Developer",
   ],
   authors: [{ name: "Aziel Randel Rabano" }],
-  metadataBase: new URL("https://azi.vercel.app"), // change to your domain
+  metadataBase: new URL("https://azi-zeta.vercel.app"), // change to your domain
   alternates: {
     canonical: "/",
   },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Aziel Randel Rabano | Developer Portfolio",
     description:
       "Full-stack developer specializing in modern web apps, clean UI, and high-performance systems.",
-    url: "https://azi.vercel.app",
+    url: "https://azi-zeta.vercel.app",
     siteName: "Aziel Randel Rabano",
     images: [
       {
@@ -77,18 +77,18 @@ export const metadata: Metadata = {
     title: "Aziel Randel Rabano | Developer Portfolio",
     description:
       "Full-stack developer specializing in modern web apps and UI/UX.",
-    images: ["/og-preview.png"],
+    images: ["/images/subject.png"],
   },
 
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png", //subject for change
   },
 
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f7f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
 };
 
