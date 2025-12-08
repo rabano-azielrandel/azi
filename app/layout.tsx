@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "Frontend Developer",
   ],
   authors: [{ name: "Aziel Randel Rabano" }],
-  metadataBase: new URL("https://azi-zeta.vercel.app"), // change to your domain
+  metadataBase: new URL("https://azi-zeta.vercel.app/"), // domain
   alternates: {
     canonical: "/",
   },
@@ -58,11 +58,11 @@ export const metadata: Metadata = {
     title: "Aziel Randel Rabano | Developer Portfolio",
     description:
       "Full-stack developer specializing in modern web apps, clean UI, and high-performance systems.",
-    url: "https://azi-zeta.vercel.app",
+    url: "https://azi-zeta.vercel.app/",
     siteName: "Aziel Randel Rabano",
     images: [
       {
-        url: "/images/subject.png",
+        url: "/images/SUBJECT.png",
         width: 1200,
         height: 630,
         alt: "Aziel Randel Rabano Portfolio Preview",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: "Aziel Randel Rabano | Developer Portfolio",
     description:
       "Full-stack developer specializing in modern web apps and UI/UX.",
-    images: ["/images/subject.png"],
+    images: ["/images/SUBJECT.png"],
   },
 
   icons: {
