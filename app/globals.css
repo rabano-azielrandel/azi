@@ -3,6 +3,7 @@
 @import "../CSS/Hero.css";
 @import "../CSS/Ripple.css";
 @import "../CSS/Projects.css";
+@import "../CSS/ThemeSwitch.css";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
