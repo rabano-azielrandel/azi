@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | Aziel Randel Rabano",
   },
   description:
-    "Portfolio of Aziel Randel Rabano — Full-stack developer specializing in modern web applications, UI/UX, and high-performance systems.",
+    "Full-stack developer. Personal web portfolio of Aziel Randel, featuring projects built with Next.js and Tailwind.",
   keywords: [
     "Aziel Randel Rabano",
     "Aziel Rabano",
@@ -57,12 +57,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aziel Randel Rabano | Developer Portfolio",
     description:
-      "Full-stack developer specializing in modern web apps, clean UI, and high-performance systems.",
+      "Full-stack developer. Personal web portfolio of Aziel Randel, featuring projects built with Next.js and Tailwind.",
     url: "https://azi-zeta.vercel.app/",
     siteName: "Aziel Randel Rabano",
     images: [
       {
-        url: "/images/SUBJECT.png",
+        url: "/images/preview.png",
         width: 1200,
         height: 630,
         alt: "Aziel Randel Rabano Portfolio Preview",
@@ -77,13 +77,7 @@ export const metadata: Metadata = {
     title: "Aziel Randel Rabano | Developer Portfolio",
     description:
       "Full-stack developer specializing in modern web apps and UI/UX.",
-    images: ["/images/SUBJECT.png"],
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png", //subject for change
+    images: ["/images/preview.png"],
   },
 
   themeColor: [
