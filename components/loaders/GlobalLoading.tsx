@@ -3,57 +3,31 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function GlobalLoading() {
+export default function PlayfulGlobalLoading() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // 1.5 sec
-
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setIsLoading(false), 3500); // 3.5s for longer load
+    return () => clearTimeout(t);
   }, []);
 
   return (
     <AnimatePresence>
       {isLoading && (
-        <motion.div
-          key="global-loading"
-          className="fixed inset-0 flex items-center justify-center bg-black z-[9999]"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        >
-          {/* ANIMATION WRAPPER */}
-          <div className="relative w-32 h-32 flex items-center justify-center">
-            {/* 1. Initial glowing line */}
-            <motion.span
-              className="absolute w-20 h-[2px] bg-white/60"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            />
-
-            {/* 2. Square outline reveal */}
-            <motion.span
-              className="absolute border border-white/40 rounded-md"
-              initial={{ width: 0, height: 0, opacity: 0 }}
-              animate={{
-                width: "100%",
-                height: "100%",
-                opacity: 1,
-              }}
-              transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-            />
-
-            {/* 3. Inner pulse */}
+        <motion.div className="fixed inset-0 bg-[#120511] flex items-center justify-center z-[9999]">
+          {[0, 1, 2].map((i) => (
             <motion.div
-              className="absolute rounded-md bg-white/20 blur-md"
-              initial={{ scale: 0.3, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.4 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
+              key={i}
+              className="absolute w-12 h-12 border-2 border-[#F6F6F6]"
+              style={{ willChange: "transform" }} // GPU acceleration
+              animate={{ rotate: 360 }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.5 + i * 0.5, // staggered duration for visual interest
+                ease: "linear",
+              }}
             />
-          </div>
+          ))}
         </motion.div>
       )}
     </AnimatePresence>
