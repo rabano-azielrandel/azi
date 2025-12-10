@@ -1,0 +1,21 @@
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pulse + rotation variations */
+.rotate-square {
+  animation: rotate 1.5s linear infinite;
+  will-change: transform;
+}
+
+/* staggered delays */
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+
+/* Optional: subtle glow */
+.rotate-square {
+  border-color: #F6F6F6;
+  box-shadow: 0 0 8px #F6F6F6;
+}

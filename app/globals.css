@@ -4,6 +4,7 @@
 @import "../CSS/Ripple.css";
 @import "../CSS/Projects.css";
 @import "../CSS/ThemeSwitch.css";
+@import "../CSS/Loaders.css";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
