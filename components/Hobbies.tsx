@@ -178,6 +178,7 @@ const Hobbies = () => {
         <div className="w-full hidden lg:flex justify-center items-center gap-2">
           <button
             onClick={handlePrev}
+            aria-label="Previous"
             className="w-fit hover:scale-185 cursor-pointer"
           >
             <ChevronLeft className={`w-8 h-8 text-white light:text-gray-700`} />
@@ -208,6 +209,7 @@ const Hobbies = () => {
           </div>
           <button
             onClick={handleNext}
+            aria-label="Next"
             className="w-fit hover:scale-185 cursor-pointer"
           >
             <ChevronRight className={`w-8 h-8 text-white light:bg-gray-700`} />
