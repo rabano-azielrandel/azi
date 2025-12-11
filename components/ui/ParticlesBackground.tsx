@@ -39,7 +39,7 @@ const ParticlesBackground: React.FC = () => {
           value: "transparent",
         },
       },
-      fpsLimit: isMobile ? 30 : 120,
+      fpsLimit: isMobile ? 30 : 60,
       interactivity: {
         events: {
           onClick: {
@@ -91,7 +91,7 @@ const ParticlesBackground: React.FC = () => {
             enable: false,
             area: 800,
           },
-          value: isMobile ? 25 : 110,
+          value: isMobile ? 25 : 60,
         },
         opacity: {
           value: 0.5,
