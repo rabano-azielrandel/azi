@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Azi | Developer Portfolio",
+    title: "Aziel Randel Rabano | Developer Portfolio",
     description:
       "Full-stack developer. Personal web portfolio of Aziel Randel, featuring projects built with Next.js and Tailwind.",
     url: "https://azi-zeta.vercel.app/",
