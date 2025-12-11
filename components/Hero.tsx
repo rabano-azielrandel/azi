@@ -1,9 +1,27 @@
+"use client";
+
 import FloatingTechStacks from "@/components/FloatingTechStacks";
 import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 
 export default function Hero() {
+  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("right", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
+  const { ref: fadeUpRef3, style: fadeUpStyle3 } = useInViewAnimation("left", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
   return (
     <section
       className={`relative w-full pt-0 lg:pt-20 px-4 h-[800px] overflow-hidden 
@@ -18,7 +36,7 @@ export default function Hero() {
         {/* center content */}
         <div className="relative w-full h-fit flex flex-col gap-10 justify-center items-center">
           {/* image and cta */}
-          <div className="relative">
+          <div ref={fadeUpRef} style={fadeUpStyle} className="relative">
             {/* grad image */}
             <div className="relative group ">
               <div
@@ -66,9 +84,13 @@ export default function Hero() {
               className="absolute bottom-25 -right-40 2xl:-right-45 hidden 2xl:flex items-center gap-2 h-fit"
             >
               <div
+                ref={fadeUpRef3}
+                style={fadeUpStyle3}
                 className={`bg-theme1-accent light:bg-theme-dark-accent1 w-[100px] 2xl:w-[120px] h-[5px] rounded-full`}
               />
               <span
+                ref={fadeUpRef3}
+                style={fadeUpStyle3}
                 className={`text-theme1-secondary light:text-theme1-base text-[15px] font-bold`}
               >
                 VIEW PROJECTS
@@ -77,7 +99,11 @@ export default function Hero() {
           </div>
 
           {/* text */}
-          <div className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto mt-2 lg:mt-0">
+          <div
+            ref={fadeUpRef2}
+            style={fadeUpStyle2}
+            className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto mt-2 lg:mt-0"
+          >
             <h1 className="w-fit font-oswald font-bold text-4xl 2xl:text-5xl z-50">
               <span className={`text-theme1-secondary light:text-theme1-base `}>
                 AZIEL

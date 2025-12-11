@@ -6,7 +6,7 @@ export default function PlayfulGlobalLoading() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setIsLoading(false), 2500);
+    const t = setTimeout(() => setIsLoading(false), 0);
     return () => clearTimeout(t);
   }, []);
 
