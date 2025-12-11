@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import SplitCard from "./ui/SplitCard";
 import RippleCard from "./ui/RippleCard";
 import FanCard from "./ui/FanCard";

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import ColumnCarousel from "./ui/ColumnCarousel";

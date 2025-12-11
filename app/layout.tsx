@@ -34,8 +34,11 @@ const condiment = Condiment({
 
 export const metadata: Metadata = {
   title: {
-    default: "Aziel Randel Rabano | Developer Portfolio",
-    template: "%s | Aziel Randel Rabano",
+    default: "Azi",
+    template: "Azi | %s ",
+  },
+  icons: {
+    icon: { url: "/images/icon.png", type: "image/png" },
   },
   description:
     "Full-stack developer. Personal web portfolio of Aziel Randel, featuring projects built with Next.js and Tailwind.",
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Aziel Randel Rabano | Developer Portfolio",
+    title: "Azi | Developer Portfolio",
     description:
       "Full-stack developer. Personal web portfolio of Aziel Randel, featuring projects built with Next.js and Tailwind.",
     url: "https://azi-zeta.vercel.app/",
