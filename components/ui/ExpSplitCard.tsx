@@ -39,7 +39,7 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
             onClick={() => setClicked(index == clicked ? null : index)}
             ref={index % 2 == 0 ? fadeUpRef1 : fadeUpRef}
             style={index % 2 == 0 ? fadeUpStyle1 : fadeUpStyle}
-            className="relative px-4 py-6 flex w-full h-[360px] lg:h-[500px] rounded-lg lg:group-hover:rounded-lg overflow-hidden"
+            className="relative px-4 py-6 flex w-full h-[360px] lg:h-[500px] lg:group-hover:rounded-lg overflow-hidden"
           >
             <Image
               src={item.backgroundImage}
