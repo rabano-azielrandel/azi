@@ -4,7 +4,7 @@ import FloatingTechStacks from "@/components/FloatingTechStacks";
 import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
-import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 export default function Hero() {
   const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {

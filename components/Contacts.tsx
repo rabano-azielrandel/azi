@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 const contact = [
   {
@@ -46,6 +47,16 @@ const socials = [
 ];
 
 const Contacts = () => {
+  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("right", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("left", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
   return (
     <section
       id="contacts"
@@ -60,7 +71,11 @@ const Contacts = () => {
           </h2>
           <div className="w-full h-full flex flex-col lg:flex-row items-start justify-start gap-4">
             {/* ICONS AND OTHER INFO */}
-            <div className="w-full h-full flex flex-col justify-between items-center gap-9 px-8  lg:items-start">
+            <div
+              ref={fadeUpRef}
+              style={fadeUpStyle}
+              className="w-full h-full flex flex-col justify-between items-center gap-9 px-8  lg:items-start"
+            >
               <div className="w-fit h-fit flex flex-col gap-12">
                 {contact.map((src, idx) => (
                   <div
@@ -141,7 +156,11 @@ const Contacts = () => {
             </div>
 
             {/* FORMS */}
-            <div className="w-full h-full flex flex-col justify-center items-center gap-6 mt-10 lg:mt-0">
+            <div
+              ref={fadeUpRef1}
+              style={fadeUpStyle1}
+              className="w-full h-full flex flex-col justify-center items-center gap-6 mt-10 lg:mt-0"
+            >
               <p
                 className={`txt-xl font-semibold select-none cursor-default text-theme1-secondary light:text-theme-dark-accent1`}
                 style={{ textShadow: "0 1px 2px rgba(0,0,0,0.22)" }}

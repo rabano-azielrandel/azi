@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useInViewAnimation } from "../../hooks/useInViewAnimation";
 
 type DataInterface = {
   backgroundImage: string;
@@ -16,6 +17,16 @@ interface ExpCardProps {
 const ExpSplitCard = ({ data }: ExpCardProps) => {
   const [clicked, setClicked] = useState<number | null>(null);
 
+  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("up", {
+    threshold: 0.3,
+    distance: 50,
+  });
+
   return (
     <div className="w-full h-full px-4">
       <div
@@ -26,6 +37,8 @@ const ExpSplitCard = ({ data }: ExpCardProps) => {
           <div
             key={index}
             onClick={() => setClicked(index == clicked ? null : index)}
+            ref={index % 2 == 0 ? fadeUpRef1 : fadeUpRef}
+            style={index % 2 == 0 ? fadeUpStyle1 : fadeUpStyle}
             className="relative px-4 py-6 flex w-full h-[360px] lg:h-[500px] rounded-lg lg:group-hover:rounded-lg overflow-hidden"
           >
             <Image

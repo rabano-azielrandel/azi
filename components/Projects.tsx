@@ -6,8 +6,19 @@ import FanCard from "./ui/FanCard";
 import DiceCard from "./ui/DiceCard";
 import Bot from "./ui/Bot";
 import Wave from "./ui/Wave";
+import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 const Projects = () => {
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
+    threshold: 0.5,
+    distance: 50,
+  });
+
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("left", {
+    threshold: 0.5,
+    distance: 50,
+  });
+
   return (
     <section
       id="projects"
@@ -33,7 +44,11 @@ const Projects = () => {
         </h2>
         <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
           {/* TOP DIV */}
-          <div className="w-full h-full flex gap-6">
+          <div
+            ref={fadeUpRef1}
+            style={fadeUpStyle1}
+            className="w-full h-full flex gap-6"
+          >
             {/* BOT */}
             <div
               className={`hidden lg:block  w-full lg:w-[67%] h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 
@@ -55,7 +70,11 @@ const Projects = () => {
           </div>
 
           {/* BOT DIV */}
-          <div className="w-full h-full flex gap-6">
+          <div
+            ref={fadeUpRef2}
+            style={fadeUpStyle2}
+            className="w-full h-full flex gap-6"
+          >
             {/* THESIS */}
             <div
               className={`w-full min-w-[340px] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30`}

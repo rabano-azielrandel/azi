@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import ColumnCarousel from "./ui/ColumnCarousel";
-import Image from "next/image";
 import HobbiesContentMobile from "./HobbiesContentMobile";
+import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 const hobbySets = {
   anime: [
@@ -120,6 +121,11 @@ const Hobbies = () => {
   const handlePrev = () =>
     setIndex((prev) => (prev - 1 + categories.length) % categories.length);
 
+  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("up", {
+    threshold: 0.5,
+    distance: 50,
+  });
+
   return (
     <section
       ref={ref}
@@ -184,6 +190,8 @@ const Hobbies = () => {
             <ChevronLeft className={`w-8 h-8 text-white light:text-gray-700`} />
           </button>
           <div
+            ref={fadeUpRef}
+            style={fadeUpStyle}
             className={`relative w-full flex items-center p-2 gap-1 bg-white/3 rounded-2xl border-1
               border-white/30 light:border-gray-700`}
           >
