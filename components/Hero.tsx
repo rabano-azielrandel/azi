@@ -7,8 +7,11 @@ import ParticlesBackground from "./ui/ParticlesBackground";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 export default function Hero() {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const thresholdValue = isMobile ? 0.1 : 0.5;
+
   const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {
-    threshold: 0.3,
+    threshold: thresholdValue,
     distance: 50,
   });
 

@@ -47,13 +47,16 @@ const socials = [
 ];
 
 const Contacts = () => {
+  const isMobile = typeof Window !== "undefined" && window.innerWidth < 768;
+  const thresholdValue = isMobile ? 0.1 : 0.5;
+
   const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("right", {
-    threshold: 0.3,
+    threshold: thresholdValue,
     distance: 50,
   });
 
   const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("left", {
-    threshold: 0.3,
+    threshold: thresholdValue,
     distance: 50,
   });
 
@@ -211,9 +214,9 @@ const Contacts = () => {
 
                 <button
                   type="submit"
-                  className={`w-full px-3 py-2 rounded-md focus:outline-none border
-                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
-                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
+                  className={`w-full px-3 py-2 rounded-md focus:outline-none border cursor-pointer
+                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary hover:border-theme-accent1
+                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:hover:border-theme-dark-accent1`}
                 >
                   Send Email
                 </button>

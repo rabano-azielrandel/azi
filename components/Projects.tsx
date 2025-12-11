@@ -9,13 +9,16 @@ import Wave from "./ui/Wave";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 const Projects = () => {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const thresholdValue = isMobile ? 0.1 : 0.5;
+
   const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
-    threshold: 0.5,
+    threshold: thresholdValue,
     distance: 50,
   });
 
   const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("left", {
-    threshold: 0.5,
+    threshold: thresholdValue,
     distance: 50,
   });
 

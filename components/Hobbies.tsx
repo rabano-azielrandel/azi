@@ -109,6 +109,9 @@ const icons = [
 const categories = Object.keys(hobbySets) as (keyof typeof hobbySets)[];
 
 const Hobbies = () => {
+  const isMobile = typeof Window !== "undefined" && window.innerWidth < 768;
+  const thresholdValue = isMobile ? 0.1 : 0.5;
+
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.6,
@@ -122,7 +125,7 @@ const Hobbies = () => {
     setIndex((prev) => (prev - 1 + categories.length) % categories.length);
 
   const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("up", {
-    threshold: 0.5,
+    threshold: thresholdValue,
     distance: 50,
   });
 
