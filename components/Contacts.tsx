@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
@@ -59,6 +60,8 @@ const Contacts = () => {
     threshold: thresholdValue,
     distance: 50,
   });
+
+  const [submitting, setSubmitting] = useState(false);
 
   return (
     <section
@@ -171,54 +174,103 @@ const Contacts = () => {
                 Send Me an Email
               </p>
 
-              <form className="w-[80%] h-full flex flex-col lg:justify-start lg:items-start gap-8">
+              <form
+                className="w-[80%] h-full flex flex-col lg:justify-start lg:items-start gap-8"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget as HTMLFormElement;
+
+                  const name = (
+                    form.elements.namedItem("name") as HTMLInputElement
+                  ).value.trim();
+                  const email = (
+                    form.elements.namedItem("email") as HTMLInputElement
+                  ).value.trim();
+                  const subject = (
+                    form.elements.namedItem("subject") as HTMLInputElement
+                  ).value.trim();
+                  const message = (
+                    form.elements.namedItem("message") as HTMLTextAreaElement
+                  ).value.trim();
+
+                  if (!name || !email || !message) {
+                    alert("Please complete required fields.");
+                    return;
+                  }
+
+                  setSubmitting(true);
+                  try {
+                    const res = await fetch("/api/contact", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ name, email, subject, message }),
+                    });
+                    const json = await res.json();
+                    if (!res.ok) throw new Error(json?.error || "Send failed");
+                    form.reset();
+                    alert("Message sent — thank you!");
+                  } catch (err) {
+                    console.error(err);
+                    alert(
+                      "There was a problem sending your message. Try again later."
+                    );
+                  } finally {
+                    setSubmitting(false);
+                  }
+                }}
+              >
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border
-                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
-                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
+      text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+      light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Name"
                   required
                 />
 
                 <input
                   id="email"
+                  name="email"
                   type="email"
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border
-                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
-                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
+      text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+      light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Email"
                   required
                 />
 
                 <input
                   id="subject"
-                  type="subject"
+                  name="subject"
+                  type="text"
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border
-                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
-                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
+      text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+      light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Subject"
                   required
                 />
 
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border
-                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
-                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
+      text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary focus:border-theme-accent1
+      light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:focus:border-theme-dark-accent1`}
                   placeholder="Write your message here..."
                   required
                 />
 
                 <button
                   type="submit"
+                  disabled={submitting}
                   className={`w-full px-3 py-2 rounded-md focus:outline-none border cursor-pointer
-                    text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary hover:border-theme-accent1
-                    light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:hover:border-theme-dark-accent1`}
+      text-theme1-secondary placeholder-theme1-secondary border-theme1-secondary hover:border-theme-accent1
+      light:text-theme1-secondary light:placeholder-theme-dark-accent1 light:border-theme1-secondary light:hover:border-theme-dark-accent1`}
                 >
-                  Send Email
+                  {submitting ? "Sending…" : "Send Email"}
                 </button>
               </form>
             </div>
