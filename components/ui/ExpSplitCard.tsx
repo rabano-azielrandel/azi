@@ -12,12 +12,11 @@ type DataInterface = {
 
 interface ExpCardProps {
   data: DataInterface[];
+  thresholdValue: number;
 }
 
-const ExpSplitCard = ({ data }: ExpCardProps) => {
+const ExpSplitCard = ({ data, thresholdValue }: ExpCardProps) => {
   const [clicked, setClicked] = useState<number | null>(null);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const thresholdValue = isMobile ? 0.1 : 0.5;
 
   const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {
     threshold: thresholdValue,
