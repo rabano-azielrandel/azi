@@ -26,7 +26,8 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className={`relative w-full mt-10 sm:mt-40 bg-gradient-to-t from-theme-accent2 light:bg-gradient-to-t light:from-[#e9f1fa] light:to-[#F6F6F6]/10`}
+      className={`relative w-full mt-10 sm:mt-40 bg-gradient-to-t from-theme-accent2 light:bg-gradient-to-t light:from-[#e9f1fa] light:to-[#F6F6F6]/10
+        scroll-m-22`}
     >
       <div
         className="relative w-full max-w-[1360px] mx-auto p-2 gap-10

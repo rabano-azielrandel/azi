@@ -26,7 +26,7 @@ const Projects = () => {
     <section
       id="projects"
       className={`relative mt-10 sm:mt-40 w-full px-4 py-20 bg-gradient-to-b from-theme-accent2 
-        light:bg-gradient-to-b light:from-[#e9f1fa] light:to-[#F6F6F6]/10`}
+        light:bg-gradient-to-b light:from-[#e9f1fa] light:to-[#F6F6F6]/10 -scroll-m-26`}
     >
       {/* Wave */}
       <Wave

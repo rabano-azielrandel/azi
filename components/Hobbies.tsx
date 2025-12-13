@@ -134,7 +134,7 @@ const Hobbies = () => {
       ref={ref}
       id="hobbies"
       className={`bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2 light:from-transparent light:via-[#dce6f0] light:to-[#dce6f0] 
-        relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden`}
+        relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden scroll-m-2`}
     >
       <div
         className="relative w-full max-w-[1360px] p-2 gap-10
