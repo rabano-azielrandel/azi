@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
       to: ['rmdldeleon@gmail.com'],
       subject: `Ptf Email from ${name}`,
       react: EmailTemplate({ email, name, subject, message}),
+      
     });
 
     return NextResponse.json({ message: "Email sent", id: data.data?.id });
