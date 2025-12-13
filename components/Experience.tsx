@@ -42,7 +42,13 @@ export default function Experience() {
         <ExpSplitCard data={expData} thresholdValue={thresholdValue} />
       </div>
 
-      <Wave className="absolute object-contain w-fit h-fit  transform scale-y-[-1]" />
+      <Wave
+        className=" absolute
+          -bottom-18 xxs:-bottom-20 xs:-bottom-24 2xs:-bottom-30 sm:-bottom-36 md:-bottom-42 2md:-bottom-46 3md:-bottom-50
+          lg:-bottom-58 2lg:-bottom-60 xl:-bottom-70 2xl:-bottom-76 3xl:-bottom-80 4xl:-bottom-85 8xl:-bottom-90
+          left-0 rotate-180 w-full h-auto
+        "
+      />
     </section>
   );
 }

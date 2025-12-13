@@ -30,7 +30,9 @@ const Projects = () => {
     >
       {/* Wave */}
       <Wave
-        className="absolute -top-18 xxs:-top-20 xs:-top-24 2xs:-top-30 sm:-top-36 md:-top-42 2md:-top-46 3md:-top-50 lg:-top-58 2lg:-top-60 xl:-top-70 2xl:-top-76 3xl:-top-80 4xl:-top-85 8xl:-top-90
+        className="absolute -top-18 xxs:-top-20 xs:-top-24 2xs:-top-30 
+        sm:-top-36 md:-top-42 2md:-top-46 3md:-top-50 
+        lg:-top-58 2lg:-top-60 xl:-top-70 2xl:-top-76 3xl:-top-80 4xl:-top-85 8xl:-top-90
         left-0 w-full h-auto"
       />
 
