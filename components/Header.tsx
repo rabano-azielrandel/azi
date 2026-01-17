@@ -6,15 +6,16 @@ import { useEffect, useState } from "react";
 import ThemeSwitch from "./ui/ThemeSwitch";
 
 const navLinks = [
-  { text: "Me", href: "#me" },
-  { text: "Projects", href: "#projects" },
-  { text: "Experience", href: "#experience" },
-  { text: "Hobbies", href: "#hobbies" },
-  { text: "Contacts", href: "#contacts" },
+  { text: "Me", href: "#me", img: "/images/mobile-home.png" },
+  { text: "Projects", href: "#projects", img: "/images/mobile-projects1.png" },
+  { text: "Experience", href: "#experience", img: "/images/mobile-exp.png" },
+  { text: "Hobbies", href: "#hobbies", img: "/images/mobile-hobbies.png" },
+  { text: "Contacts", href: "#contacts", img: "/images/mobile-contacts.png" },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,15 +87,72 @@ export default function Header() {
 
         <ThemeSwitch />
 
-        <button className="lg:hidden">
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="lg:hidden"
+        >
           <Image
             src="/images/hamburger.png"
             alt="hamburger"
             width={30}
             height={30}
-            className={` invert object-cover w-[20px] h-[20px]`}
+            className={`invert light:invert-0 object-cover w-[20px] h-[20px] cursor-pointer`}
           />
         </button>
+
+        <div
+          className={`${
+            isCollapsed
+              ? "fixed top-0 right-0 w-[50%] h-screen px-4 py-14 flex flex-col justify-between lg:hidden"
+              : "hidden"
+          } z-10 text-white light:text-black bg-[#0A0A0A] light:bg-[#F7F7F7]`}
+        >
+          {/* Header */}
+          <div className="w-full flex items-center gap-4">
+            <Image
+              src="/images/mobile-menu.png"
+              alt="hamburger"
+              width={30}
+              height={30}
+              className={`light:invert-0 invert object-cover w-[20px] h-[20px]`}
+            />
+            <p>Menu</p>
+          </div>
+
+          {/* Navs */}
+          <div className="w-full">
+            <ul className="flex flex-col gap-8">
+              {navLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="flex items-center gap-4"
+                >
+                  <li className="flex items-center gap-4">
+                    <Image
+                      src={item.img}
+                      alt={item.img}
+                      width={30}
+                      height={30}
+                      className={`light:invert-0 invert object-cover w-[30px] h-[30px]`}
+                    />
+                    <p>{item.text}</p>
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </div>
+
+          {/* Hide */}
+          <div className="w-full">
+            <button
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="w-full rounded-md border cursor-pointer"
+            >
+              Hide
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
