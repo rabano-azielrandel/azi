@@ -100,6 +100,7 @@ export default function Header() {
           />
         </button>
 
+        {/* mobile menu */}
         <div
           className={`${
             isCollapsed
@@ -126,6 +127,7 @@ export default function Header() {
                 <Link
                   key={index}
                   href={item.href}
+                  onClick={() => setIsCollapsed(!isCollapsed)}
                   className="flex items-center gap-4"
                 >
                   <li className="flex items-center gap-4">
