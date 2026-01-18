@@ -82,11 +82,6 @@ export const metadata: Metadata = {
       "Full-stack developer specializing in modern web apps and UI/UX.",
     images: ["/images/preview.png"],
   },
-
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f7f7" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
 };
 
 export default function RootLayout({
