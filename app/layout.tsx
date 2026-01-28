@@ -3,6 +3,7 @@ import { Inter, Oswald, Caveat, Condiment } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ParticlesWrapper from "@/components/ui/ParticlesWrapper";
+import BackToTopButton from "@/components/button/BackToTopButton";
 import "./globals.css";
 import Script from "next/script";
 
@@ -100,6 +101,7 @@ export default function RootLayout({
 
         {children}
 
+        <BackToTopButton />
         <Footer />
 
         <Script
