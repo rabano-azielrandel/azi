@@ -1,9 +1,9 @@
 "use client";
 
-import SplitCard from "./ui/SplitCard";
-import RippleCard from "./ui/RippleCard";
-import FanCard from "./ui/FanCard";
-import DiceCard from "./ui/DiceCard";
+import SplitCard from "./cards/SplitCard";
+import RippleCard from "./cards/RippleCard";
+import FanCard from "./cards/FanCard";
+import DiceCard from "./cards/DiceCard";
 import Bot from "./ui/Bot";
 import Wave from "./ui/Wave";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Ripple } from "./shadcn-io/ripple";
+import { Ripple } from "../ui/shadcn-io/ripple";
 
 type RippleCardProps = {
   title: string;

@@ -1,4 +1,4 @@
-import HobbiesCard from "./ui/HobbiesCard";
+import HobbiesCard from "./cards/HobbiesCard";
 import { useState } from "react";
 
 const hobbies = [

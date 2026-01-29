@@ -1,5 +1,5 @@
 import Wave from "./ui/Wave";
-import ExpSplitCard from "./ui/ExpSplitCard";
+import ExpSplitCard from "./cards/ExpSplitCard";
 
 const expData = [
   {
