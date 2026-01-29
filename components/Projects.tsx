@@ -8,7 +8,47 @@ import Bot from "./ui/Bot";
 import Wave from "./ui/Wave";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
-const Projects = () => {
+const data = [
+  {
+    id: 0,
+    span: 2, // BOT occupies 2 columns
+    className: "hidden lg:block",
+    render: () => <Bot />,
+  },
+  {
+    id: 1,
+    render: () => (
+      <DiceCard
+        title="DIGITAL PAYSLIP"
+        desc="Digitalize traditional payslip."
+      />
+    ),
+  },
+  {
+    id: 2,
+    render: () => <SplitCard />,
+  },
+  {
+    id: 3,
+    render: () => (
+      <RippleCard
+        title="RESORT MANAGEMENT"
+        desc="Streamline reservations, billing, and staff managemnt."
+      />
+    ),
+  },
+  {
+    id: 4,
+    render: () => (
+      <FanCard
+        title="TRUCK SCALE"
+        desc="Data logging and receipt management."
+      />
+    ),
+  },
+];
+
+export default function Projects() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const thresholdValue = isMobile ? 0.1 : 0.5;
 
@@ -47,6 +87,7 @@ const Projects = () => {
         >
           PROJECTS
         </h2>
+
         <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
           {/* TOP DIV */}
           <div
@@ -74,7 +115,7 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* BOT DIV */}
+          {/* BOTTOM DIV */}
           <div
             ref={fadeUpRef2}
             style={fadeUpStyle2}
@@ -89,7 +130,7 @@ const Projects = () => {
 
             {/* RESORT MANAGEMENT */}
             <div
-              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] lgiht:border-black/30`}
+              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30`}
             >
               <RippleCard
                 title="RESORT MANAGEMENT"
@@ -99,8 +140,7 @@ const Projects = () => {
 
             {/* TRUCK SCALE */}
             <div
-              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30
-                light:bg-[#dce6f0]  light:border-black/30`}
+              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0]  light:border-black/30`}
             >
               <FanCard
                 title="TRUCK SCALE"
@@ -109,9 +149,29 @@ const Projects = () => {
             </div>
           </div>
         </div>
+
+        {/* <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
+          <div
+            className="
+              grid grid-cols-1 
+              lg:grid-cols-3 
+              gap-6
+            "
+          >
+            {data?.map((item) => (
+              <div
+                key={item.id}
+                className={`
+                ${item.span === 2 ? "lg:col-span-2" : "lg:col-span-1"}
+                ${`w-full min-w-[340px] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30 ${item.className ?? ""}`}
+              `}
+              >
+                {item.render()}
+              </div>
+            ))}
+          </div>
+        </div> */}
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
