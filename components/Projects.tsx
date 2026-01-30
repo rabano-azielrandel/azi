@@ -7,6 +7,7 @@ import DiceCard from "./cards/DiceCard";
 import Bot from "./ui/Bot";
 import Wave from "./ui/Wave";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
+import { useEffect, useState } from "react";
 
 const data = [
   {
@@ -49,17 +50,41 @@ const data = [
 ];
 
 export default function Projects() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const thresholdValue = isMobile ? 0.1 : 0.5;
+  // for show in animations
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const thresholdValue = isMobile ? 0.3 : 0.8;
+  const distanceValue = isMobile ? 30 : 100;
+
+  // 2. Initialize hooks (these will now re-run correctly when state updates)
   const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
   });
 
-  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("left", {
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("down", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef3, style: fadeUpStyle3 } = useInViewAnimation("left", {
+    threshold: thresholdValue,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("down", {
+    threshold: thresholdValue,
+    distance: distanceValue,
   });
 
   return (
@@ -89,78 +114,92 @@ export default function Projects() {
         </h2>
 
         <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
-          {/* TOP DIV */}
-          <div
-            ref={fadeUpRef1}
-            style={fadeUpStyle1}
-            className="w-full h-full flex gap-6"
-          >
-            {/* BOT */}
+          <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
+            {/* TOP DIV */}
             <div
-              className={`hidden lg:block  w-full lg:w-[67%] h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 
-                light:bg-[#dce6f0] light:border-black/30`}
+              key={isMobile ? "mobile-slider" : "desktop-slider"}
+              ref={isMobile ? fadeUpRef2 : fadeUpRef1}
+              style={isMobile ? fadeUpStyle2 : fadeUpStyle1}
+              className="w-full h-full flex gap-6"
             >
-              <Bot />
+              {/* BOT */}
+              <div
+                className={`hidden lg:block  w-full lg:w-[67%] h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 
+                light:bg-[#dce6f0] light:border-black/30`}
+              >
+                <Bot />
+              </div>
+
+              {/* DIGITAL PAYSLIP */}
+              <div
+                className={`w-full min-w-[340px] lg:w-[33%] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30
+                light:bg-[#dce6f0] light:border-black/30`}
+              >
+                <DiceCard
+                  title="DIGITAL PAYSLIP"
+                  desc="Digitalize traditional payslip."
+                />
+              </div>
             </div>
 
-            {/* DIGITAL PAYSLIP */}
+            {/* BOTTOM DIV */}
             <div
-              className={`w-full min-w-[340px] lg:w-[33%] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30
-                light:bg-[#dce6f0] light:border-black/30`}
+              key={isMobile ? "mobile-slider1" : "desktop-slider1"}
+              ref={isMobile ? fadeUpRef4 : fadeUpRef3}
+              style={isMobile ? fadeUpStyle4 : fadeUpStyle3}
+              className="w-full h-full flex gap-6"
             >
-              <DiceCard
-                title="DIGITAL PAYSLIP"
-                desc="Digitalize traditional payslip."
-              />
+              {/* THESIS */}
+              <div
+                className={`w-full min-w-[340px] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30`}
+              >
+                <SplitCard />
+              </div>
+
+              {/* RESORT MANAGEMENT */}
+              <div
+                className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30`}
+              >
+                <RippleCard
+                  title="RESORT MANAGEMENT"
+                  desc="Streamline reservations, billing, and staff managemnt."
+                />
+              </div>
+
+              {/* TRUCK SCALE */}
+              <div
+                className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0]  light:border-black/30`}
+              >
+                <FanCard
+                  title="TRUCK SCALE"
+                  desc="Data logging and receipt management."
+                />
+              </div>
             </div>
           </div>
 
-          {/* BOTTOM DIV */}
-          <div
-            ref={fadeUpRef2}
-            style={fadeUpStyle2}
-            className="w-full h-full flex gap-6"
-          >
-            {/* THESIS */}
-            <div
-              className={`w-full min-w-[340px] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30`}
-            >
-              <SplitCard />
-            </div>
-
-            {/* RESORT MANAGEMENT */}
-            <div
-              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30`}
-            >
-              <RippleCard
-                title="RESORT MANAGEMENT"
-                desc="Streamline reservations, billing, and staff managemnt."
-              />
-            </div>
-
-            {/* TRUCK SCALE */}
-            <div
-              className={`w-full min-w-[340px] h-[355px] lg:h-auto  rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0]  light:border-black/30`}
-            >
-              <FanCard
-                title="TRUCK SCALE"
-                desc="Data logging and receipt management."
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
-          <div
+          {/* <div
             className="
               grid grid-cols-1 
               lg:grid-cols-3 
               gap-6
             "
           >
-            {data?.map((item) => (
+            {data?.map((item, index) => (
               <div
-                key={item.id}
+                key={
+                  isMobile ? "mobile-slider" + index : "desktop-slider" + index
+                }
+                ref={
+                  isMobile ? fadeUpRef2 : index >= 2 ? fadeUpRef3 : fadeUpRef1
+                }
+                style={
+                  isMobile
+                    ? fadeUpStyle2
+                    : index >= 2
+                      ? fadeUpStyle3
+                      : fadeUpStyle2
+                }
                 className={`
                 ${item.span === 2 ? "lg:col-span-2" : "lg:col-span-1"}
                 ${`w-full min-w-[340px] h-[355px] lg:h-auto rounded-xl p-4 border-1 bg-[#18161B] border-white/30 light:bg-[#dce6f0] light:border-black/30 ${item.className ?? ""}`}
@@ -169,8 +208,8 @@ export default function Projects() {
                 {item.render()}
               </div>
             ))}
-          </div>
-        </div> */}
+          </div> */}
+        </div>
       </div>
     </section>
   );
