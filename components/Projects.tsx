@@ -128,19 +128,30 @@ export default function Projects() {
           PROJECTS
         </h2>
 
-        <div className="w-full gap-6 flex lg:flex-col overflow-x-scroll pb-2 lg:pb-0 lg:overflow-hidden">
+        <div className="w-full gap-6 flex lg:flex-col pb-2 lg:pb-0">
           <div
             key={isMobile ? "mobile-slider1" : "desktop-slider1"}
             ref={isMobile ? fadeUpRef2 : undefined}
             style={isMobile ? fadeUpStyle2 : undefined}
-            className="flex gap-6 overflow-x-auto
-              lg:flex-col lg:overflow-visible"
+            className="flex gap-6 overflow-x-scroll no-scrollbar lg:flex-col"
           >
             {data.map((row, rowIndex) => (
               <div
                 key={`row-${rowIndex}`}
-                ref={isMobile ? undefined : fadeUpRef1}
-                style={isMobile ? undefined : fadeUpStyle1}
+                ref={
+                  isMobile
+                    ? undefined
+                    : rowIndex % 2 == 0
+                      ? fadeUpRef1
+                      : fadeUpRef3
+                }
+                style={
+                  isMobile
+                    ? undefined
+                    : rowIndex % 2 == 0
+                      ? fadeUpStyle1
+                      : fadeUpStyle3
+                }
                 className="flex gap-6 shrink-0 lg:grid lg:grid-cols-3 lg:gap-6"
               >
                 {row.map((item, colIndex) => (
