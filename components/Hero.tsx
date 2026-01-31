@@ -5,24 +5,44 @@ import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "./ui/ParticlesBackground";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const thresholdValue = isMobile ? 0.1 : 0.5;
+  // for show in animations
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const thresholdValue = isMobile ? 0.3 : 0.8;
+  const distanceValue = isMobile ? 30 : 100;
+
+  // 2. Initialize hooks (these will now re-run correctly when state updates)
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
   });
 
-  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("right", {
-    threshold: 0.3,
-    distance: 50,
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("down", {
+    threshold: thresholdValue,
+    distance: distanceValue,
   });
 
   const { ref: fadeUpRef3, style: fadeUpStyle3 } = useInViewAnimation("left", {
-    threshold: 0.3,
-    distance: 50,
+    threshold: thresholdValue,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("up", {
+    threshold: thresholdValue,
+    distance: distanceValue,
   });
 
   return (
@@ -39,7 +59,12 @@ export default function Hero() {
         {/* center content */}
         <div className="relative w-full h-fit flex flex-col gap-10 justify-center items-center">
           {/* image and cta */}
-          <div ref={fadeUpRef} style={fadeUpStyle} className="relative">
+          <div
+            key={isMobile ? "mobile-slider" : "desktop-slider"}
+            ref={fadeUpRef2}
+            style={fadeUpStyle2}
+            className="relative"
+          >
             {/* grad image */}
             <div className="relative group ">
               <div
@@ -103,8 +128,9 @@ export default function Hero() {
 
           {/* text */}
           <div
-            ref={fadeUpRef2}
-            style={fadeUpStyle2}
+            key={isMobile ? "mobile-slider1" : "desktop-slider1"}
+            ref={fadeUpRef1}
+            style={fadeUpStyle1}
             className="w-full h-fit flex flex-col gap-2 justify-center items-center mx-auto mt-2 lg:mt-0"
           >
             <h1 className="w-fit font-oswald font-bold text-4xl 2xl:text-5xl z-50">

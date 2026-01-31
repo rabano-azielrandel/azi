@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
@@ -109,9 +109,6 @@ const icons = [
 const categories = Object.keys(hobbySets) as (keyof typeof hobbySets)[];
 
 const Hobbies = () => {
-  const isMobile = typeof Window !== "undefined" && window.innerWidth < 768;
-  const thresholdValue = isMobile ? 0.1 : 0.5;
-
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.6,
@@ -124,14 +121,48 @@ const Hobbies = () => {
   const handlePrev = () =>
     setIndex((prev) => (prev - 1 + categories.length) % categories.length);
 
-  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("up", {
+  // for show in animations
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const thresholdValue = isMobile ? 0.3 : 0.8;
+  const distanceValue = isMobile ? 30 : 100;
+
+  // 2. Initialize hooks (these will now re-run correctly when state updates)
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("down", {
+    threshold: thresholdValue,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef3, style: fadeUpStyle3 } = useInViewAnimation("left", {
+    threshold: thresholdValue,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("up", {
+    threshold: thresholdValue,
+    distance: distanceValue,
   });
 
   return (
     <section
-      ref={ref}
+      key={isMobile ? "mobile-slider" : "desktop-slider"}
+      ref={fadeUpRef4}
+      style={fadeUpStyle4}
       id="hobbies"
       className={`bg-gradient-to-b from-transparent via-theme-accent2 to-theme-accent2 light:from-transparent light:via-[#dce6f0] light:to-[#dce6f0] 
         relative mt-10 sm:mt-40 px-4 py-20 flex w-full items-center justify-center overflow-hidden scroll-m-2`}
@@ -155,10 +186,10 @@ const Hobbies = () => {
             {category === "anime"
               ? "Stories That Echo"
               : category === "music"
-              ? "Sounds That Burn"
-              : category === "programming"
-              ? "Lines That Build"
-              : "Realms I Wander"}
+                ? "Sounds That Burn"
+                : category === "programming"
+                  ? "Lines That Build"
+                  : "Realms I Wander"}
           </h2>
 
           {/* Category Icons (Right Side) */}
@@ -193,8 +224,6 @@ const Hobbies = () => {
             <ChevronLeft className={`w-8 h-8 text-white light:text-gray-700`} />
           </button>
           <div
-            ref={fadeUpRef}
-            style={fadeUpStyle}
             className={`relative w-full flex items-center p-2 gap-1 bg-white/3 rounded-2xl border-1
               border-white/30 light:border-gray-700`}
           >

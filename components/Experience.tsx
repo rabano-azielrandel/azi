@@ -20,9 +20,6 @@ const expData = [
 ];
 
 export default function Experience() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const thresholdValue = isMobile ? 0.1 : 0.5;
-
   return (
     <section
       id="experience"
@@ -39,7 +36,7 @@ export default function Experience() {
           EXPERIENCE
         </h2>
 
-        <ExpSplitCard data={expData} thresholdValue={thresholdValue} />
+        <ExpSplitCard data={expData} />
       </div>
 
       <Wave

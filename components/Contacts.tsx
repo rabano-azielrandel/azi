@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import EmailForm from "./forms/EmailForm";
+import { useEffect, useState } from "react";
 
 const contact = [
   {
@@ -48,17 +49,41 @@ const socials = [
 ];
 
 const Contacts = () => {
-  const isMobile = typeof Window !== "undefined" && window.innerWidth < 768;
-  const thresholdValue = isMobile ? 0.1 : 0.5;
+  // for show in animations
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("right", {
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const thresholdValue = isMobile ? 0.3 : 0.8;
+  const distanceValue = isMobile ? 30 : 100;
+
+  // 2. Initialize hooks (these will now re-run correctly when state updates)
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
   });
 
-  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("left", {
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("down", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef3, style: fadeUpStyle3 } = useInViewAnimation("left", {
+    threshold: thresholdValue,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("up", {
+    threshold: thresholdValue,
+    distance: distanceValue,
   });
 
   return (
@@ -76,8 +101,9 @@ const Contacts = () => {
           <div className="w-full h-full flex flex-col lg:flex-row items-start justify-start gap-4">
             {/* ICONS AND OTHER INFO */}
             <div
-              ref={fadeUpRef}
-              style={fadeUpStyle}
+              key={isMobile ? "mobile-slider1" : "desktop-slider1"}
+              ref={isMobile ? fadeUpRef4 : fadeUpRef3}
+              style={isMobile ? fadeUpStyle4 : fadeUpStyle3}
               className="w-full h-full flex flex-col justify-between items-center gap-9 px-8  lg:items-start"
             >
               <div className="w-fit h-fit flex flex-col gap-12">

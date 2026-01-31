@@ -82,7 +82,7 @@ export default function Projects() {
     distance: distanceValue,
   });
 
-  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("down", {
+  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("up", {
     threshold: thresholdValue,
     distance: distanceValue,
   });
@@ -90,7 +90,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className={`relative mt-10 sm:mt-40 w-full px-4 py-20 bg-gradient-to-b from-theme-accent2 
+      className={`relative mt-10 sm:mt-40 w-full px-4 py-20 bg-gradient-to-b from-theme-accent2
         light:bg-gradient-to-b light:from-[#e9f1fa] light:to-[#F6F6F6]/10 -scroll-m-26`}
     >
       {/* Wave */}
@@ -104,7 +104,7 @@ export default function Projects() {
       {/* Content */}
       <div
         className="relative w-full max-w-[1360px] pt-20 mx-auto gap-x-2 gap-y-8 lg:gap-y-4
-      flex flex-col justify-center items-center"
+          flex flex-col justify-center items-center"
       >
         <h2
           className={`block lg:hidden text-4xl font-oswald font-semibold text-center tracking-[8px] 

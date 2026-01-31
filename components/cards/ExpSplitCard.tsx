@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useInViewAnimation } from "../../hooks/useInViewAnimation";
 
@@ -12,25 +12,53 @@ type DataInterface = {
 
 interface ExpCardProps {
   data: DataInterface[];
-  thresholdValue: number;
 }
 
-const ExpSplitCard = ({ data, thresholdValue }: ExpCardProps) => {
+const ExpSplitCard = ({ data }: ExpCardProps) => {
   const [clicked, setClicked] = useState<number | null>(null);
 
-  const { ref: fadeUpRef, style: fadeUpStyle } = useInViewAnimation("down", {
+  // for show in animations
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const thresholdValue = isMobile ? 0.2 : 0.8;
+  const distanceValue = isMobile ? 30 : 100;
+
+  // 2. Initialize hooks (these will now re-run correctly when state updates)
+  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("right", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
   });
 
-  const { ref: fadeUpRef1, style: fadeUpStyle1 } = useInViewAnimation("up", {
+  const { ref: fadeUpRef2, style: fadeUpStyle2 } = useInViewAnimation("down", {
     threshold: thresholdValue,
-    distance: 50,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef3, style: fadeUpStyle3 } = useInViewAnimation("left", {
+    threshold: thresholdValue,
+    distance: distanceValue,
+  });
+
+  const { ref: fadeUpRef4, style: fadeUpStyle4 } = useInViewAnimation("up", {
+    threshold: thresholdValue,
+    distance: distanceValue,
   });
 
   return (
     <div className="w-full h-full px-4">
       <div
+        ref={isMobile ? fadeUpRef1 : undefined}
+        style={isMobile ? fadeUpStyle1 : undefined}
         className={`w-full h-full flex flex-col lg:flex-row justify-between items-center transition-300 gap-4 lg:hover:gap-6 lg:gap-0 rounded-lg group`}
       >
         {/* cards */}
@@ -38,8 +66,16 @@ const ExpSplitCard = ({ data, thresholdValue }: ExpCardProps) => {
           <div
             key={index}
             onClick={() => setClicked(index == clicked ? null : index)}
-            ref={index % 2 == 0 ? fadeUpRef1 : fadeUpRef}
-            style={index % 2 == 0 ? fadeUpStyle1 : fadeUpStyle}
+            ref={
+              isMobile ? undefined : index % 2 == 0 ? fadeUpRef2 : fadeUpRef4
+            }
+            style={
+              isMobile
+                ? undefined
+                : index % 2 == 0
+                  ? fadeUpStyle2
+                  : fadeUpStyle4
+            }
             className="relative px-4 py-6 flex w-full h-[360px] lg:h-[500px] lg:group-hover:rounded-lg overflow-hidden"
           >
             <Image
