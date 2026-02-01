@@ -65,6 +65,9 @@ const data: CardItem[][] = [
 ];
 
 export default function Projects() {
+  const [isCollapse, setIsCollapse] = useState(false);
+  const VISIBILE_ROWS = isCollapse ? data.length : 2;
+
   // for show in animations
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -135,7 +138,7 @@ export default function Projects() {
             style={isMobile ? fadeUpStyle2 : undefined}
             className="flex gap-6 overflow-x-scroll no-scrollbar lg:flex-col"
           >
-            {data.map((row, rowIndex) => (
+            {data.slice(0, VISIBILE_ROWS).map((row, rowIndex) => (
               <div
                 key={`row-${rowIndex}`}
                 ref={
@@ -172,6 +175,17 @@ export default function Projects() {
                 ))}
               </div>
             ))}
+
+            {data.length > 2 && (
+              <div className="hidden lg:flex w-full justify-center cursor-pointer hover:bg-[#f7f7f7] group">
+                <button
+                  onClick={() => setIsCollapse(!isCollapse)}
+                  className="text-sm text-white cursor-pointer group-hover:text-black"
+                >
+                  {isCollapse ? "See Less ▲" : "See More ▼"}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
