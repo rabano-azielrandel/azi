@@ -252,7 +252,9 @@ const Hobbies = () => {
             aria-label="Next"
             className="w-fit hover:scale-185 cursor-pointer"
           >
-            <ChevronRight className={`w-8 h-8 text-white light:bg-gray-700`} />
+            <ChevronRight
+              className={`w-8 h-8 text-white light:text-gray-700`}
+            />
           </button>
         </div>
 
