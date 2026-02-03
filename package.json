@@ -12,6 +12,8 @@
     "@react-email/components": "^1.0.1",
     "@react-email/render": "^2.0.0",
     "@splinetool/react-spline": "^4.1.0",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.93.3",
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
