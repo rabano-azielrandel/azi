@@ -6,65 +6,60 @@ import FanCard from "./cards/FanCard";
 import DiceCard from "./cards/DiceCard";
 import Bot from "./ui/Bot";
 import Wave from "./ui/Wave";
+
+import { ProjectCardData } from "@/types/Projects";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
-import { JSX, useEffect, useState } from "react";
+import { JSX, useEffect, useState, useMemo } from "react";
+
+interface ProjectProps {
+  rows: ProjectCardData[][];
+}
 
 type CardItem = {
-  id: number;
+  id: string;
   span?: 1 | 2;
   className?: string;
+  variant: string;
   render: () => JSX.Element;
 };
 
-const data: CardItem[][] = [
-  // Row 1
-  [
-    {
-      id: 0,
-      span: 2,
-      className: "hidden lg:block",
-      render: () => <Bot />,
-    },
-    {
-      id: 1,
-      span: 1,
-      render: () => (
-        <DiceCard
-          title="DIGITAL PAYSLIP"
-          desc="Digitalize traditional payslip."
-        />
-      ),
-    },
-  ],
+function renderByVariant(item: ProjectCardData): JSX.Element {
+  switch (item.variant) {
+    case "bot":
+      return <Bot />;
 
-  // Row 2
-  [
-    {
-      id: 2,
-      render: () => <SplitCard />,
-    },
-    {
-      id: 3,
-      render: () => (
-        <RippleCard
-          title="RESORT MANAGEMENT"
-          desc="Streamline reservations, billing, and staff management."
-        />
-      ),
-    },
-    {
-      id: 4,
-      render: () => (
-        <FanCard
-          title="TRUCK SCALE"
-          desc="Data logging and receipt management."
-        />
-      ),
-    },
-  ],
-];
+    case "dice":
+      return <DiceCard title={item.title!} desc={item.desc!} />;
 
-export default function Projects() {
+    case "split":
+      return <SplitCard />;
+
+    case "ripple":
+      return <RippleCard title={item.title!} desc={item.desc!} />;
+
+    case "fan":
+      return <FanCard title={item.title!} desc={item.desc!} />;
+
+    default:
+      return <></>;
+  }
+}
+
+export default function Projects({ rows }: ProjectProps) {
+  const data: CardItem[][] = useMemo(() => {
+    return rows.map((row) =>
+      row.map((item) => ({
+        id: item.id,
+        span: item.span === 2 ? 2 : item.span === 1 ? 1 : undefined,
+        className: item.className,
+        variant: item.variant,
+        render: () => renderByVariant(item),
+      })),
+    );
+  }, [rows]);
+
+  console.log(data);
+
   const [isCollapse, setIsCollapse] = useState(false);
   const VISIBILE_ROWS = isCollapse ? data.length : 2;
 
@@ -167,7 +162,7 @@ export default function Projects() {
                       rounded-xl p-4
                       border-1 bg-[#18161B] border-white/30
                       light:bg-[#dce6f0] light:border-black/30
-                      ${item.className ?? ""}
+                      ${item.variant === "bot" ? "hidden lg:block" : ""}
                     `}
                   >
                     {item.render()}
