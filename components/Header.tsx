@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 import ThemeSwitch from "./ui/ThemeSwitch";
 
 const navLinks = [
-  { text: "Me", href: "#me", img: "/images/mobile-home.png" },
-  { text: "Projects", href: "#projects", img: "/images/mobile-projects1.png" },
-  { text: "Experience", href: "#experience", img: "/images/mobile-exp.png" },
-  { text: "Hobbies", href: "#hobbies", img: "/images/mobile-hobbies.png" },
-  { text: "Contacts", href: "#contacts", img: "/images/mobile-contacts.png" },
+  { text: "Me", href: "/#me", img: "/images/mobile-home.png" },
+  { text: "Projects", href: "/#projects", img: "/images/mobile-projects1.png" },
+  { text: "Experience", href: "/#experience", img: "/images/mobile-exp.png" },
+  { text: "Hobbies", href: "/#hobbies", img: "/images/mobile-hobbies.png" },
+  { text: "Contacts", href: "/#contacts", img: "/images/mobile-contacts.png" },
 ];
 
 export default function Header() {
