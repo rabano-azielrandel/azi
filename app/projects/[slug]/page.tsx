@@ -1,5 +1,6 @@
-import FeatProject from "@/components/featured/FeatProject";
 import FeatName from "@/components/featured/FeatName";
+import FeatProject from "@/components/featured/FeatProject";
+import FeatLink from "@/components/featured/FeatLink";
 
 import { notFound } from "next/navigation";
 import { getProjectSpecifiedData } from "@/app/lib/data/projects";
@@ -26,6 +27,7 @@ export default async function Page({ params }: PageProps) {
     <main className="w-full">
       <FeatName name="DIGITAL PAYSLIP" subdesc="WEB APP" />
       <FeatProject />
+      <FeatLink link="" />
     </main>
   );
 }
