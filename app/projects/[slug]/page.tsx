@@ -1,5 +1,11 @@
+import FeatProject from "@/components/featured/FeatProject";
+import FeatName from "@/components/featured/FeatName";
+
 import { notFound } from "next/navigation";
 import { getProjectSpecifiedData } from "@/app/lib/data/projects";
+
+import Image from "next/image";
+import Link from "next/link";
 
 type PageProps = {
   params: Promise<{
@@ -17,14 +23,9 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="w-full h-full min-w-screen max-w-full overflow-x-hidden">
-      <div className="relative mt-10 sm:mt-40 w-full px-4 py-20 bg-gradient-to-b from-theme-accent2 light:bg-gradient-to-b light:from-[#e9f1fa] light:to-[#F6F6F6]/10 -scroll-m-26">
-        <h1 className="text-4xl font-bold text-amber-500">
-          {projectData?.name ?? "Project not found"}
-        </h1>
-
-        <p className="mt-6 text-lg max-w-3xl">{projectData?.description}</p>
-      </div>
+    <main className="w-full">
+      <FeatName name="DIGITAL PAYSLIP" subdesc="WEB APP" />
+      <FeatProject />
     </main>
   );
 }
