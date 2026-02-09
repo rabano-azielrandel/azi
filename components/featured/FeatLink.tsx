@@ -7,7 +7,7 @@ interface FeatLinkProps {
 
 export default function FeatLink({ link }: FeatLinkProps) {
   return (
-    <div className="flex w-full gap-4 px-20 bg-amber-400">
+    <div className="flex w-full gap-4 px-20 bg-theme1-secondary">
       <Image
         src={link ? "/images/link-cat.png" : "/images/no-link-cat.png"}
         alt="sorry"
@@ -28,8 +28,7 @@ export default function FeatLink({ link }: FeatLinkProps) {
         ) : (
           <p className="text-2xl font-semibold text-balance">
             That system has officially gone corporate! It was bought out by the
-            private sector, so I no longer have the clearance (or the headache)
-            to manage it.
+            private sector, so I no longer have the clearance to manage it.
           </p>
         )}
       </div>

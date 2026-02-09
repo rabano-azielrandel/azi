@@ -25,9 +25,12 @@ export interface ProjectCardData {
 export interface ProjectSpecifiedData {
   slug: string;
   name: string;
-  description: string;
-  live_url?: string;
-  repo_url?: string;
-  images?: string;
-  longcontent?: string;
+  feat_words?: string[];
+  feat_icons?: string[];
+  feat_textcolor?: string[];
+  feat_bgcolor?: string[];
+  repo_link?: string;
+  live_link?: string;
+  system_desc?: string;
+  system_images?: string;
 }
