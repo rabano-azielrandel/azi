@@ -7,6 +7,7 @@ export interface Project {
     description?: string;
     class_name?: string;
     created_at: string;
+    project_slug: string;
 }
 
 export interface ProjectCardData {
@@ -18,4 +19,15 @@ export interface ProjectCardData {
   variant: string;
   title?: string;
   desc?: string;
+  project_slug: string;
+}
+
+export interface ProjectSpecifiedData {
+  slug: string;
+  name: string;
+  description: string;
+  live_url?: string;
+  repo_url?: string;
+  images?: string;
+  longcontent?: string;
 }

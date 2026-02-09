@@ -7,6 +7,7 @@ import DiceCard from "./cards/DiceCard";
 import Bot from "./ui/Bot";
 import Wave from "./ui/Wave";
 
+import Link from "next/link";
 import { ProjectCardData } from "@/types/Projects";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import { JSX, useEffect, useState, useMemo } from "react";
@@ -20,6 +21,7 @@ type CardItem = {
   span?: 1 | 2;
   className?: string;
   variant: string;
+  slug: string;
   render: () => JSX.Element;
 };
 
@@ -53,12 +55,11 @@ export default function Projects({ rows }: ProjectProps) {
         span: item.span === 2 ? 2 : item.span === 1 ? 1 : undefined,
         className: item.className,
         variant: item.variant,
+        slug: item.project_slug,
         render: () => renderByVariant(item),
       })),
     );
   }, [rows]);
-
-  console.log(data);
 
   const [isCollapse, setIsCollapse] = useState(false);
   const VISIBILE_ROWS = isCollapse ? data.length : 2;
@@ -152,22 +153,40 @@ export default function Projects({ rows }: ProjectProps) {
                 }
                 className="flex gap-6 shrink-0 lg:grid lg:grid-cols-3 lg:gap-6"
               >
-                {row.map((item, colIndex) => (
-                  <div
-                    key={`card-${item.id}`}
-                    className={`
+                {row.map((item, colIndex) =>
+                  item.slug != "title" ? (
+                    <Link
+                      key={`card-${item.id}`}
+                      href={`/projects/${item.slug}`}
+                      className={`
                       shrink-0 w-[340px] h-[355px]
                       lg:w-full lg:h-auto
                       ${item.span === 2 ? "lg:col-span-2" : ""}
                       rounded-xl p-4
                       border-1 bg-[#18161B] border-white/30
                       light:bg-[#dce6f0] light:border-black/30
-                      ${item.variant === "bot" ? "hidden lg:block" : ""}
+                      ${item.variant === "bot" ? item.className : ""}
                     `}
-                  >
-                    {item.render()}
-                  </div>
-                ))}
+                    >
+                      {item.render()}
+                    </Link>
+                  ) : (
+                    <div
+                      key={`card-${item.id}`}
+                      className={`
+                      shrink-0 w-[340px] h-[355px]
+                      lg:w-full lg:h-auto
+                      ${item.span === 2 ? "lg:col-span-2" : ""}
+                      rounded-xl p-4
+                      border-1 bg-[#18161B] border-white/30
+                      light:bg-[#dce6f0] light:border-black/30
+                      ${item.variant === "bot" ? item.className : ""}
+                    `}
+                    >
+                      {item.render()}
+                    </div>
+                  ),
+                )}
               </div>
             ))}
 

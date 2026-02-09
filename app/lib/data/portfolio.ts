@@ -5,7 +5,7 @@ export async function getProjectData(): Promise<ProjectCardData[][]> {
   const supabase = await createSupabaseServerClient();
 
   const { data, error } = await supabase
-    .from("Projects")
+    .from("ProjectCard")
     .select("*")
     .order("row_index")
     .order("col_index");
@@ -29,6 +29,7 @@ export async function getProjectData(): Promise<ProjectCardData[][]> {
       variant: item.variant,
       title: item.title ?? undefined,
       desc: item.description ?? undefined,
+      project_slug: item.project_slug,
     });
   });
 
