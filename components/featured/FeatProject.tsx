@@ -122,7 +122,7 @@ export default function FeatureHero(props: FeatureHeroProps) {
   if (phase === 1) {
     return (
       <div className="w-screen h-screen flex items-center justify-center bg-black">
-        <div className="flex gap-16">
+        <div className="flex flex-wrap xs:flex-nowrap px-12 xs:px-0 justify-center items-center gap-16">
           {items.map((item, i) => (
             <div
               key={i}
@@ -154,7 +154,9 @@ export default function FeatureHero(props: FeatureHeroProps) {
           ${i < panelIndex ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
           style={{ backgroundColor: item.bgColor, color: item.textColor }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold">{item.word}</h2>
+          <h2 className="text-xl xs:text-4xl md:text-6xl font-bold">
+            {item.word}
+          </h2>
         </div>
       ))}
     </div>
