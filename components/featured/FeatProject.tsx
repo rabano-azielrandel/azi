@@ -32,7 +32,7 @@ export default function FeatureHero(props: FeatureHeroProps) {
     icon: icons[i] ?? DEFAULT_ICONS[i],
     textColor: textColors[i] ?? DEFAULT_TEXT[i],
     bgColor: bgColors[i] ?? DEFAULT_BG[i],
-  }));
+  })); // e.g. ['Fast', 'Zap', '#131212', '#e8d8c9']
 
   /* Animation states */
 
