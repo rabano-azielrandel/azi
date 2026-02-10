@@ -1,7 +1,11 @@
 "use client";
+
 import dynamic from "next/dynamic";
-import { useMemo, ComponentType } from "react";
-import { LucideProps } from "lucide-react"; // Import the correct type
+import { useMemo } from "react";
+import { LucideProps } from "lucide-react";
+import dynamicIconImports from "lucide-react/dynamicIconImports";
+
+type IconName = keyof typeof dynamicIconImports;
 
 type Props = {
   name: string;
@@ -9,19 +13,19 @@ type Props = {
   color?: string;
 };
 
-export default function DynamicIcon({ name, size = 80, color }: Props) {
-  const iconName = name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+function toKebabCase(name: string) {
+  return name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+}
 
-  const LucideIcon = useMemo(
-    () =>
-      dynamic<LucideProps>(() =>
-        // Tell dynamic to expect LucideProps
-        import(`lucide-react/dist/esm/icons/${iconName}.js`).then(
-          (mod) => mod.default,
-        ),
-      ),
-    [iconName],
-  );
+export default function DynamicIcon({ name, size = 80, color }: Props) {
+  const iconKey = toKebabCase(name) as IconName;
+
+  const LucideIcon = useMemo(() => {
+    const loader =
+      dynamicIconImports[iconKey] ?? dynamicIconImports["help-circle"];
+
+    return dynamic<LucideProps>(loader as any, { ssr: false });
+  }, [iconKey]);
 
   return <LucideIcon size={size} color={color} />;
 }
