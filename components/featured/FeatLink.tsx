@@ -7,7 +7,7 @@ interface FeatLinkProps {
 
 export default function FeatLink({ link }: FeatLinkProps) {
   return (
-    <div className="flex w-full gap-4 px-20 bg-theme1-secondary">
+    <div className="flex flex-col sm:flex-row  w-full gap-4 px-0 sm:px-10 md:px-20 justify-center items-center bg-theme1-secondary">
       <Image
         src={link ? "/images/link-cat.png" : "/images/no-link-cat.png"}
         alt="sorry"
@@ -17,7 +17,7 @@ export default function FeatLink({ link }: FeatLinkProps) {
           link ? "h-64 w-64" : "h-60 w-60"
         }`}
       />
-      <div className="flex flex-col w-full justify-center gap-4 px-20 text-theme1-base">
+      <div className="flex flex-col w-full justify-center gap-4 px-5 sm:px-10 md:px-20 py-2 text-theme1-base">
         {link ? (
           <>
             <p className="text-2xl font-semibold text-balance">
