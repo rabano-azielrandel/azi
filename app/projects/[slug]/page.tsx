@@ -24,7 +24,12 @@ export default async function Page({ params }: PageProps) {
   return (
     <main className="w-full text-theme1-secondary">
       <FeatName name={projectData.name} />
-      <FeatProject />
+      <FeatProject
+        feat_words={projectData.feat_words}
+        feat_icons={projectData.feat_icons}
+        feat_bgcolor={projectData.feat_bgcolor}
+        feat_textcolor={projectData.feat_textcolor}
+      />
       <FeatLink link="" />
       <FeatTake />
     </main>

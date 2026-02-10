@@ -1,176 +1,162 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Zap, ShieldCheck, Rocket, Server } from "lucide-react";
 
-type Item = {
-  text: string;
-  textColor: string;
-  bgColor: string;
-  Icon: any;
+import { useEffect, useState, Suspense } from "react";
+import DynamicIcon from "./DynamicIcon";
+
+/* -------------------- Types -------------------- */
+
+type FeatureHeroProps = {
+  feat_words?: string[] | null;
+  feat_icons?: string[] | null;
+  feat_textcolor?: string[] | null;
+  feat_bgcolor?: string[] | null;
 };
 
-export default function HeroAnimator() {
-  const items: Item[] = [
-    {
-      text: "Fast",
-      textColor: "text-white",
-      bgColor: "bg-purple-600",
-      Icon: Zap,
-    },
-    {
-      text: "Secure",
-      textColor: "text-white",
-      bgColor: "bg-pink-500",
-      Icon: ShieldCheck,
-    },
-    {
-      text: "Reliable",
-      textColor: "text-white",
-      bgColor: "bg-blue-500",
-      Icon: Server,
-    },
-    {
-      text: "Scalable",
-      textColor: "text-white",
-      bgColor: "bg-emerald-500",
-      Icon: Rocket,
-    },
-  ];
+/* -------------------- Defaults -------------------- */
 
-  const [phase, setPhase] = useState<"fullscreen" | "icons" | "grid">(
-    "fullscreen",
-  );
-  const [index, setIndex] = useState(0);
-  const [iconStep, setIconStep] = useState(0);
-  const [gridStep, setGridStep] = useState(0);
+const DEFAULT_WORDS = ["Fast", "Secure", "Reliable", "Scalable"];
+const DEFAULT_ICONS = ["Zap", "ShieldCheck", "Rocket", "Server"];
+const DEFAULT_TEXT = ["#131212", "#e8d8c9", "#131212", "#e8d8c9"];
+const DEFAULT_BG = ["#e8d8c9", "#c94f4f", "#f6ad49", "#1d1f2c"];
 
-  /* ---------------- PHASE 1 : FULLSCREEN WORDS ---------------- */
+export default function FeatureHero(props: FeatureHeroProps) {
+  /* Merge nullable props with defaults */
+
+  const words = props.feat_words ?? DEFAULT_WORDS;
+  const icons = props.feat_icons ?? DEFAULT_ICONS;
+  const textColors = props.feat_textcolor ?? DEFAULT_TEXT;
+  const bgColors = props.feat_bgcolor ?? DEFAULT_BG;
+
+  const items = words.map((word, i) => ({
+    word,
+    icon: icons[i] ?? DEFAULT_ICONS[i],
+    textColor: textColors[i] ?? DEFAULT_TEXT[i],
+    bgColor: bgColors[i] ?? DEFAULT_BG[i],
+  }));
+
+  /* Animation states */
+
+  const [phase, setPhase] = useState(0);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [iconIndex, setIconIndex] = useState(0);
+  const [panelIndex, setPanelIndex] = useState(0);
+
+  /* Phase 1 — fullscreen words */
   useEffect(() => {
-    if (phase !== "fullscreen") return;
+    if (phase !== 0) return;
 
-    if (index < items.length - 1) {
-      const t = setTimeout(() => setIndex(index + 1), 1200);
-      return () => clearTimeout(t);
-    }
+    const timer = setInterval(() => {
+      setWordIndex((prev) => {
+        if (prev === items.length - 1) {
+          clearInterval(timer);
+          setTimeout(() => setPhase(1), 700);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 800);
 
-    const t = setTimeout(() => {
-      setPhase("icons");
-      setIconStep(0);
-    }, 900);
+    return () => clearInterval(timer);
+  }, [phase]);
 
-    return () => clearTimeout(t);
-  }, [index, phase]);
-
-  /* ---------------- PHASE 2 : ICONS ---------------- */
+  /* Phase 2 — icons left → right */
   useEffect(() => {
-    if (phase !== "icons") return;
+    if (phase !== 1) return;
 
-    if (iconStep < 4) {
-      const t = setTimeout(() => setIconStep(iconStep + 1), 500);
-      return () => clearTimeout(t);
-    }
+    const timer = setInterval(() => {
+      setIconIndex((prev) => {
+        if (prev === items.length) {
+          clearInterval(timer);
+          setTimeout(() => setPhase(2), 1500);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 400);
 
-    const t = setTimeout(() => {
-      setPhase("grid");
-      setGridStep(0);
-    }, 1200);
+    return () => clearInterval(timer);
+  }, [phase]);
 
-    return () => clearTimeout(t);
-  }, [iconStep, phase]);
-
-  /* ---------------- PHASE 3 : GRID ---------------- */
+  /* Phase 3 — 4 panels */
   useEffect(() => {
-    if (phase !== "grid") return;
+    if (phase !== 2) return;
 
-    if (gridStep < 4) {
-      const t = setTimeout(() => setGridStep(gridStep + 1), 700);
-      return () => clearTimeout(t);
-    }
+    const timer = setInterval(() => {
+      setPanelIndex((prev) => {
+        if (prev === items.length) {
+          clearInterval(timer);
+          setTimeout(() => {
+            setPhase(0);
+            setWordIndex(0);
+            setIconIndex(0);
+            setPanelIndex(0);
+          }, 2000);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 500);
 
-    const t = setTimeout(() => {
-      setPhase("fullscreen");
-      setIndex(0);
-    }, 2000);
+    return () => clearInterval(timer);
+  }, [phase]);
 
-    return () => clearTimeout(t);
-  }, [gridStep, phase]);
+  /* -------- PHASE 1 -------- */
 
-  const current = items[index];
+  if (phase === 0) {
+    const current = items[wordIndex];
 
-  /* ---------------- RENDER PHASE 1 ---------------- */
-  if (phase === "fullscreen") {
     return (
       <div
-        key={index}
-        className={`min-h-screen flex items-center justify-center transition-all duration-700 ${current.bgColor}`}
+        className="w-screen h-screen flex items-center justify-center transition-all duration-700"
+        style={{ backgroundColor: current.bgColor, color: current.textColor }}
       >
-        <h1
-          className={`text-6xl md:text-8xl font-extrabold animate-fade ${current.textColor}`}
-        >
-          {current.text}
+        <h1 className="text-[12vw] md:text-[8vw] font-extrabold animate-pulse">
+          {current.word}
         </h1>
       </div>
     );
   }
 
-  /* ---------------- RENDER PHASE 2 ---------------- */
-  if (phase === "icons") {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="flex gap-12">
-          {items.map((item, i) => {
-            const Icon = item.Icon;
-            const visible = iconStep > i;
+  /* -------- PHASE 2 -------- */
 
-            return (
-              <div
-                key={i}
-                className={`
-                  transition-all duration-700 transform
-                  ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-                `}
-              >
-                <Icon size={90} className="text-white" />
-              </div>
-            );
-          })}
+  if (phase === 1) {
+    return (
+      <div className="w-screen h-screen flex items-center justify-center bg-black">
+        <div className="flex gap-16">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className={`transition-all duration-700 ${
+                i < iconIndex
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ color: item.bgColor }}
+            >
+              <Suspense fallback={null}>
+                <DynamicIcon name={item.icon} />
+              </Suspense>
+            </div>
+          ))}
         </div>
       </div>
     );
   }
 
-  /* ---------------- RENDER PHASE 3 ---------------- */
-  const positions = [
-    "col-start-1 row-start-1", // TL
-    "col-start-2 row-start-1", // TR
-    "col-start-1 row-start-2", // BL
-    "col-start-2 row-start-2", // BR
-  ];
+  /* -------- PHASE 3 -------- */
 
   return (
-    <div className="h-screen w-screen grid grid-cols-2 grid-rows-2 divide-x divide-y divide-white/20">
-      {items.map((panel, i) => {
-        const visible = gridStep > i;
-
-        return (
-          <div
-            key={i}
-            className={`
-              ${positions[i]}
-              flex items-center justify-center
-              transition-all duration-700
-              ${panel.bgColor}
-              ${visible ? "opacity-100 scale-100" : "opacity-0 scale-75"}
-            `}
-          >
-            <h1
-              className={`text-5xl md:text-7xl font-extrabold ${panel.textColor}`}
-            >
-              {panel.text}
-            </h1>
-          </div>
-        );
-      })}
+    <div className="grid grid-cols-2 grid-rows-2 w-screen h-screen">
+      {items.map((item, i) => (
+        <div
+          key={i}
+          className={`flex items-center justify-center transition-all duration-700
+          ${i < panelIndex ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+          style={{ backgroundColor: item.bgColor, color: item.textColor }}
+        >
+          <h2 className="text-4xl md:text-6xl font-bold">{item.word}</h2>
+        </div>
+      ))}
     </div>
   );
 }
