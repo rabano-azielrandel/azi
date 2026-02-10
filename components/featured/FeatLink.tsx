@@ -17,7 +17,7 @@ export default function FeatLink({ link }: FeatLinkProps) {
           link ? "h-64 w-64" : "h-60 w-60"
         }`}
       />
-      <div className="flex flex-col w-full justify-center gap-4 px-20">
+      <div className="flex flex-col w-full justify-center gap-4 px-20 text-theme1-base">
         {link ? (
           <>
             <p className="text-2xl font-semibold text-balance">

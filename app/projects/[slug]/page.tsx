@@ -6,9 +6,6 @@ import FeatTake from "@/components/featured/FeatTake";
 import { notFound } from "next/navigation";
 import { getProjectSpecifiedData } from "@/app/lib/data/projects";
 
-import Image from "next/image";
-import Link from "next/link";
-
 type PageProps = {
   params: Promise<{
     slug: string;
@@ -25,8 +22,8 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="w-full">
-      <FeatName name="DIGITAL PAYSLIP" subdesc="WEB APP" />
+    <main className="w-full text-theme1-secondary">
+      <FeatName name={projectData.name} />
       <FeatProject />
       <FeatLink link="" />
       <FeatTake />
