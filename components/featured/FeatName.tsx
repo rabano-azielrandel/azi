@@ -7,8 +7,8 @@ interface FeatNameProps {
 export default function FeatName({ name }: FeatNameProps) {
   return (
     <div className="flex flex-col w-full h-64">
-      <div className="flex flex-col w-full h-2/3 mt-20 px-20 gap-4 justify-center text-theme1-secondary">
-        <h2 className="text-6xl font-semibold tracking-wider">
+      <div className="flex flex-col w-full h-2/3 mt-20 px-5 sm:px-20 gap-4 justify-center text-theme1-secondary">
+        <h2 className="text-4xl sm:text-6xl font-semibold tracking-wider">
           {name.toUpperCase()}
         </h2>
         <p className="text-xl font-medium tracking-wide">
