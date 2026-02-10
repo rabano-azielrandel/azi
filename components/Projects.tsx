@@ -165,7 +165,7 @@ export default function Projects({ rows }: ProjectProps) {
                       rounded-xl p-4
                       border-1 bg-[#18161B] border-white/30
                       light:bg-[#dce6f0] light:border-black/30
-                      ${item.variant === "bot" ? item.className : ""}
+                      ${item.variant === "bot" ? "hidden lg:block" : ""}
                     `}
                     >
                       {item.render()}
