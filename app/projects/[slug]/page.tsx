@@ -30,7 +30,7 @@ export default async function Page({ params }: PageProps) {
         feat_bgcolor={projectData.feat_bgcolor}
         feat_textcolor={projectData.feat_textcolor}
       />
-      <FeatLink link="" />
+      <FeatLink link={projectData.repo_link} />
       <FeatTake description={projectData.system_desc} />
     </main>
   );
