@@ -8,7 +8,6 @@ const colors = ["bg-red-400/10", "bg-blue-400/10", "bg-yellow-400/10"];
 export default function SplitCard() {
   const [index, setIndex] = useState(0);
 
-  // Auto-loop every 2s
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % colors.length);
@@ -38,7 +37,9 @@ export default function SplitCard() {
       <div className="w-full h-4/5 flex items-center justify-center relative overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(calc(-${index * 80}% + 4%))` }}
+          style={{
+            transform: `translateX(calc(-${index * 80}% + 4%))`,
+          }}
         >
           {colors.map((c, i) => (
             <div
