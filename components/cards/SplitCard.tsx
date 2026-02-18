@@ -3,17 +3,63 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const colors = ["bg-red-400/10", "bg-blue-400/10", "bg-yellow-400/10"];
+const slides = [
+  { color: "bg-red-400/10", img: 1 },
+  { color: "bg-blue-400/10", img: 2 },
+  { color: "bg-yellow-400/10", img: 3 },
+];
+
+const renderedSlides = [slides[slides.length - 1], ...slides, slides[0]];
 
 export default function SplitCard() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % colors.length);
-    }, 2000);
-    return () => clearInterval(interval);
+    const startInterval = () =>
+      setInterval(() => {
+        setIndex((prev) => prev + 1);
+      }, 2000);
+
+    let interval = startInterval();
+
+    const handleVisibility = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = startInterval();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!transitionEnabled) {
+      requestAnimationFrame(() => {
+        setTransitionEnabled(true);
+      });
+    }
+  }, [transitionEnabled]);
+
+  const handleTransition = () => {
+    // fake start at end
+    if (index == renderedSlides.length - 1) {
+      setTransitionEnabled(false);
+      setIndex(1);
+    }
+
+    // fake end at start
+    if (index == 0) {
+      setTransitionEnabled(false);
+      setIndex(renderedSlides.length - 2);
+    }
+  };
 
   return (
     <div
@@ -38,17 +84,21 @@ export default function SplitCard() {
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{
-            transform: `translateX(calc(-${index * 80}% + 4%))`,
+            transform: `translateX(calc(-${index * 84}%))`,
+            transition: transitionEnabled
+              ? "transform 0.7s ease-in-out"
+              : "none",
           }}
+          onTransitionEnd={handleTransition}
         >
-          {colors.map((c, i) => (
+          {renderedSlides.map(({ color, img }, i) => (
             <div
               key={i}
-              className={`w-[80%] h-56 flex-shrink-0 flex items-center justify-center ${c} rounded-lg mx-2`}
+              className={`w-[80%] h-56 flex-shrink-0 flex items-center justify-center ${color} rounded-lg mx-2`}
             >
               <Image
-                src={`/images/project-thesis-${i + 1}.png`}
-                alt={`Image ${i + 1}`}
+                src={`/images/project-thesis-${img}.png`}
+                alt={`Image ${img}`}
                 width={200}
                 height={200}
                 className="object-contain rounded-lg"
