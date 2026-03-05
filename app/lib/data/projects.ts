@@ -7,7 +7,7 @@ export async function getProjectSpecifiedData(
   const supabase = await createSupabaseServerClient();
 
   const { data, error } = await supabase
-    .from("Projects")
+    .from("projects")
     .select("*")
     .eq("slug", slug)
     .single();

@@ -5,7 +5,7 @@ export async function getProjectData(): Promise<ProjectCardData[][]> {
   const supabase = await createSupabaseServerClient();
 
   const { data, error } = await supabase
-    .from("ProjectCard")
+    .from("project_card")
     .select("*")
     .order("row_index")
     .order("col_index");
