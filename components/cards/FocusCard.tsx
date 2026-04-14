@@ -16,12 +16,12 @@ export default function FocusCard({ title, desc }: FocusCardProps) {
         hover:bg-theme1-secondary/10 light:hover:bg-[#0f1f2e]/10`}
     >
       {/* Text section */}
-      <div className="w-full h-1/5  flex flex-col items-start justify-center">
-        <h2
-          className={`text-lg font-extrabold text-theme-accent3 light:text-theme-dark-accent1 leading-tight tracking-wider`}
+      <div className="w-full h-1/5 flex flex-col items-start justify-center">
+        <h3
+          className={`text-lg text-nowrap font-extrabold text-theme-accent3 light:text-theme-dark-accent1 leading-tight tracking-wider`}
         >
           {title}
-        </h2>
+        </h3>
         <p
           className={`text-xs text-theme-accent4 light:text-theme-dark-accent2 leading-snug font-normal tracking-normal`}
         >
