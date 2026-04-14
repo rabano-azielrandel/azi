@@ -2,6 +2,7 @@
 
 import SplitCard from "./cards/SplitCard";
 import RippleCard from "./cards/RippleCard";
+import FocusCard from "./cards/FocusCard";
 import FanCard from "./cards/FanCard";
 import DiceCard from "./cards/DiceCard";
 import Bot from "./ui/Bot";
@@ -41,6 +42,9 @@ function renderByVariant(item: ProjectCardData): JSX.Element {
 
     case "fan":
       return <FanCard title={item.title!} desc={item.desc!} />;
+
+    case "focus":
+      return <FocusCard title={item.title!} desc={item.desc!} />;
 
     default:
       return <></>;
