@@ -9,7 +9,7 @@ type FocusCardProps = {
   desc: string;
 };
 
-export default function FocusCard({ title, desc }: FocusCardProps) {
+export default function BlurCard({ title, desc }: FocusCardProps) {
   return (
     <div
       className={`w-full h-full flex flex-col rounded-xl p-2 gap-4 cursor-pointer transition-colors 
@@ -32,21 +32,15 @@ export default function FocusCard({ title, desc }: FocusCardProps) {
       <div className="w-full h-4/5 flex justify-center items-center relative overflow-hidden">
         {/* Subject wrapper */}
         <div className="w-full flex justify-center items-center">
-          <div className="group w-[80%] h-56 relative rounded-lg overflow-hidden">
+          <div className="group w-full h-56 relative rounded-lg overflow-hidden">
             {/* Image */}
             <Image
-              src="/images/kaiseki.png"
-              alt="Focus Point"
+              src="/images/library.png"
+              alt="Blur"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="w-full h-full object-cover transition duration-500 
-             group-hover:scale-105 group-hover:brightness-110"
-            />
-
-            {/* Overlay Frame */}
-            <div
-              className=" absolute inset-0 transition-all duration-500 ease-out shadow-[inset_0_0_0_40px_rgba(0,0,0,0.6)] 
-                group-hover:shadow-[inset_0_0_0_0px_rgba(0,0,0,0.6)]"
+              className="object-cover object-[50%_80%] transition duration-500 scale-105 blur-[2px] brightness-90
+               group-hover:scale-100 group-hover:blur-[0px] group-hover:brightness-110"
             />
           </div>
         </div>
