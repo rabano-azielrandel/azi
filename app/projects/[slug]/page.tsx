@@ -14,8 +14,12 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  console.log("PARAMS:", params);
-  const projectData = await getProjectSpecifiedData(slug);
+
+  console.log("SLUG:", slug);
+
+  const decodedSlug = decodeURIComponent(slug);
+
+  const projectData = await getProjectSpecifiedData(decodedSlug);
 
   if (!projectData) {
     notFound();
