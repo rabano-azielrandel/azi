@@ -36,7 +36,7 @@ const socials = [
     alt: "icon",
   },
   {
-    href: "/files/Mr._Rabano_CV.pdf",
+    href: "/files/AzielRandelRabano_Resume.pdf",
     icon: "/images/cv.png",
     alt: "icon",
   },
