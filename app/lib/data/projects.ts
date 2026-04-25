@@ -1,10 +1,9 @@
-import { createSupabaseServerClient } from "../supabase/server";
+import { supabase } from "../supabase/client";
 import { ProjectSpecifiedData } from "@/types/Projects";
 
 export async function getProjectSpecifiedData(
   slug: string
 ): Promise<ProjectSpecifiedData | null> {
-  const supabase = await createSupabaseServerClient();
 
   const { data, error } = await supabase
     .from("projects")
