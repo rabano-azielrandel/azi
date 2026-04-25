@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Container, Weight } from "lucide-react";
 import Image from "next/image";
 
 type FocusCardProps = {
@@ -46,7 +44,7 @@ export default function FocusCard({ title, desc }: FocusCardProps) {
             {/* Overlay Frame */}
             <div
               className=" absolute inset-0 transition-all duration-500 ease-out shadow-[inset_0_0_0_40px_rgba(0,0,0,0.6)] 
-                group-hover:shadow-[inset_0_0_0_0px_rgba(0,0,0,0.6)]"
+                group-hover:shadow-[inset_0_0_0_0px_rgba(0,0,0,0.6)]" // box-shadow?: inset, X-offset, Y-offset, blur, spread, color
             />
           </div>
         </div>
