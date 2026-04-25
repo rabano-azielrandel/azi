@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { JSX } from "react";
+import { JSX } from "react";
 import { useState } from "react";
 import { Star } from "lucide-react";
 
