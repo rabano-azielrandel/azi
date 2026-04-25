@@ -28,7 +28,7 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
     >
       <div
         className="absolute w-full h-full transition-transform duration-700 ease-in-out"
-        style={{ transform: `rotate(${rotation}deg)` }}
+        style={{ transform: `rotate(${rotation}deg)` }} // container rotation flow
       >
         {techStacks.map((tech, index) => (
           <div
@@ -52,7 +52,7 @@ const FloatingTechStacks: React.FC<FloatingTechStacksProps> = ({
                 transform: `rotate(-${
                   (360 / techStacks.length) * index + rotation
                 }deg)`,
-              }}
+              }} // content placement
               loading="lazy"
             />
           </div>
