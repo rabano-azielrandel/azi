@@ -1,5 +1,3 @@
-import { mainModule } from "process";
-
 interface FeatNameProps {
   name: string;
 }

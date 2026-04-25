@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Particles } from "@/components/ui/shadcn-io/particles";
 
 export default function ParticlesWrapper() {

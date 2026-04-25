@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useActionState } from "react";
 
 const EmailForm = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -37,7 +36,7 @@ const EmailForm = () => {
         setMessage(result.message || "Email sent successfully!");
         setIsSuccess(true);
         (e.target as HTMLFormElement).reset();
-        console.log("asd")
+        console.log("asd");
       } else {
         setMessage(`Error: ${result.message || "Failed to send email."}`);
         setIsSuccess(false);
