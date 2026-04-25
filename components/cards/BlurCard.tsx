@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Container, Weight } from "lucide-react";
 import Image from "next/image";
 
 type FocusCardProps = {
