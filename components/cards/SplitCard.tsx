@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const slides = [
-  { color: "bg-red-400/10", img: 1 },
-  { color: "bg-blue-400/10", img: 2 },
-  { color: "bg-yellow-400/10", img: 3 },
-];
+import { slides } from "@/app/lib/data/SplitData";
 
 const renderedSlides = [slides[slides.length - 1], ...slides, slides[0]];
 
