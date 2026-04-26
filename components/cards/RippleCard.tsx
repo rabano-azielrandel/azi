@@ -17,6 +17,7 @@ const cards = [
 export default function RippleCard({ title, desc }: RippleCardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // stack cards z positioning
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % cards.length);
