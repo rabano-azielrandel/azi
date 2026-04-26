@@ -15,6 +15,7 @@ export default function SplitCard() {
   const [index, setIndex] = useState(1);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
 
+  // carousel movement
   useEffect(() => {
     const startInterval = () =>
       setInterval(() => {
