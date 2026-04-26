@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 import React, { useRef, useEffect, useState } from "react";
-
-const images = [
-  "/images/test1.jpg",
-  "/images/test2.jpg",
-  "/images/test3.jpg",
-  "/images/test4.jpg",
-  "/images/test5.jpg",
-];
+import { images } from "@/app/lib/data/SlideTrackingData";
 
 export default function SlideTrackingCard() {
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -44,7 +37,7 @@ export default function SlideTrackingCard() {
     const nextPercentageUnconstrained = prevPercentageRef.current + percentage;
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
-      -100
+      -100,
     );
     percentageRef.current = nextPercentage;
 
@@ -88,7 +81,7 @@ export default function SlideTrackingCard() {
   /** Image click = set active */
   const handleImageClick = (
     e: React.MouseEvent<HTMLDivElement>,
-    src: string
+    src: string,
   ) => {
     e.stopPropagation();
     setActiveImage(src === activeImage ? null : src);
