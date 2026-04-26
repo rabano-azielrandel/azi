@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Particles } from "../ui/shadcn-io/particles";
-import { faces } from "@/app/lib/data/DiceCard";
+import { faces } from "@/app/lib/data/DiceData";
 
 type DiceCardProps = {
   title: string;

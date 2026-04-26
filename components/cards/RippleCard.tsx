@@ -2,17 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Ripple } from "../ui/shadcn-io/ripple";
+import { cards } from "@/app/lib/data/RippleData";
 
 type RippleCardProps = {
   title: string;
   desc: string;
 };
-
-const cards = [
-  { text: "Seamless Booking System", color: "bg-theme-accent1" },
-  { text: "Automated Reports", color: "bg-theme1-accent" },
-  { text: "Smart Alerts", color: "bg-theme1-base" },
-];
 
 export default function RippleCard({ title, desc }: RippleCardProps) {
   const [activeIndex, setActiveIndex] = useState(0);
