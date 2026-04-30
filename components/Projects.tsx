@@ -56,6 +56,10 @@ function renderByVariant(item: ProjectCardData): JSX.Element {
 }
 
 export default function Projects({ rows }: ProjectProps) {
+  // for show in animations
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
   const data: CardItem[][] = useMemo(() => {
     return rows.map((row) =>
       row.map((item) => ({
@@ -70,11 +74,7 @@ export default function Projects({ rows }: ProjectProps) {
   }, [rows]);
 
   const [isCollapse, setIsCollapse] = useState(false);
-  const VISIBILE_ROWS = isCollapse ? data.length : 2;
-
-  // for show in animations
-  const [isMobile, setIsMobile] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const VISIBILE_ROWS = !isMobile && !isCollapse ? 2 : data.length;
 
   useEffect(() => {
     setMounted(true);
